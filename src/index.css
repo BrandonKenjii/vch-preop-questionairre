@@ -269,6 +269,14 @@ body {
   width: 140px;
 }
 
+.text-input.date-input {
+  width: 200px;
+}
+
+.digits-input {
+  letter-spacing: 0.08em;
+}
+
 .text-input:focus,
 .number-input:focus {
   outline: 3px solid var(--focus);
@@ -372,6 +380,33 @@ textarea.text-input {
   border: 1px solid var(--brand);
   border-radius: 8px;
   font-size: 1rem;
+}
+
+/* ---- dev toolbar ---- */
+.dev-panel {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border: 1px dashed var(--brand);
+  border-radius: 10px;
+  background: var(--brand-soft);
+}
+
+.dev-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--brand-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: auto;
+}
+
+.dev-panel .button {
+  padding: 8px 14px;
+  font-size: 0.9rem;
 }
 
 /* ---- nav ---- */

@@ -1,8 +1,15 @@
 // Component tests for the wizard flow: per-screen gating, navigation, and
 // the final completion gate.
-import { describe, expect, it } from "vitest";
-import { fireEvent, render, screen, within } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { Wizard } from "../src/components/Wizard";
+import { generateFilledPdf, triggerDownload } from "../src/logic/pdfGenerator";
+
+vi.mock("../src/logic/pdfGenerator", () => ({
+  generateFilledPdf: vi.fn(async () => new Blob(["%PDF"], { type: "application/pdf" })),
+  triggerDownload: vi.fn(),
+  pdfFilename: vi.fn(() => "pre-operative-questionnaire-dev.pdf"),
+}));
 
 function fillPatientDetails() {
   fireEvent.change(screen.getByLabelText("Patient Name"), { target: { value: "Jane Doe" } });
@@ -95,5 +102,31 @@ describe("Wizard", () => {
     expect(
       screen.getByText("Please complete the highlighted section below before finishing.")
     ).toBeInTheDocument();
+  });
+});
+
+describe("dev toolbar", () => {
+  it("auto-fills the form so every section is complete", () => {
+    render(<Wizard />);
+    fireEvent.click(screen.getByRole("button", { name: "Auto-fill form" }));
+
+    expect(screen.getByLabelText("Patient Name")).toHaveValue("Jane Doe");
+    expect(screen.getByRole("button", { name: "Next →" })).toBeEnabled();
+
+    // The last section must be complete too (auto-fill covers all sections).
+    fireEvent.click(screen.getByTitle("13. Other Information"));
+    expect(screen.getByRole("heading", { name: "13. Other Information" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Complete Survey" })).toBeEnabled();
+  });
+
+  it("auto-fills and generates the PDF in one click", async () => {
+    render(<Wizard />);
+    fireEvent.click(screen.getByRole("button", { name: "Auto-fill & generate PDF" }));
+
+    await waitFor(() =>
+      expect(screen.getByText("Your questionnaire is ready")).toBeInTheDocument()
+    );
+    expect(generateFilledPdf).toHaveBeenCalledTimes(1);
+    expect(triggerDownload).toHaveBeenCalledTimes(1);
   });
 });

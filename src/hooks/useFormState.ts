@@ -21,5 +21,10 @@ export function useFormState() {
 
   const reset = useCallback(() => setAnswers({}), []);
 
-  return { answers, updateAnswer, reset };
+  /** Merge a bulk set of answers in (dev auto-fill). */
+  const fill = useCallback((values: Answers) => {
+    setAnswers((prev) => ({ ...prev, ...values }));
+  }, []);
+
+  return { answers, updateAnswer, fill, reset };
 }

@@ -1,17 +1,18 @@
 // Top-level step controller: current section, navigation, completion gate,
 // PDF generation, download, and reset.
 import { useState } from "react";
-import { sections } from "../data/questions";
+import { sections, type Answers } from "../data/questions";
 import { useFormState } from "../hooks/useFormState";
 import { firstIncompleteSection, isFormComplete, isSectionComplete } from "../logic/validation";
 import { generateFilledPdf, pdfFilename, triggerDownload } from "../logic/pdfGenerator";
+import { buildDevAnswers } from "../dev/devAnswers";
 import { ProgressBar } from "./ProgressBar";
 import { SectionScreen } from "./SectionScreen";
 
 type Status = "form" | "generating" | "done" | "error";
 
 export function Wizard() {
-  const { answers, updateAnswer, reset } = useFormState();
+  const { answers, updateAnswer, fill, reset } = useFormState();
   const [index, setIndex] = useState(0);
   const [status, setStatus] = useState<Status>("form");
   const [error, setError] = useState<string | null>(null);
@@ -28,19 +29,19 @@ export function Wizard() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleComplete = async () => {
-    const firstBad = firstIncompleteSection(answers);
+  const generate = async (answersToUse: Answers) => {
+    const firstBad = firstIncompleteSection(answersToUse);
     if (firstBad !== -1) {
       goTo(firstBad);
       setJumpHint(true);
       return;
     }
-    if (!isFormComplete(answers)) return; // defensive; unreachable with the check above
+    if (!isFormComplete(answersToUse)) return; // defensive; unreachable with the check above
     setStatus("generating");
     setError(null);
     try {
-      const blob = await generateFilledPdf(answers);
-      triggerDownload(blob, pdfFilename(answers));
+      const blob = await generateFilledPdf(answersToUse);
+      triggerDownload(blob, pdfFilename(answersToUse));
       setStatus("done");
       window.scrollTo({ top: 0 });
     } catch (err) {
@@ -48,6 +49,18 @@ export function Wizard() {
       setError(err instanceof Error ? err.message : String(err));
       setStatus("error");
     }
+  };
+
+  const handleComplete = () => generate(answers);
+
+  // Dev-only shortcuts: fill the form from a canned answer set so the
+  // generated PDF can be tested without clicking through every question.
+  const handleDevFill = () => fill(buildDevAnswers());
+
+  const handleDevGenerate = () => {
+    const dev = buildDevAnswers();
+    fill(dev);
+    void generate(dev);
   };
 
   const startOver = () => {
@@ -87,6 +100,18 @@ export function Wizard() {
   return (
     <div className="wizard">
       <ProgressBar currentIndex={index} completed={completedFlags} onJump={goTo} />
+
+      {import.meta.env.DEV && (
+        <div className="dev-panel">
+          <span className="dev-label">Dev</span>
+          <button type="button" className="button button-secondary" onClick={handleDevFill}>
+            Auto-fill form
+          </button>
+          <button type="button" className="button button-primary" onClick={handleDevGenerate}>
+            Auto-fill &amp; generate PDF
+          </button>
+        </div>
+      )}
 
       {status === "error" && (
         <p className="banner banner-error" role="alert">
