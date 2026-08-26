@@ -1,0 +1,1 @@
+{"name":"preop-tools","private":true,"type":"module","dependencies":{"@napi-rs/canvas":"^1.0.8","pdf-lib":"^1.17.1","pdfjs-dist":"^6.2.108"}}
