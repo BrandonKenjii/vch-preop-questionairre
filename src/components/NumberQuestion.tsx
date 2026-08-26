@@ -1,17 +1,22 @@
-// Free numeric input; an empty field clears the answer.
+// Numeric input with optional bounds; an empty field clears the answer.
 interface Props {
   value: number | undefined;
   onChange: (value: number | undefined) => void;
   label: string;
+  min?: number;
+  max?: number;
+  step?: number;
 }
 
-export function NumberQuestion({ value, onChange, label }: Props) {
+export function NumberQuestion({ value, onChange, label, min, max, step }: Props) {
   return (
     <input
       className="number-input"
       type="number"
       inputMode="decimal"
-      step="any"
+      step={step ?? "any"}
+      min={min}
+      max={max}
       aria-label={label}
       value={value ?? ""}
       placeholder="0"
@@ -22,7 +27,10 @@ export function NumberQuestion({ value, onChange, label }: Props) {
           return;
         }
         const parsed = parseFloat(text);
-        onChange(Number.isFinite(parsed) ? parsed : undefined);
+        if (!Number.isFinite(parsed)) return;
+        if (min !== undefined && parsed < min) return;
+        if (max !== undefined && parsed > max) return;
+        onChange(parsed);
       }}
     />
   );

@@ -4,6 +4,9 @@
 
 export type QuestionType = "yesno" | "number" | "text" | "bmi" | "choice" | "multichoice";
 
+/** Input affordance for text questions beyond a plain text box. */
+export type TextInputKind = "date" | "tel" | "email" | "digits";
+
 export interface ShowIf {
   questionId: string;
   /** Answer must equal this value (or be a member of this array). */
@@ -31,6 +34,12 @@ export interface Question {
   hint?: string;
   /** Render text questions as a multiline textarea. */
   multiline?: boolean;
+  /** Render text questions as a specialized input (date, phone, email…). */
+  input?: TextInputKind;
+  /** Numeric bounds for number questions. */
+  min?: number;
+  max?: number;
+  step?: number;
 }
 
 export interface Section {
@@ -79,6 +88,8 @@ const PCS_OPTIONS = [
 ];
 const PCS_VALUES: number[] = [0, 1, 2, 3, 4];
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export const questions: Question[] = [
   // ================= Patient details =================
   {
@@ -94,6 +105,7 @@ export const questions: Question[] = [
     section: "patient",
     type: "text",
     label: "Date of birth (D.O.B)",
+    input: "date",
     required: true,
   },
   {
@@ -102,6 +114,7 @@ export const questions: Question[] = [
     type: "text",
     label: "Personal Health Number (PHN)",
     hint: "Found on your BC Services Card or CareCard",
+    input: "digits",
     required: true,
   },
   {
@@ -257,6 +270,7 @@ export const questions: Question[] = [
     section: "functional",
     type: "number",
     label: "Within that week, on average how many times?",
+    min: 0,
     required: false,
   },
   {
@@ -264,6 +278,7 @@ export const questions: Question[] = [
     section: "functional",
     type: "number",
     label: "On average how many minutes each time?",
+    min: 0,
     required: false,
   },
   {
@@ -426,9 +441,10 @@ export const questions: Question[] = [
   {
     id: "breathing_oxygen_lmin",
     section: "breathing",
-    type: "text",
+    type: "number",
     label: "L/min",
     hint: "Litres per minute",
+    min: 0,
     showIf: { questionId: "breathing_home_oxygen", equals: true },
     required: true,
   },
@@ -958,6 +974,7 @@ export const questions: Question[] = [
     section: "neurological",
     type: "text",
     label: "Spine surgery date",
+    input: "date",
     showIf: { questionId: "neuro_spinal", equals: true },
     required: false,
   },
@@ -987,6 +1004,7 @@ export const questions: Question[] = [
     section: "neurological",
     type: "text",
     label: "Date of last seizure",
+    input: "date",
     showIf: { questionId: "neuro_epilepsy", equals: true },
     required: true,
   },
@@ -1293,16 +1311,21 @@ export const questions: Question[] = [
   {
     id: "substance_past_smoker_years",
     section: "substance",
-    type: "text",
+    type: "number",
     label: "How many years did you smoke for?",
+    min: 0,
+    step: 1,
     showIf: { questionId: "substance_past_smoker", equals: true },
     required: true,
   },
   {
     id: "substance_past_smoker_stopped",
     section: "substance",
-    type: "text",
+    type: "number",
     label: "In what year did you stop smoking?",
+    min: 1900,
+    max: CURRENT_YEAR,
+    step: 1,
     showIf: { questionId: "substance_past_smoker", equals: true },
     required: true,
   },
@@ -1347,8 +1370,9 @@ export const questions: Question[] = [
   {
     id: "substance_alcohol_drinks",
     section: "substance",
-    type: "text",
+    type: "number",
     label: "Number of drinks per week",
+    min: 0,
     showIf: { questionId: "substance_alcohol", equals: true },
     required: true,
   },
@@ -1358,6 +1382,7 @@ export const questions: Question[] = [
     type: "number",
     label:
       "How many times in the last year have you had 4 or more drinks (if female) or 5 or more drinks (if male), on one occasion?",
+    min: 0,
     required: false,
   },
   {
@@ -1908,6 +1933,7 @@ export const questions: Question[] = [
     section: "medical",
     type: "text",
     label: "Date of last treatment",
+    input: "date",
     showIf: { questionId: "medical_cancer_chemo", equals: true },
     required: true,
   },
@@ -1924,6 +1950,7 @@ export const questions: Question[] = [
     section: "medical",
     type: "text",
     label: "Date of last treatment",
+    input: "date",
     showIf: { questionId: "medical_cancer_radiation", equals: true },
     required: true,
   },
@@ -2118,6 +2145,7 @@ export const questions: Question[] = [
     section: "other",
     type: "text",
     label: "Who is picking you up from hospital when you are ready to go home? — Phone number",
+    input: "tel",
     required: false,
   },
   {
@@ -2193,6 +2221,7 @@ export const questions: Question[] = [
     section: "other",
     type: "text",
     label: "Daytime telephone number",
+    input: "tel",
     required: true,
   },
   {
@@ -2200,6 +2229,7 @@ export const questions: Question[] = [
     section: "other",
     type: "text",
     label: "Cellphone",
+    input: "tel",
     required: false,
   },
   {
@@ -2207,6 +2237,7 @@ export const questions: Question[] = [
     section: "other",
     type: "text",
     label: "Email",
+    input: "email",
     required: false,
   },
   {
@@ -2214,6 +2245,7 @@ export const questions: Question[] = [
     section: "other",
     type: "text",
     label: "Alternate Email",
+    input: "email",
     required: false,
   },
   {
@@ -2221,6 +2253,7 @@ export const questions: Question[] = [
     section: "other",
     type: "text",
     label: "Next of Kin telephone number",
+    input: "tel",
     required: false,
   },
 ];

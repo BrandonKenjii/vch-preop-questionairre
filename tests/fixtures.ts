@@ -10,8 +10,20 @@ function answerFor(q: Question): Answers[string] {
       return false;
     case "number":
       return 1;
-    case "text":
-      return "Test answer";
+    case "text": {
+      switch (q.input) {
+        case "date":
+          return "2020-01-01";
+        case "digits":
+          return "1234567890";
+        case "tel":
+          return "6045551234";
+        case "email":
+          return "test@example.com";
+        default:
+          return "Test answer";
+      }
+    }
     case "bmi":
       return { height: "170", heightUnit: "cm", weight: "72", weightUnit: "kg" };
     case "choice":
@@ -135,7 +147,7 @@ export function spotAnswers(): Answers {
     substance_cannabis: false,
     substance_alcohol: true,
     substance_alcohol_type: "Wine",
-    substance_alcohol_drinks: "2",
+    substance_alcohol_drinks: 2,
     substance_drugs: false,
     substance_opioid_agonist: false,
     pain_chronic: false,

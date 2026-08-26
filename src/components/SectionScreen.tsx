@@ -1,5 +1,5 @@
 // Renders one section's visible questions and its live subtotals.
-import type { Answer, Answers, Section } from "../data/questions";
+import type { Answer, Answers, Question, Section } from "../data/questions";
 import { getVisibleQuestions } from "../logic/branching";
 import { getSubtotal } from "../logic/subtotals";
 import { BmiCalculator } from "./BmiCalculator";
@@ -42,7 +42,7 @@ export function SectionScreen({ section, answers, onAnswer }: Props) {
               {q.required && <span className="required-mark" aria-hidden="true"> *</span>}
             </p>
             {q.hint && <p className="question-hint">{q.hint}</p>}
-            <QuestionInput type={q.type} multiline={q.multiline} value={answers[q.id]} onChange={(v) => onAnswer(q.id, v)} question={q} />
+            <QuestionInput type={q.type} multiline={q.multiline} input={q.input} min={q.min} max={q.max} step={q.step} value={answers[q.id]} onChange={(v) => onAnswer(q.id, v)} question={q} />
           </li>
         ))}
       </ol>
@@ -59,23 +59,48 @@ export function SectionScreen({ section, answers, onAnswer }: Props) {
 function QuestionInput({
   type,
   multiline,
+  input,
+  min,
+  max,
+  step,
   value,
   onChange,
   question,
 }: {
   type: string;
   multiline?: boolean;
+  input?: Question["input"];
+  min?: number;
+  max?: number;
+  step?: number;
   value: Answer | undefined;
   onChange: (value: Answer | undefined) => void;
-  question: Parameters<typeof ChoiceQuestion>[0]["question"];
+  question: Question;
 }) {
   switch (type) {
     case "yesno":
       return <YesNoQuestion value={typeof value === "boolean" ? value : undefined} onChange={onChange} />;
     case "number":
-      return <NumberQuestion label={question.label} value={typeof value === "number" ? value : undefined} onChange={onChange} />;
+      return (
+        <NumberQuestion
+          label={question.label}
+          min={min}
+          max={max}
+          step={step}
+          value={typeof value === "number" ? value : undefined}
+          onChange={onChange}
+        />
+      );
     case "text":
-      return <TextQuestion label={question.label} multiline={multiline} value={typeof value === "string" ? value : undefined} onChange={onChange} />;
+      return (
+        <TextQuestion
+          label={question.label}
+          multiline={multiline}
+          input={input}
+          value={typeof value === "string" ? value : undefined}
+          onChange={onChange}
+        />
+      );
     case "bmi":
       return <BmiCalculator value={value} onChange={onChange} />;
     case "choice":
