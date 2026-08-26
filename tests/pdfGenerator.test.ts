@@ -4,7 +4,7 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
-import { PDFArray, PDFDocument, type PDFPage } from "pdf-lib";
+import { PDFArray, PDFDict, PDFDocument, PDFName, PDFStream, type PDFPage } from "pdf-lib";
 import { generateFilledPdfBytes, pdfFilename } from "../src/logic/pdfGenerator";
 import { questions } from "../src/data/questions";
 import { fieldMap } from "../src/data/fieldMap";
@@ -115,6 +115,34 @@ describe("generateFilledPdfBytes", () => {
     expect(countStreams(doc.getPages()[0])).toBeGreaterThan(countStreams(template.getPages()[0]));
     // (The rendered text itself is verified end-to-end via tools/test-fill.mjs,
     // which re-extracts page text with pdf.js.)
+  });
+
+  it("every flattened widget appearance is registered as a real stream XObject", async () => {
+    // Regression: the template's checkbox /AP /N entries are state dicts. If
+    // they are indirect refs (rather than direct dicts), pdf-lib's flatten()
+    // registers the dict itself as the page XObject and viewers render
+    // nothing for that field. Every XObject a flattened page draws must
+    // resolve to a stream.
+    const template = await PDFDocument.load(templateBytes, { ignoreEncryption: true });
+    const fieldCount = template.getForm().getFields().length;
+
+    const bytes = await generateFilledPdfBytes(buildCompleteAnswers(), { template: templateBytes });
+    const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+    const ctx = doc.context;
+
+    let xObjectCount = 0;
+    for (const page of doc.getPages()) {
+      const xobjects = page.node.Resources()?.lookup(PDFName.of("XObject"), PDFDict);
+      if (!xobjects) continue;
+      for (const [, value] of xobjects.entries()) {
+        xObjectCount++;
+        expect(
+          ctx.lookup(value) instanceof PDFStream,
+          `XObject must resolve to a stream (got ${value})`
+        ).toBe(true);
+      }
+    }
+    expect(xObjectCount).toBe(fieldCount);
   });
 
   it("accepts a fully auto-answered form without error", async () => {
