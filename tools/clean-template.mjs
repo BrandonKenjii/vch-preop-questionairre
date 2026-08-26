@@ -8,9 +8,18 @@
 // This script deduplicates: it rewrites every page's /Annots array to
 // reference the /Fields widget objects (matched by field name + rect), so
 // each field has exactly one widget, which lives on its page.
+//
+// It also normalizes checkbox/radio appearances: in the reference PDF the
+// widget's /AP /N entry is an indirect reference to the appearance-state
+// dict ({/Yes -> stream, /Off -> stream}). pdf-lib's flatten() only
+// resolves that state dict when /N is a *direct* dict; when it is a ref it
+// registers the ref itself as the page XObject, producing an XObject that
+// points at a plain dict instead of a stream, which PDF viewers ignore
+// (the filled checkmarks never render). Inlining the state dict into /AP /N
+// fixes flattening for every checkbox widget.
 // Output: src/data/template.pdf (bundled by the app) + tools/cleaned.pdf.
 import { readFileSync, writeFileSync } from "node:fs";
-import { PDFDocument, PDFName, PDFString, PDFDict } from "pdf-lib";
+import { PDFDocument, PDFName, PDFString, PDFDict, PDFRef } from "pdf-lib";
 
 const bytes = readFileSync(new URL("./reference.pdf", import.meta.url));
 const doc = await PDFDocument.load(bytes, { ignoreEncryption: true, updateMetadata: false });
@@ -64,6 +73,25 @@ for (const page of pages) {
 
 console.log(`annot entries replaced with /Fields widgets: ${replaced} (kept as-is: ${kept})`);
 console.log(`total form fields: ${fields.length}`);
+
+// Inline /AP /N state dicts for button (checkbox/radio) widgets.
+let inlined = 0;
+for (const field of fields) {
+  const ft = field.acroField.dict.get(PDFName.of("FT"))?.toString();
+  if (ft !== "/Btn") continue;
+  for (const widget of field.acroField.getWidgets()) {
+    const AP = widget.AP();
+    if (!AP) continue;
+    const N = AP.get(PDFName.of("N"));
+    if (!(N instanceof PDFRef)) continue;
+    const target = ctx.lookup(N);
+    if (target instanceof PDFDict) {
+      AP.set(PDFName.of("N"), target);
+      inlined++;
+    }
+  }
+}
+console.log(`checkbox/radio /AP /N state dicts inlined: ${inlined}`);
 
 const outBytes = await doc.save();
 writeFileSync(new URL("./cleaned.pdf", import.meta.url), outBytes);
