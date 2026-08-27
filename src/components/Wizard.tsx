@@ -6,6 +6,7 @@ import { useFormState } from "../hooks/useFormState";
 import { firstIncompleteSection, isFormComplete, isSectionComplete } from "../logic/validation";
 import { generateFilledPdf, pdfFilename, triggerDownload } from "../logic/pdfGenerator";
 import { buildDevAnswers } from "../dev/devAnswers";
+import { devToolsEnabled } from "../dev/devTools";
 import { ProgressBar } from "./ProgressBar";
 import { SectionScreen } from "./SectionScreen";
 
@@ -101,7 +102,7 @@ export function Wizard() {
     <div className="wizard">
       <ProgressBar currentIndex={index} completed={completedFlags} onJump={goTo} />
 
-      {import.meta.env.DEV && (
+      {devToolsEnabled() && (
         <div className="dev-panel">
           <span className="dev-label">Dev</span>
           <button type="button" className="button button-secondary" onClick={handleDevFill}>
