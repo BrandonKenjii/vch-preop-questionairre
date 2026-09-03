@@ -7,6 +7,7 @@ import { firstIncompleteSection, isFormComplete, isSectionComplete } from "../lo
 import { generateFilledPdf, pdfFilename, triggerDownload } from "../logic/pdfGenerator";
 import { buildDevAnswers } from "../dev/devAnswers";
 import { devToolsEnabled } from "../dev/devTools";
+import { Preface } from "./Preface";
 import { ProgressBar } from "./ProgressBar";
 import { SectionScreen } from "./SectionScreen";
 
@@ -14,6 +15,7 @@ type Status = "form" | "generating" | "done" | "error";
 
 export function Wizard() {
   const { answers, updateAnswer, fill, reset } = useFormState();
+  const [started, setStarted] = useState(false);
   const [index, setIndex] = useState(0);
   const [status, setStatus] = useState<Status>("form");
   const [error, setError] = useState<string | null>(null);
@@ -66,6 +68,7 @@ export function Wizard() {
 
   const startOver = () => {
     reset();
+    setStarted(false);
     setIndex(0);
     setStatus("form");
     setError(null);
@@ -94,6 +97,19 @@ export function Wizard() {
         <button type="button" className="button button-primary" onClick={startOver}>
           Start New Survey
         </button>
+      </div>
+    );
+  }
+
+  if (!started) {
+    return (
+      <div className="wizard">
+        <Preface
+          onBegin={() => {
+            setStarted(true);
+            window.scrollTo({ top: 0 });
+          }}
+        />
       </div>
     );
   }

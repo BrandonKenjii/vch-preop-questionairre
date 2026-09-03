@@ -409,6 +409,37 @@ textarea.text-input {
   font-size: 0.9rem;
 }
 
+/* ---- preface ---- */
+.preface-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
+.preface-card h2 {
+  font-size: 1.3rem;
+  margin: 0 0 12px;
+  color: var(--brand-dark);
+}
+
+.preface-card p {
+  margin: 0 0 12px;
+}
+
+.preface-note {
+  background: var(--warn-bg);
+  border: 1px solid #e4b04a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 4px 0 20px;
+}
+
+.preface-begin {
+  display: flex;
+  justify-content: center;
+}
+
 /* ---- nav ---- */
 .nav-row {
   display: flex;

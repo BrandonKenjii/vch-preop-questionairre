@@ -11,6 +11,10 @@ vi.mock("../src/logic/pdfGenerator", () => ({
   pdfFilename: vi.fn(() => "pre-operative-questionnaire-dev.pdf"),
 }));
 
+function beginSurvey() {
+  fireEvent.click(screen.getByRole("button", { name: "Begin Questionnaire" }));
+}
+
 function fillPatientDetails() {
   fireEvent.change(screen.getByLabelText("Patient Name"), { target: { value: "Jane Doe" } });
   fireEvent.change(screen.getByLabelText("Date of birth (D.O.B)"), {
@@ -36,8 +40,22 @@ function clickNo(label: string) {
 }
 
 describe("Wizard", () => {
+  it("shows the Dear Patient preface first, then begins on Patient Details", () => {
+    render(<Wizard />);
+    expect(screen.getByRole("heading", { name: "Dear Patient," })).toBeInTheDocument();
+    expect(screen.getByText(/one sitting/)).toBeInTheDocument();
+    expect(
+      screen.queryByRole("heading", { name: "Patient Details" })
+    ).not.toBeInTheDocument();
+
+    beginSurvey();
+    expect(screen.getByRole("heading", { name: "Patient Details" })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Dear Patient," })).not.toBeInTheDocument();
+  });
+
   it("starts on Patient Details with Next disabled until required answers exist", () => {
     render(<Wizard />);
+    beginSurvey();
     expect(screen.getByRole("heading", { name: "Patient Details" })).toBeInTheDocument();
     const next = screen.getByRole("button", { name: "Next →" });
     expect(next).toBeDisabled();
@@ -48,6 +66,7 @@ describe("Wizard", () => {
 
   it("reveals the explanation question when completed_by is not Patient", () => {
     render(<Wizard />);
+    beginSurvey();
     fillPatientDetails();
     fireEvent.click(screen.getByRole("radio", { name: "Healthcare provider" }));
     expect(
@@ -60,6 +79,7 @@ describe("Wizard", () => {
 
   it("advances to the next section and Back keeps answers", () => {
     render(<Wizard />);
+    beginSurvey();
     fillPatientDetails();
     fireEvent.click(screen.getByRole("button", { name: "Next →" }));
     expect(screen.getByRole("heading", { name: "1. Anesthesia" })).toBeInTheDocument();
@@ -71,6 +91,7 @@ describe("Wizard", () => {
 
   it("Complete Survey jumps to the first incomplete section with a hint", () => {
     render(<Wizard />);
+    beginSurvey();
     // Jump straight to the last section via its progress chip.
     fireEvent.click(screen.getByTitle("13. Other Information"));
     expect(screen.getByRole("heading", { name: "13. Other Information" })).toBeInTheDocument();
@@ -108,6 +129,7 @@ describe("Wizard", () => {
 describe("dev toolbar", () => {
   it("auto-fills the form so every section is complete", () => {
     render(<Wizard />);
+    beginSurvey();
     fireEvent.click(screen.getByRole("button", { name: "Auto-fill form" }));
 
     expect(screen.getByLabelText("Patient Name")).toHaveValue("Jane Doe");
@@ -121,6 +143,7 @@ describe("dev toolbar", () => {
 
   it("auto-fills and generates the PDF in one click", async () => {
     render(<Wizard />);
+    beginSurvey();
     fireEvent.click(screen.getByRole("button", { name: "Auto-fill & generate PDF" }));
 
     await waitFor(() =>
