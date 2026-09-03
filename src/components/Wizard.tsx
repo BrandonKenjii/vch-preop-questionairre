@@ -1,17 +1,23 @@
 // Top-level step controller: current section, navigation, completion gate,
-// PDF generation, download, and reset.
+// the review-and-confirm page, PDF generation, download, and reset.
 import { useState } from "react";
 import { sections, type Answers } from "../data/questions";
 import { useFormState } from "../hooks/useFormState";
-import { firstIncompleteSection, isFormComplete, isSectionComplete } from "../logic/validation";
+import {
+  firstIncompleteQuestion,
+  firstIncompleteSection,
+  isFormComplete,
+  isSectionComplete,
+} from "../logic/validation";
 import { generateFilledPdf, pdfFilename, triggerDownload } from "../logic/pdfGenerator";
 import { buildDevAnswers } from "../dev/devAnswers";
 import { devToolsEnabled } from "../dev/devTools";
 import { Preface } from "./Preface";
 import { ProgressBar } from "./ProgressBar";
+import { ReviewPage } from "./ReviewPage";
 import { SectionScreen } from "./SectionScreen";
 
-type Status = "form" | "generating" | "done" | "error";
+type Status = "form" | "review" | "generating" | "done" | "error";
 
 export function Wizard() {
   const { answers, updateAnswer, fill, reset } = useFormState();
@@ -20,6 +26,8 @@ export function Wizard() {
   const [status, setStatus] = useState<Status>("form");
   const [error, setError] = useState<string | null>(null);
   const [jumpHint, setJumpHint] = useState(false);
+  // Id of the question to frame in red after a submit bounce (item-13).
+  const [highlightId, setHighlightId] = useState<string | null>(null);
 
   const current = sections[index];
   const sectionComplete = isSectionComplete(current.id, answers);
@@ -29,6 +37,7 @@ export function Wizard() {
   const goTo = (i: number) => {
     setIndex(i);
     setJumpHint(false);
+    setHighlightId(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -37,6 +46,9 @@ export function Wizard() {
     if (firstBad !== -1) {
       goTo(firstBad);
       setJumpHint(true);
+      // Frame the specific unanswered question in red (goTo cleared the
+      // previous highlight; jumpHint survives via the call above).
+      setHighlightId(firstIncompleteQuestion(sections[firstBad].id, answersToUse));
       return;
     }
     if (!isFormComplete(answersToUse)) return; // defensive; unreachable with the check above
@@ -54,7 +66,16 @@ export function Wizard() {
     }
   };
 
-  const handleComplete = () => generate(answers);
+  // Complete Survey: a form that still has gaps bounces to the first
+  // incomplete section (as before); a complete form opens the review page,
+  // where the patient confirms before the PDF is generated.
+  const handleComplete = () => {
+    if (firstIncompleteSection(answers) !== -1) {
+      void generate(answers);
+      return;
+    }
+    setStatus("review");
+  };
 
   // Dev-only shortcuts: fill the form from a canned answer set so the
   // generated PDF can be tested without clicking through every question.
@@ -73,6 +94,7 @@ export function Wizard() {
     setStatus("form");
     setError(null);
     setJumpHint(false);
+    setHighlightId(null);
   };
 
   if (status === "generating") {
@@ -80,6 +102,28 @@ export function Wizard() {
       <div className="status-screen" role="status">
         <p className="status-title">Generating your questionnaire…</p>
         <p>Everything happens on this device — nothing is uploaded.</p>
+      </div>
+    );
+  }
+
+  if (status === "review") {
+    return (
+      <div className="wizard">
+        <ReviewPage
+          answers={answers}
+          onBack={() => setStatus("form")}
+          onConfirm={() => {
+            // generate() preflights again: if an Edit removed a required
+            // answer, it bounces to the first incomplete section with the
+            // usual hint instead of generating.
+            setStatus("form");
+            void generate(answers);
+          }}
+          onEdit={(i) => {
+            setStatus("form");
+            goTo(i);
+          }}
+        />
       </div>
     );
   }
@@ -138,11 +182,23 @@ export function Wizard() {
       )}
       {jumpHint && (
         <p className="banner banner-warn" role="alert">
-          Please complete the highlighted section below before finishing.
+          Please answer the question highlighted in red below before finishing.
         </p>
       )}
 
-      <SectionScreen section={current} answers={answers} onAnswer={updateAnswer} />
+      <SectionScreen
+        section={current}
+        answers={answers}
+        onAnswer={(id, value) => {
+          updateAnswer(id, value);
+          // Once the flagged question (or its confirm copy) receives an
+          // answer, drop the red frame.
+          if ((id === highlightId || id === `${highlightId}_confirm`) && value !== undefined) {
+            setHighlightId(null);
+          }
+        }}
+        highlightId={highlightId}
+      />
 
       <div className="nav-row">
         <button

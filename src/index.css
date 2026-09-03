@@ -135,6 +135,23 @@ body {
   padding: 14px 16px;
 }
 
+/* Grayed-out rows: follow-ups whose condition answered No (see branching.ts). */
+.question-card-disabled {
+  opacity: 0.55;
+}
+
+/* Submit bounce: the unanswered required question box is framed in red. */
+.question-card-highlight {
+  border-color: var(--no);
+  border-width: 2px;
+  box-shadow: 0 0 0 3px rgba(178, 64, 47, 0.15);
+}
+
+.question-card-disabled .question-label,
+.question-card-disabled .question-hint {
+  color: var(--muted);
+}
+
 .question-label {
   margin: 0 0 8px;
   font-weight: 600;
@@ -146,6 +163,14 @@ body {
 
 .question-hint {
   margin: -4px 0 8px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Stale answers left inside a No-greyed follow-up row are kept visible
+   (disabled) but never written to the PDF — say so on the card itself. */
+.row-not-recorded {
+  margin: 10px 0 0;
   color: var(--muted);
   font-size: 0.85rem;
 }
@@ -171,6 +196,10 @@ body {
 
 .yesno-button:hover {
   border-color: var(--brand);
+}
+
+.yesno-button:disabled {
+  cursor: not-allowed;
 }
 
 .yesno-button.selected-yes {
@@ -289,6 +318,21 @@ textarea.text-input {
   min-height: 90px;
 }
 
+/* Second "Confirm Email" box under a typed email (see SectionScreen). */
+.email-confirm {
+  margin-top: 8px;
+}
+
+.email-confirm .text-input[aria-invalid="true"] {
+  border-color: var(--no);
+}
+
+.field-error {
+  color: var(--no);
+  font-size: 0.85rem;
+  margin: 6px 0 0;
+}
+
 /* ---- BMI ---- */
 .bmi {
   display: flex;
@@ -365,6 +409,16 @@ textarea.text-input {
   font-size: 0.9rem;
 }
 
+/* Active unit next to the weight input; the .bmi-row gap supplies most of
+   the spacing, the negative margin keeps the unit hugging the input. */
+.bmi-unit {
+  margin-left: -4px;
+  align-self: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
 .bmi-result {
   padding: 8px 12px;
   background: var(--brand-soft);
@@ -438,6 +492,94 @@ textarea.text-input {
 .preface-begin {
   display: flex;
   justify-content: center;
+}
+
+/* ---- review page ---- */
+.review {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px 22px 24px;
+}
+
+.review-header h2 {
+  font-size: 1.35rem;
+  margin: 0 0 6px;
+  color: var(--brand-dark);
+}
+
+.review-header p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.review-section {
+  border-top: 1px solid var(--line);
+  padding: 14px 0 4px;
+}
+
+.review-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.review-section-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--brand-dark);
+}
+
+.button-small {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+}
+
+.review-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.review-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eef1f5;
+  font-size: 0.95rem;
+}
+
+.review-question {
+  color: var(--ink);
+}
+
+.review-answer {
+  text-align: right;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.review-item-missing .review-answer {
+  color: var(--no);
+}
+
+.review-empty {
+  margin: 4px 0 10px;
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 18px;
 }
 
 /* ---- nav ---- */

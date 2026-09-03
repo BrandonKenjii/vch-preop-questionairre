@@ -1,7 +1,7 @@
 // Shared fixtures: an auto-completed answer set that satisfies every
 // required question, following the branching rules.
 import { sections, type Answers, type Question } from "../src/data/questions";
-import { getVisibleQuestions } from "../src/logic/branching";
+import { getActiveQuestions } from "../src/logic/branching";
 import { isAnswered, isSectionComplete } from "../src/logic/validation";
 
 function answerFor(q: Question): Answers[string] {
@@ -46,7 +46,9 @@ export function buildCompleteAnswers(): Answers {
   const answers: Answers = {};
   for (const section of sections) {
     for (let pass = 0; pass < 10 && !isSectionComplete(section.id, answers); pass++) {
-      for (const q of getVisibleQuestions(section.id, answers)) {
+      // Only active questions are backfilled: soft (condition unanswered)
+      // and disabled (condition answered No) rows are never required.
+      for (const q of getActiveQuestions(section.id, answers)) {
         if (q.required && !isAnswered(q, answers)) {
           answers[q.id] = answerFor(q);
         }
@@ -59,8 +61,10 @@ export function buildCompleteAnswers(): Answers {
 /** Spot answers for the pdfGenerator tests (values assertable by name). */
 export function spotAnswers(): Answers {
   return {
-    patient_name: "Jane Doe",
+    patient_last_name: "Doe",
+    patient_first_name: "Jane",
     patient_dob: "1980-05-12",
+    patient_phn_non_bc: false,
     patient_phn: "9123456789",
     completed_by: "Patient",
     anesthesia_general_procedure: true,
@@ -184,8 +188,7 @@ export function spotAnswers(): Answers {
     allergies_food_details: "Peanuts",
     other_support_person: true,
     other_support_name: "John Doe",
-    other_living_type: ["Home"],
-    other_living_alone: ["Live Alone"],
+    other_living_type: ["Home", "Live Alone"],
     other_pickup_name: "John Doe",
     other_living_will: false,
     other_homecare: false,

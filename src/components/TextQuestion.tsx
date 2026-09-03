@@ -8,9 +8,12 @@ interface Props {
   label: string;
   multiline?: boolean;
   input?: TextInputKind;
+  disabled?: boolean;
+  /** Marks the input as failing validation (email confirm mismatch). */
+  invalid?: boolean;
 }
 
-export function TextQuestion({ value, onChange, label, multiline, input }: Props) {
+export function TextQuestion({ value, onChange, label, multiline, input, disabled, invalid }: Props) {
   const commit = (text: string) => onChange(text.trim() === "" ? undefined : text);
 
   if (multiline) {
@@ -22,6 +25,7 @@ export function TextQuestion({ value, onChange, label, multiline, input }: Props
         value={value ?? ""}
         placeholder="Type your answer"
         onChange={(e) => commit(e.target.value)}
+        disabled={disabled}
       />
     );
   }
@@ -35,6 +39,7 @@ export function TextQuestion({ value, onChange, label, multiline, input }: Props
           aria-label={label}
           value={value ?? ""}
           onChange={(e) => commit(e.target.value)}
+          disabled={disabled}
         />
       );
     case "tel":
@@ -47,6 +52,7 @@ export function TextQuestion({ value, onChange, label, multiline, input }: Props
           value={value ?? ""}
           placeholder="e.g. 604-555-1234"
           onChange={(e) => commit(e.target.value)}
+          disabled={disabled}
         />
       );
     case "email":
@@ -56,9 +62,11 @@ export function TextQuestion({ value, onChange, label, multiline, input }: Props
           type="email"
           inputMode="email"
           aria-label={label}
+          aria-invalid={invalid ? true : undefined}
           value={value ?? ""}
           placeholder="name@example.com"
           onChange={(e) => commit(e.target.value)}
+          disabled={disabled}
         />
       );
     case "digits":
@@ -73,6 +81,7 @@ export function TextQuestion({ value, onChange, label, multiline, input }: Props
           value={value ?? ""}
           placeholder="Numbers only"
           onChange={(e) => commit(e.target.value.replace(/\D/g, ""))}
+          disabled={disabled}
         />
       );
     default:
@@ -84,6 +93,7 @@ export function TextQuestion({ value, onChange, label, multiline, input }: Props
           value={value ?? ""}
           placeholder="Type your answer"
           onChange={(e) => commit(e.target.value)}
+          disabled={disabled}
         />
       );
   }
