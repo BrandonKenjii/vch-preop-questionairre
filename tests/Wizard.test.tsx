@@ -338,4 +338,42 @@ describe("review page", () => {
     expect(screen.getByLabelText("Personal Health Number (PHN)")).toHaveValue("9123456789");
     expect(screen.getByRole("button", { name: "Next →" })).toBeEnabled();
   });
+
+  it("ticking a blood thinner auto-selects Prescription of blood thinner? = Yes", () => {
+    render(<Wizard />);
+    beginSurvey();
+    fireEvent.click(screen.getByTitle("6. Blood Problems / Hematological"));
+
+    const anchor = questionCard("Prescription of blood thinner?");
+    const yes = within(anchor).getByRole("radio", { name: "Yes" });
+    expect(yes).toHaveAttribute("aria-checked", "false");
+
+    fireEvent.click(
+      within(questionCard("Which blood thinner(s) do you take?")).getByRole("checkbox", {
+        name: "Pradaxa (dabigatran)",
+      })
+    );
+
+    expect(within(questionCard("Prescription of blood thinner?")).getByRole("radio", { name: "Yes" })).toHaveAttribute("aria-checked", "true");
+  });
+
+  it("ticking an infection auto-selects Infections? = Yes", () => {
+    render(<Wizard />);
+    beginSurvey();
+    fireEvent.click(screen.getByTitle("10. Other Medical Problems"));
+
+    const anchor = questionCard("Infections? (tick the box of any that apply)");
+    const yes = within(anchor).getByRole("radio", { name: "Yes" });
+    expect(yes).toHaveAttribute("aria-checked", "false");
+
+    fireEvent.click(
+      within(questionCard("Which infection(s)?")).getByRole("checkbox", { name: "UTI" })
+    );
+
+    expect(
+      within(questionCard("Infections? (tick the box of any that apply)")).getByRole("radio", {
+        name: "Yes",
+      })
+    ).toHaveAttribute("aria-checked", "true");
+  });
 });
