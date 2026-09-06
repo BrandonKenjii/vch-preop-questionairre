@@ -18,6 +18,7 @@ import type {
   PDFDict,
   PDFArray,
   PDFRef,
+  RGB,
 } from "pdf-lib";
 import templateUrl from "../data/template.pdf";
 import {
@@ -50,6 +51,7 @@ type PdfLib = {
   PDFArray: typeof PDFArray;
   PDFRef: typeof PDFRef;
   StandardFonts: typeof StandardFonts;
+  rgb: (r: number, g: number, b: number) => RGB;
 };
 
 let libPromise: Promise<PdfLib> | null = null;
@@ -66,6 +68,7 @@ function getPdfLib(): Promise<PdfLib> {
     PDFArray: m.PDFArray,
     PDFRef: m.PDFRef,
     StandardFonts: m.StandardFonts,
+    rgb: m.rgb,
   }));
   return libPromise;
 }
@@ -372,6 +375,60 @@ function drawComputedValues(pdfDoc: PDFDocument, answers: Answers, font: PDFFont
   }
 }
 
+/**
+ * Patient identifier block drawn over the "PCIS LABEL" caption that the
+ * template prints in every page's top-right corner: name ("Last, First"),
+ * DOB and PHN. The caption is white-outed first so it can never show
+ * through between the lines.
+ */
+function drawPatientLabel(
+  lib: PdfLib,
+  pdfDoc: PDFDocument,
+  answers: Answers,
+  font: PDFFont
+): void {
+  const str = (id: string): string =>
+    typeof answers[id] === "string" ? (answers[id] as string).trim() : "";
+  const name = [str("patient_last_name"), str("patient_first_name")]
+    .filter((s) => s !== "")
+    .join(", ");
+  const phn = str("patient_phn") || str("patient_phn_alternate");
+  const lines = [name, str("patient_dob"), phn].filter((s) => s !== "");
+  if (lines.length === 0) return;
+
+  const maxWidth = 115;
+  const sized = lines.map((line, i) => {
+    let size = i === 0 ? 10 : 9;
+    while (size > 6 && font.widthOfTextAtSize(line, size) > maxWidth) size -= 0.5;
+    return { line, size };
+  });
+  const baselines = [747, 736, 725];
+
+  for (const [index, page] of pdfDoc.getPages().entries()) {
+    // The caption sits at x≈435.8 on odd pages and x≈403.9 on even pages
+    // (mirrored binding margins); anchor to it so the label stays in the
+    // same corner on every page.
+    const labelX = index % 2 === 0 ? 435.8 : 403.9;
+    page.drawRectangle({
+      x: labelX - 3,
+      y: 721,
+      width: 80,
+      height: 35,
+      color: lib.rgb(1, 1, 1),
+      borderWidth: 0,
+    });
+    sized.forEach(({ line, size }, i) => {
+      page.drawText(line, {
+        x: labelX,
+        y: baselines[i],
+        size,
+        font,
+        color: lib.rgb(0, 0, 0),
+      });
+    });
+  }
+}
+
 /** Every AcroForm field name a target touches (for the double-write guard). */
 function targetFieldNames(target: FieldTarget): string[] {
   if (typeof target === "string") return [target];
@@ -456,6 +513,7 @@ export async function generateFilledPdfBytes(
     form.flatten(); // bake values in; prevents further editing after download
   }
   drawComputedValues(pdfDoc, answers, font);
+  drawPatientLabel(lib, pdfDoc, answers, font);
 
   return pdfDoc.save();
 }

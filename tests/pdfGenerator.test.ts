@@ -345,30 +345,30 @@ describe("overflow routing (item-03)", () => {
   });
 });
 
-describe("functional-status total on page 2 (item-04)", () => {
-  /**
-   * Inflated text of every content stream on a page. Ref drawing happens in
-   * the page's stream sequence: widget flattening first (one stream per push
-   * batch), then drawComputedValues' drawText — the last stream.
-   */
-  function inflatedPageContent(doc: PDFDocument, pageIndex: number): string[] {
-    const page = doc.getPages()[pageIndex];
-    const contents = page.node.Contents();
-    if (!contents) return [];
-    const entries: unknown[] =
-      contents instanceof PDFArray
-        ? Array.from({ length: contents.size() }, (_, i) => contents.get(i))
-        : [contents];
-    const out: string[] = [];
-    for (const entry of entries) {
-      const stream = entry instanceof PDFRef ? doc.context.lookup(entry) : entry;
-      if (!(stream instanceof PDFRawStream)) continue;
-      const filter = stream.dict.get(PDFName.of("Filter"));
-      out.push(new TextDecoder().decode(filter ? inflateSync(stream.contents) : stream.contents));
-    }
-    return out;
+/**
+ * Inflated text of every content stream on a page. Ref drawing happens in
+ * the page's stream sequence: widget flattening first (one stream per push
+ * batch), then drawComputedValues/drawPatientLabel drawText — the last stream.
+ */
+function inflatedPageContent(doc: PDFDocument, pageIndex: number): string[] {
+  const page = doc.getPages()[pageIndex];
+  const contents = page.node.Contents();
+  if (!contents) return [];
+  const entries: unknown[] =
+    contents instanceof PDFArray
+      ? Array.from({ length: contents.size() }, (_, i) => contents.get(i))
+      : [contents];
+  const out: string[] = [];
+  for (const entry of entries) {
+    const stream = entry instanceof PDFRef ? doc.context.lookup(entry) : entry;
+    if (!(stream instanceof PDFRawStream)) continue;
+    const filter = stream.dict.get(PDFName.of("Filter"));
+    out.push(new TextDecoder().decode(filter ? inflateSync(stream.contents) : stream.contents));
   }
+  return out;
+}
 
+describe("functional-status total on page 2 (item-04)", () => {
   it("draws the SARC-F subtotal digit next to the printed Total Score label", async () => {
     const answers = buildCompleteAnswers();
     answers.functional_lift = 2;
@@ -389,6 +389,51 @@ describe("functional-status total on page 2 (item-04)", () => {
     const hits = streams.filter((s) => s.includes(`<${hex}> Tj`));
     expect(hits).toHaveLength(1);
     expect(streams[streams.length - 1]).toContain(`<${hex}> Tj`);
+  });
+});
+
+describe("patient label over the PCIS LABEL corner (iteration-1.2)", () => {
+  /** pdf-lib draws StandardFont text as a WinAnsi hex string: "9" -> <39>. */
+  const hexOf = (s: string) => Buffer.from(s, "utf8").toString("hex").toUpperCase();
+
+  it("draws Last, First / DOB / PHN and white-outs the caption on every page", async () => {
+    const bytes = await generateFilledPdfBytes(spotAnswers(), { template: templateBytes });
+    const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+    const pages = doc.getPages();
+    expect(pages).toHaveLength(10);
+
+    for (const [index] of pages.entries()) {
+      const streams = inflatedPageContent(doc, index);
+      const last = streams[streams.length - 1];
+      expect(last, `page ${index + 1} gains a drawn label`).toBeDefined();
+
+      // Patient info lines ("Last, First", DOB, PHN).
+      expect(last).toContain(`<${hexOf("Doe, Jane")}> Tj`);
+      expect(last).toContain(`<${hexOf("1980-05-12")}> Tj`);
+      expect(last).toContain(`<${hexOf("9123456789")}> Tj`);
+
+      // White-out rectangle covering the caption: the caption sits at
+      // x≈435.8 (odd pages) / x≈403.9 (even pages), y≈734.4–744.4, so the
+      // rect (x=labelX-3, w=80, y=721, h=35) fully covers it on both.
+      // pdf-lib draws it as a filled path under a translate.
+      const labelX = index % 2 === 0 ? 435.8 : 403.9;
+      expect(last).toContain("1 1 1 rg");
+      expect(last).toContain(`${labelX - 3} 721 cm`);
+      expect(last).toContain("80 35 l");
+      expect(last).toContain("80 0 l");
+    }
+  });
+
+  it("uses the alternate identifier when the patient has no BC PHN", async () => {
+    const answers = spotAnswers();
+    answers.patient_phn_non_bc = true;
+    answers.patient_phn = undefined;
+    answers.patient_phn_alternate = "AB 1234-567";
+    const bytes = await generateFilledPdfBytes(answers, { template: templateBytes });
+    const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+    const streams = inflatedPageContent(doc, 0);
+    const last = streams[streams.length - 1];
+    expect(last).toContain(`<${hexOf("AB 1234-567")}> Tj`);
   });
 });
 
