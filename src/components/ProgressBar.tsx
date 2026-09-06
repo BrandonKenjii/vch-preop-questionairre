@@ -27,7 +27,7 @@ export function ProgressBar({ currentIndex, completed, onJump }: Props) {
           aria-current={i === currentIndex ? "step" : undefined}
           onClick={() => onJump(i)}
         >
-          {completed[i] ? "✓" : i + 1}
+          {completed[i] ? "✓" : i}
         </button>
       ))}
     </nav>
