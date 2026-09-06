@@ -1,0 +1,976 @@
+{
+  "valueItems": 63,
+  "staticItems": 844,
+  "outside": [
+    {
+      "page": 2,
+      "str": "6",
+      "x": 536,
+      "y": 594,
+      "nearestRect": "Text Field 19@text d=67.7"
+    },
+    {
+      "page": 6,
+      "str": "4",
+      "x": 536,
+      "y": 47,
+      "nearestRect": "Text Field 104@text d=74.3"
+    },
+    {
+      "page": 9,
+      "str": "81.3",
+      "x": 534,
+      "y": 181,
+      "nearestRect": "Text Field 1040@text d=33.2"
+    }
+  ],
+  "inCheckbox": [],
+  "emptyTextFields": [
+    {
+      "page": 1,
+      "name": "Text Field 11"
+    },
+    {
+      "page": 1,
+      "name": "Text Field 18"
+    },
+    {
+      "page": 2,
+      "name": "Text Field 22"
+    },
+    {
+      "page": 2,
+      "name": "Text Field 23"
+    },
+    {
+      "page": 2,
+      "name": "Text Field 25"
+    },
+    {
+      "page": 2,
+      "name": "Text Field 26"
+    },
+    {
+      "page": 2,
+      "name": "Text Field 27"
+    },
+    {
+      "page": 2,
+      "name": "Text Field 29"
+    },
+    {
+      "page": 2,
+      "name": "Text Field 31"
+    },
+    {
+      "page": 3,
+      "name": "Text Field 36"
+    },
+    {
+      "page": 3,
+      "name": "Text Field 41"
+    },
+    {
+      "page": 3,
+      "name": "Text Field 42"
+    },
+    {
+      "page": 3,
+      "name": "Text Field 43"
+    },
+    {
+      "page": 3,
+      "name": "Text Field 44"
+    },
+    {
+      "page": 3,
+      "name": "Text Field 45"
+    },
+    {
+      "page": 3,
+      "name": "Text Field 46"
+    },
+    {
+      "page": 3,
+      "name": "Text Field 47"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 57"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 61"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 62"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 63"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 64"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 65"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 66"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 67"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 68"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 69"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 70"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 71"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 72"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 73"
+    },
+    {
+      "page": 4,
+      "name": "Text Field 74"
+    },
+    {
+      "page": 5,
+      "name": "Text Field 79"
+    },
+    {
+      "page": 5,
+      "name": "Text Field 80"
+    },
+    {
+      "page": 5,
+      "name": "Text Field 84"
+    },
+    {
+      "page": 5,
+      "name": "Text Field 85"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 86"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 87"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 88"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 89"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 90"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 91"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 92"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 93"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 95"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 96"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 98"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 99"
+    },
+    {
+      "page": 6,
+      "name": "Text Field 100"
+    },
+    {
+      "page": 7,
+      "name": "Text Field 107"
+    },
+    {
+      "page": 7,
+      "name": "Text Field 108"
+    },
+    {
+      "page": 7,
+      "name": "Text Field 109"
+    },
+    {
+      "page": 7,
+      "name": "Text Field 1011"
+    },
+    {
+      "page": 7,
+      "name": "Text Field 1012"
+    },
+    {
+      "page": 7,
+      "name": "Text Field 1015"
+    },
+    {
+      "page": 8,
+      "name": "Text Field 1018"
+    },
+    {
+      "page": 8,
+      "name": "Text Field 1019"
+    },
+    {
+      "page": 8,
+      "name": "Text Field 1020"
+    },
+    {
+      "page": 8,
+      "name": "Text Field 110"
+    },
+    {
+      "page": 8,
+      "name": "Text Field 1023"
+    },
+    {
+      "page": 8,
+      "name": "Text Field 1024"
+    },
+    {
+      "page": 8,
+      "name": "Text Field 1025"
+    },
+    {
+      "page": 8,
+      "name": "Text Field 1026"
+    },
+    {
+      "page": 8,
+      "name": "Text Field 1027"
+    },
+    {
+      "page": 8,
+      "name": "Text Field 112"
+    },
+    {
+      "page": 9,
+      "name": "Text Field 113"
+    },
+    {
+      "page": 9,
+      "name": "Text Field 1028"
+    },
+    {
+      "page": 9,
+      "name": "Text Field 1029"
+    },
+    {
+      "page": 9,
+      "name": "Text Field 1030"
+    },
+    {
+      "page": 9,
+      "name": "Text Field 1031"
+    },
+    {
+      "page": 9,
+      "name": "Text Field 1032"
+    },
+    {
+      "page": 9,
+      "name": "Text Field 1035"
+    },
+    {
+      "page": 9,
+      "name": "Text Field 1037"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "values": [
+        {
+          "page": 1,
+          "str": "2026-08-25",
+          "x": 99.6,
+          "y": 666.5,
+          "rects": "Text Field 6"
+        },
+        {
+          "page": 1,
+          "str": "asdf",
+          "x": 131.7,
+          "y": 646.5,
+          "rects": "Text Field 8"
+        },
+        {
+          "page": 1,
+          "str": "asdf",
+          "x": 331.5,
+          "y": 646.5,
+          "rects": "Text Field 9"
+        },
+        {
+          "page": 1,
+          "str": "123123",
+          "x": 441.6,
+          "y": 646.5,
+          "rects": "Text Field 10"
+        },
+        {
+          "page": 1,
+          "str": "asdfasdf",
+          "x": 281.8,
+          "y": 356.3,
+          "rects": "Text Field 15"
+        },
+        {
+          "page": 1,
+          "str": "asdfasdf",
+          "x": 281.8,
+          "y": 287.1,
+          "rects": "Text Field 16"
+        },
+        {
+          "page": 1,
+          "str": "asdfasdf",
+          "x": 281.8,
+          "y": 243.6,
+          "rects": "Text Field 17"
+        }
+      ],
+      "outside": [],
+      "inCheckbox": [],
+      "emptyText": [
+        "Text Field 11",
+        "Text Field 18"
+      ],
+      "minMax": {
+        "xMin": 99.6,
+        "xMax": 441.6,
+        "yMin": 243.6,
+        "yMax": 666.5
+      }
+    },
+    {
+      "page": 2,
+      "values": [
+        {
+          "page": 2,
+          "str": "222",
+          "x": 181.7,
+          "y": 610.7,
+          "rects": "Text Field 19"
+        },
+        {
+          "page": 2,
+          "str": "121",
+          "x": 393.4,
+          "y": 554.5,
+          "rects": "Text Field 20"
+        },
+        {
+          "page": 2,
+          "str": "123",
+          "x": 373.6,
+          "y": 528.3,
+          "rects": "Text Field 21"
+        },
+        {
+          "page": 2,
+          "str": "123",
+          "x": 272.1,
+          "y": 156.6,
+          "rects": "Text Field 28"
+        },
+        {
+          "page": 2,
+          "str": "123123",
+          "x": 248.9,
+          "y": 57.4,
+          "rects": "Text Field 32"
+        }
+      ],
+      "outside": [
+        {
+          "page": 2,
+          "str": "6",
+          "x": 536,
+          "y": 594,
+          "nearestRect": "Text Field 19@text d=67.7"
+        }
+      ],
+      "inCheckbox": [],
+      "emptyText": [
+        "Text Field 22",
+        "Text Field 23",
+        "Text Field 25",
+        "Text Field 26",
+        "Text Field 27",
+        "Text Field 29",
+        "Text Field 31"
+      ],
+      "minMax": {
+        "xMin": 181.7,
+        "xMax": 393.4,
+        "yMin": 57.4,
+        "yMax": 610.7
+      }
+    },
+    {
+      "page": 3,
+      "values": [
+        {
+          "page": 3,
+          "str": "asdfasdf",
+          "x": 279.9,
+          "y": 634.1,
+          "rects": "Text Field 33"
+        },
+        {
+          "page": 3,
+          "str": "asdfasdf",
+          "x": 279.9,
+          "y": 528.3,
+          "rects": "Text Field 34"
+        },
+        {
+          "page": 3,
+          "str": "asdfasdf",
+          "x": 279.9,
+          "y": 501.1,
+          "rects": "Text Field 35"
+        },
+        {
+          "page": 3,
+          "str": "asdfasdf",
+          "x": 279.9,
+          "y": 446.5,
+          "rects": "Text Field 37"
+        },
+        {
+          "page": 3,
+          "str": "123423",
+          "x": 279.9,
+          "y": 380.8,
+          "rects": "Text Field 38"
+        },
+        {
+          "page": 3,
+          "str": "123123",
+          "x": 279.9,
+          "y": 354.5,
+          "rects": "Text Field 39"
+        },
+        {
+          "page": 3,
+          "str": "asdfasdf",
+          "x": 279.9,
+          "y": 324.5,
+          "rects": "Text Field 40"
+        },
+        {
+          "page": 3,
+          "str": "asdfasdfasdf",
+          "x": 279.9,
+          "y": 153.2,
+          "rects": "Text Field 48"
+        },
+        {
+          "page": 3,
+          "str": "asdf",
+          "x": 310.6,
+          "y": 104.5,
+          "rects": "Text Field 50"
+        },
+        {
+          "page": 3,
+          "str": "asdfasdf",
+          "x": 279.9,
+          "y": 77.5,
+          "rects": "Text Field 51"
+        }
+      ],
+      "outside": [],
+      "inCheckbox": [],
+      "emptyText": [
+        "Text Field 36",
+        "Text Field 41",
+        "Text Field 42",
+        "Text Field 43",
+        "Text Field 44",
+        "Text Field 45",
+        "Text Field 46",
+        "Text Field 47"
+      ],
+      "minMax": {
+        "xMin": 279.9,
+        "xMax": 310.6,
+        "yMin": 77.5,
+        "yMax": 634.1
+      }
+    },
+    {
+      "page": 4,
+      "values": [
+        {
+          "page": 4,
+          "str": "asdfasdf",
+          "x": 246.5,
+          "y": 634.5,
+          "rects": "Text Field 52"
+        },
+        {
+          "page": 4,
+          "str": "123123",
+          "x": 307,
+          "y": 580.2,
+          "rects": "Text Field 58"
+        },
+        {
+          "page": 4,
+          "str": "asdf",
+          "x": 307,
+          "y": 552.4,
+          "rects": "Text Field 59"
+        },
+        {
+          "page": 4,
+          "str": "asdf",
+          "x": 307,
+          "y": 525.2,
+          "rects": "Text Field 60"
+        },
+        {
+          "page": 4,
+          "str": "asdfasdf",
+          "x": 246.9,
+          "y": 81.5,
+          "rects": "Text Field 75"
+        }
+      ],
+      "outside": [],
+      "inCheckbox": [],
+      "emptyText": [
+        "Text Field 57",
+        "Text Field 61",
+        "Text Field 62",
+        "Text Field 63",
+        "Text Field 64",
+        "Text Field 65",
+        "Text Field 66",
+        "Text Field 67",
+        "Text Field 68",
+        "Text Field 69",
+        "Text Field 70",
+        "Text Field 71",
+        "Text Field 72",
+        "Text Field 73",
+        "Text Field 74"
+      ],
+      "minMax": {
+        "xMin": 246.5,
+        "xMax": 307,
+        "yMin": 81.5,
+        "yMax": 634.5
+      }
+    },
+    {
+      "page": 5,
+      "values": [
+        {
+          "page": 5,
+          "str": "asdf",
+          "x": 317.4,
+          "y": 580.9,
+          "rects": "Text Field 76"
+        },
+        {
+          "page": 5,
+          "str": "asdfasdf",
+          "x": 383.3,
+          "y": 553.9,
+          "rects": "Text Field 77"
+        },
+        {
+          "page": 5,
+          "str": "asdfasdf",
+          "x": 317.4,
+          "y": 345.4,
+          "rects": "Text Field 81,Text Field 82"
+        },
+        {
+          "page": 5,
+          "str": "asdfasdf",
+          "x": 307,
+          "y": 333.5,
+          "rects": "Text Field 82"
+        },
+        {
+          "page": 5,
+          "str": "asdfasdf",
+          "x": 358.8,
+          "y": 321,
+          "rects": "Text Field 83"
+        },
+        {
+          "page": 5,
+          "str": "asdf",
+          "x": 120.6,
+          "y": 415.9,
+          "rects": "Text Field 114"
+        }
+      ],
+      "outside": [],
+      "inCheckbox": [],
+      "emptyText": [
+        "Text Field 79",
+        "Text Field 80",
+        "Text Field 84",
+        "Text Field 85"
+      ],
+      "minMax": {
+        "xMin": 120.6,
+        "xMax": 383.3,
+        "yMin": 321,
+        "yMax": 580.9
+      }
+    },
+    {
+      "page": 6,
+      "values": [
+        {
+          "page": 6,
+          "str": "234234",
+          "x": 398.8,
+          "y": 367.6,
+          "rects": "Text Field 94"
+        },
+        {
+          "page": 6,
+          "str": "asdf",
+          "x": 246.6,
+          "y": 257.7,
+          "rects": "Text Field 97"
+        },
+        {
+          "page": 6,
+          "str": "0",
+          "x": 379.4,
+          "y": 133.5,
+          "rects": "Text Field 101"
+        },
+        {
+          "page": 6,
+          "str": "1",
+          "x": 323.6,
+          "y": 117.9,
+          "rects": "Text Field 102"
+        },
+        {
+          "page": 6,
+          "str": "1",
+          "x": 342.6,
+          "y": 100.2,
+          "rects": "Text Field 103"
+        },
+        {
+          "page": 6,
+          "str": "2",
+          "x": 409.2,
+          "y": 84.6,
+          "rects": "Text Field 104"
+        }
+      ],
+      "outside": [
+        {
+          "page": 6,
+          "str": "4",
+          "x": 536,
+          "y": 47,
+          "nearestRect": "Text Field 104@text d=74.3"
+        }
+      ],
+      "inCheckbox": [],
+      "emptyText": [
+        "Text Field 86",
+        "Text Field 87",
+        "Text Field 88",
+        "Text Field 89",
+        "Text Field 90",
+        "Text Field 91",
+        "Text Field 92",
+        "Text Field 93",
+        "Text Field 95",
+        "Text Field 96",
+        "Text Field 98",
+        "Text Field 99",
+        "Text Field 100"
+      ],
+      "minMax": {
+        "xMin": 246.6,
+        "xMax": 409.2,
+        "yMin": 84.6,
+        "yMax": 367.6
+      }
+    },
+    {
+      "page": 7,
+      "values": [
+        {
+          "page": 7,
+          "str": "asdfasdf",
+          "x": 280.4,
+          "y": 553.6,
+          "rects": "Text Field 105"
+        },
+        {
+          "page": 7,
+          "str": "asdfasdf",
+          "x": 327.5,
+          "y": 523.7,
+          "rects": "Text Field 106"
+        },
+        {
+          "page": 7,
+          "str": "asdfasdf",
+          "x": 314.6,
+          "y": 303,
+          "rects": "Text Field 1010"
+        },
+        {
+          "page": 7,
+          "str": "asdfasdf",
+          "x": 342.2,
+          "y": 164,
+          "rects": "Text Field 1013"
+        },
+        {
+          "page": 7,
+          "str": "asdf",
+          "x": 314.6,
+          "y": 151.7,
+          "rects": "Text Field 1014"
+        }
+      ],
+      "outside": [],
+      "inCheckbox": [],
+      "emptyText": [
+        "Text Field 107",
+        "Text Field 108",
+        "Text Field 109",
+        "Text Field 1011",
+        "Text Field 1012",
+        "Text Field 1015"
+      ],
+      "minMax": {
+        "xMin": 280.4,
+        "xMax": 342.2,
+        "yMin": 151.7,
+        "yMax": 553.6
+      }
+    },
+    {
+      "page": 8,
+      "values": [
+        {
+          "page": 8,
+          "str": "asdf",
+          "x": 71.6,
+          "y": 447.8,
+          "rects": "Text Field 1016"
+        },
+        {
+          "page": 8,
+          "str": "asdfasdfasdfa",
+          "x": 294.8,
+          "y": 653.2,
+          "rects": "Text Field 1017"
+        },
+        {
+          "page": 8,
+          "str": "234",
+          "x": 297.3,
+          "y": 516.4,
+          "rects": "Text Field 1021"
+        },
+        {
+          "page": 8,
+          "str": "asdfasdf",
+          "x": 315.2,
+          "y": 302.8,
+          "rects": "Text Field 1022"
+        },
+        {
+          "page": 8,
+          "str": "asdfasdf",
+          "x": 247.3,
+          "y": 211,
+          "rects": "Text Field 111"
+        }
+      ],
+      "outside": [],
+      "inCheckbox": [],
+      "emptyText": [
+        "Text Field 1018",
+        "Text Field 1019",
+        "Text Field 1020",
+        "Text Field 110",
+        "Text Field 1023",
+        "Text Field 1024",
+        "Text Field 1025",
+        "Text Field 1026",
+        "Text Field 1027",
+        "Text Field 112"
+      ],
+      "minMax": {
+        "xMin": 71.6,
+        "xMax": 315.2,
+        "yMin": 211,
+        "yMax": 653.2
+      }
+    },
+    {
+      "page": 9,
+      "values": [
+        {
+          "page": 9,
+          "str": "asdfasdf",
+          "x": 308.4,
+          "y": 357.8,
+          "rects": "Text Field 1033"
+        },
+        {
+          "page": 9,
+          "str": "asdfasdf",
+          "x": 319.2,
+          "y": 346,
+          "rects": "Text Field 1034"
+        },
+        {
+          "page": 9,
+          "str": "asdfasdf",
+          "x": 281.6,
+          "y": 253.4,
+          "rects": "Text Field 1036"
+        },
+        {
+          "page": 9,
+          "str": "123 cm",
+          "x": 214.5,
+          "y": 195.1,
+          "rects": "Text Field 1038"
+        },
+        {
+          "page": 9,
+          "str": "123",
+          "x": 214.4,
+          "y": 181.1,
+          "rects": "Text Field 1039"
+        },
+        {
+          "page": 9,
+          "str": "asdfasd",
+          "x": 214.4,
+          "y": 165.1,
+          "rects": "Text Field 1040"
+        },
+        {
+          "page": 9,
+          "str": "asdf",
+          "x": 214.4,
+          "y": 150,
+          "rects": "Text Field 1041"
+        },
+        {
+          "page": 9,
+          "str": "asdf",
+          "x": 214.4,
+          "y": 134,
+          "rects": "Text Field 1042"
+        },
+        {
+          "page": 9,
+          "str": "asdf",
+          "x": 214.4,
+          "y": 119,
+          "rects": "Text Field 1043"
+        },
+        {
+          "page": 9,
+          "str": "asdfasdf",
+          "x": 214.4,
+          "y": 104,
+          "rects": "Text Field 1044"
+        },
+        {
+          "page": 9,
+          "str": "2026-08-25",
+          "x": 59.3,
+          "y": 55.7,
+          "rects": "Text Field 1045"
+        }
+      ],
+      "outside": [
+        {
+          "page": 9,
+          "str": "81.3",
+          "x": 534,
+          "y": 181,
+          "nearestRect": "Text Field 1040@text d=33.2"
+        }
+      ],
+      "inCheckbox": [],
+      "emptyText": [
+        "Text Field 113",
+        "Text Field 1028",
+        "Text Field 1029",
+        "Text Field 1030",
+        "Text Field 1031",
+        "Text Field 1032",
+        "Text Field 1035",
+        "Text Field 1037"
+      ],
+      "minMax": {
+        "xMin": 59.3,
+        "xMax": 319.2,
+        "yMin": 55.7,
+        "yMax": 357.8
+      }
+    }
+  ]
+}
