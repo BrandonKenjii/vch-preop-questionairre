@@ -1,0 +1,1330 @@
+﻿===== FONT & RESOURCE AUDIT =====
+file: tools/downloaded-asdf.pdf (583591 bytes)
+objects: 3358  pages: 10
+AcroForm after flatten: present=true keys=[/Fields, /NeedAppearances] Fields=0 NeedAppearances=true SigFlags=null DA=null
+AcroForm DR fonts: (none)
+
+----- PAGE 1 (612x792) contents=array (4 stream(s)) -----
+  page /Resources /Font: TT2->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, G1->Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), G2->ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), TT4->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT6->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT8->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT10->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor
+  XObject /FlatWidget-7098480789: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-9742682568: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-2000805986: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-9750469207: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-7572533686: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8450180107: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8659871878: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5824662338: /Form no-fonts
+  XObject /FlatWidget-1848524175: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-7888911063: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-979344929: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2708199956: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6703682664: checkbox-state-dict no-fonts
+  XObject /FlatWidget-735569487: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8784015711: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9668333493: checkbox-state-dict no-fonts
+  XObject /FlatWidget-250812044: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1275322832: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7720966295: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-4525072762: /Form no-fonts
+  XObject /FlatWidget-5563853605: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4869070959: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7959582482: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2163799337: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4824990222: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5845047960: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7592840450: checkbox-state-dict no-fonts
+  XObject /FlatWidget-578830786: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6611578703: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6837590713: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6235467693: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2668124169: checkbox-state-dict no-fonts
+  annots: 0 (widgets=0, other=0)
+  Tf /TT2 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /G1 @[1] -> via page-resources (Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /G2 @[1] -> via page-resources (ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /TT4 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT6 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT8 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT10 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Do /FlatWidget-7098480789 -> present: /Form
+  Do /FlatWidget-9742682568 -> present: /Form
+  Do /FlatWidget-2000805986 -> present: /Form
+  Do /FlatWidget-9750469207 -> present: /Form
+  Do /FlatWidget-7572533686 -> present: checkbox-state-dict
+  Do /FlatWidget-8450180107 -> present: checkbox-state-dict
+  Do /FlatWidget-8659871878 -> present: checkbox-state-dict
+  Do /FlatWidget-5824662338 -> present: /Form
+  Do /FlatWidget-1848524175 -> present: /Form
+  Do /FlatWidget-7888911063 -> present: /Form
+  Do /FlatWidget-979344929 -> present: checkbox-state-dict
+  Do /FlatWidget-2708199956 -> present: checkbox-state-dict
+  Do /FlatWidget-6703682664 -> present: checkbox-state-dict
+  Do /FlatWidget-735569487 -> present: checkbox-state-dict
+  Do /FlatWidget-8784015711 -> present: checkbox-state-dict
+  Do /FlatWidget-9668333493 -> present: checkbox-state-dict
+  Do /FlatWidget-250812044 -> present: checkbox-state-dict
+  Do /FlatWidget-1275322832 -> present: checkbox-state-dict
+  Do /FlatWidget-7720966295 -> present: /Form
+  Do /FlatWidget-4525072762 -> present: /Form
+  Do /FlatWidget-5563853605 -> present: checkbox-state-dict
+  Do /FlatWidget-4869070959 -> present: checkbox-state-dict
+  Do /FlatWidget-7959582482 -> present: checkbox-state-dict
+  Do /FlatWidget-2163799337 -> present: checkbox-state-dict
+  Do /FlatWidget-4824990222 -> present: checkbox-state-dict
+  Do /FlatWidget-5845047960 -> present: checkbox-state-dict
+  Do /FlatWidget-7592840450 -> present: checkbox-state-dict
+  Do /FlatWidget-578830786 -> present: checkbox-state-dict
+  Do /FlatWidget-6611578703 -> present: checkbox-state-dict
+  Do /FlatWidget-6837590713 -> present: checkbox-state-dict
+  Do /FlatWidget-6235467693 -> present: checkbox-state-dict
+  Do /FlatWidget-2668124169 -> present: checkbox-state-dict
+  !! XObject /FlatWidget-7572533686 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8450180107 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8659871878 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-979344929 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2708199956 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6703682664 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-735569487 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8784015711 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9668333493 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-250812044 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1275322832 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5563853605 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4869070959 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7959582482 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2163799337 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4824990222 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5845047960 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7592840450 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-578830786 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6611578703 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6837590713 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6235467693 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2668124169 is checkbox-state-dict (should be a stream)
+
+----- PAGE 2 (612x792) contents=array (4 stream(s)) -----
+  page /Resources /Font: TT2->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, G1->Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), TT4->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, G2->ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), TT12->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT14->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT16->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT18->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, Helvetica-7001292600->Helvetica /Type1 standard14-unembedded noWidths
+  XObject /FlatWidget-1186010726: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8268612002: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1733050384: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2114655688: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-6186664300: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6857870938: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9538628408: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-1316047934: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-7733119529: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7845208436: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2525737140: checkbox-state-dict no-fonts
+  XObject /FlatWidget-192510541: checkbox-state-dict no-fonts
+  XObject /FlatWidget-352453411: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8834764880: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7312274522: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4533867633: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4734724052: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2514629607: /Form no-fonts
+  XObject /FlatWidget-2917584337: /Form no-fonts
+  XObject /FlatWidget-2759204048: /Form no-fonts
+  XObject /FlatWidget-2515018183: /Form no-fonts
+  XObject /FlatWidget-1095114838: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4482664138: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4899791308: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6475524782: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7264808453: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3800713913: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8937889778: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8222999160: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1930335077: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5570030280: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2603819679: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2867949010: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4884597603: /Form no-fonts
+  XObject /FlatWidget-8002102467: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7231931070: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1518621681: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9068155788: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5465325437: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2336276203: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2804311269: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5373953175: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1836459056: checkbox-state-dict no-fonts
+  XObject /FlatWidget-763689818: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2015858073: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7845598753: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8733129249: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1134607662: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-1200572554: /Form no-fonts
+  XObject /FlatWidget-2878243308: /Form no-fonts
+  XObject /FlatWidget-6446110018: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  annots: 0 (widgets=0, other=0)
+  Tf /TT2 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /G1 @[1] -> via page-resources (Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /TT4 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /G2 @[1] -> via page-resources (ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /TT12 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT14 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT16 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT18 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /Helvetica-7001292600 @[10] -> via page-resources (Helvetica /Type1 standard14-unembedded noWidths)
+  Do /FlatWidget-1186010726 -> present: checkbox-state-dict
+  Do /FlatWidget-8268612002 -> present: checkbox-state-dict
+  Do /FlatWidget-1733050384 -> present: checkbox-state-dict
+  Do /FlatWidget-2114655688 -> present: /Form
+  Do /FlatWidget-6186664300 -> present: checkbox-state-dict
+  Do /FlatWidget-6857870938 -> present: checkbox-state-dict
+  Do /FlatWidget-9538628408 -> present: /Form
+  Do /FlatWidget-1316047934 -> present: /Form
+  Do /FlatWidget-7733119529 -> present: checkbox-state-dict
+  Do /FlatWidget-7845208436 -> present: checkbox-state-dict
+  Do /FlatWidget-2525737140 -> present: checkbox-state-dict
+  Do /FlatWidget-192510541 -> present: checkbox-state-dict
+  Do /FlatWidget-352453411 -> present: checkbox-state-dict
+  Do /FlatWidget-8834764880 -> present: checkbox-state-dict
+  Do /FlatWidget-7312274522 -> present: checkbox-state-dict
+  Do /FlatWidget-4533867633 -> present: checkbox-state-dict
+  Do /FlatWidget-4734724052 -> present: checkbox-state-dict
+  Do /FlatWidget-2514629607 -> present: /Form
+  Do /FlatWidget-2917584337 -> present: /Form
+  Do /FlatWidget-2759204048 -> present: /Form
+  Do /FlatWidget-2515018183 -> present: /Form
+  Do /FlatWidget-1095114838 -> present: checkbox-state-dict
+  Do /FlatWidget-4482664138 -> present: checkbox-state-dict
+  Do /FlatWidget-4899791308 -> present: checkbox-state-dict
+  Do /FlatWidget-6475524782 -> present: checkbox-state-dict
+  Do /FlatWidget-7264808453 -> present: checkbox-state-dict
+  Do /FlatWidget-3800713913 -> present: checkbox-state-dict
+  Do /FlatWidget-8937889778 -> present: checkbox-state-dict
+  Do /FlatWidget-8222999160 -> present: checkbox-state-dict
+  Do /FlatWidget-1930335077 -> present: checkbox-state-dict
+  Do /FlatWidget-5570030280 -> present: checkbox-state-dict
+  Do /FlatWidget-2603819679 -> present: checkbox-state-dict
+  Do /FlatWidget-2867949010 -> present: checkbox-state-dict
+  Do /FlatWidget-4884597603 -> present: /Form
+  Do /FlatWidget-8002102467 -> present: checkbox-state-dict
+  Do /FlatWidget-7231931070 -> present: checkbox-state-dict
+  Do /FlatWidget-1518621681 -> present: checkbox-state-dict
+  Do /FlatWidget-9068155788 -> present: checkbox-state-dict
+  Do /FlatWidget-5465325437 -> present: checkbox-state-dict
+  Do /FlatWidget-2336276203 -> present: checkbox-state-dict
+  Do /FlatWidget-2804311269 -> present: checkbox-state-dict
+  Do /FlatWidget-5373953175 -> present: checkbox-state-dict
+  Do /FlatWidget-1836459056 -> present: checkbox-state-dict
+  Do /FlatWidget-763689818 -> present: checkbox-state-dict
+  Do /FlatWidget-2015858073 -> present: checkbox-state-dict
+  Do /FlatWidget-7845598753 -> present: checkbox-state-dict
+  Do /FlatWidget-8733129249 -> present: checkbox-state-dict
+  Do /FlatWidget-1134607662 -> present: /Form
+  Do /FlatWidget-1200572554 -> present: /Form
+  Do /FlatWidget-2878243308 -> present: /Form
+  Do /FlatWidget-6446110018 -> present: /Form
+  !! XObject /FlatWidget-1186010726 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8268612002 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1733050384 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6186664300 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6857870938 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7733119529 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7845208436 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2525737140 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-192510541 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-352453411 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8834764880 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7312274522 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4533867633 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4734724052 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1095114838 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4482664138 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4899791308 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6475524782 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7264808453 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3800713913 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8937889778 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8222999160 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1930335077 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5570030280 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2603819679 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2867949010 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8002102467 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7231931070 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1518621681 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9068155788 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5465325437 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2336276203 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2804311269 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5373953175 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1836459056 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-763689818 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2015858073 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7845598753 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8733129249 is checkbox-state-dict (should be a stream)
+
+----- PAGE 3 (612x792) contents=array (4 stream(s)) -----
+  page /Resources /Font: TT2->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT4->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, G2->ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), TT6->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT8->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT10->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor
+  XObject /FlatWidget-9032007329: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2438005141: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4155299594: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8216336917: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9830273366: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6940581245: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9666360055: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8751175115: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3393038419: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1785873005: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4801453234: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6171473612: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8774543434: checkbox-state-dict no-fonts
+  XObject /FlatWidget-773902752: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1812800957: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9316581364: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3435889024: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2578717835: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2679135840: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8863144234: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7759683746: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6471646251: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5749991914: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8174456066: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1850541778: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4260663631: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5732191492: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4855138939: checkbox-state-dict no-fonts
+  XObject /FlatWidget-439563316: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1809410679: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8038868131: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-3533402477: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-6139336428: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-205906461: /Form no-fonts
+  XObject /FlatWidget-4783095591: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-9589856190: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-1118421231: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-1522472357: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-1315389639: /Form no-fonts
+  XObject /FlatWidget-9650931040: /Form no-fonts
+  XObject /FlatWidget-1301311082: /Form no-fonts
+  XObject /FlatWidget-5954081134: /Form no-fonts
+  XObject /FlatWidget-9082567378: /Form no-fonts
+  XObject /FlatWidget-3006724240: /Form no-fonts
+  XObject /FlatWidget-3771050173: /Form no-fonts
+  XObject /FlatWidget-2660796153: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-9404981323: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-9661286329: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  annots: 0 (widgets=0, other=0)
+  Tf /TT2 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT4 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /G2 @[1] -> via page-resources (ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /TT6 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT8 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT10 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Do /FlatWidget-9032007329 -> present: checkbox-state-dict
+  Do /FlatWidget-2438005141 -> present: checkbox-state-dict
+  Do /FlatWidget-4155299594 -> present: checkbox-state-dict
+  Do /FlatWidget-8216336917 -> present: checkbox-state-dict
+  Do /FlatWidget-9830273366 -> present: checkbox-state-dict
+  Do /FlatWidget-6940581245 -> present: checkbox-state-dict
+  Do /FlatWidget-9666360055 -> present: checkbox-state-dict
+  Do /FlatWidget-8751175115 -> present: checkbox-state-dict
+  Do /FlatWidget-3393038419 -> present: checkbox-state-dict
+  Do /FlatWidget-1785873005 -> present: checkbox-state-dict
+  Do /FlatWidget-4801453234 -> present: checkbox-state-dict
+  Do /FlatWidget-6171473612 -> present: checkbox-state-dict
+  Do /FlatWidget-8774543434 -> present: checkbox-state-dict
+  Do /FlatWidget-773902752 -> present: checkbox-state-dict
+  Do /FlatWidget-1812800957 -> present: checkbox-state-dict
+  Do /FlatWidget-9316581364 -> present: checkbox-state-dict
+  Do /FlatWidget-3435889024 -> present: checkbox-state-dict
+  Do /FlatWidget-2578717835 -> present: checkbox-state-dict
+  Do /FlatWidget-2679135840 -> present: checkbox-state-dict
+  Do /FlatWidget-8863144234 -> present: checkbox-state-dict
+  Do /FlatWidget-7759683746 -> present: checkbox-state-dict
+  Do /FlatWidget-6471646251 -> present: checkbox-state-dict
+  Do /FlatWidget-5749991914 -> present: checkbox-state-dict
+  Do /FlatWidget-8174456066 -> present: checkbox-state-dict
+  Do /FlatWidget-1850541778 -> present: checkbox-state-dict
+  Do /FlatWidget-4260663631 -> present: checkbox-state-dict
+  Do /FlatWidget-5732191492 -> present: checkbox-state-dict
+  Do /FlatWidget-4855138939 -> present: checkbox-state-dict
+  Do /FlatWidget-439563316 -> present: checkbox-state-dict
+  Do /FlatWidget-1809410679 -> present: checkbox-state-dict
+  Do /FlatWidget-8038868131 -> present: /Form
+  Do /FlatWidget-3533402477 -> present: /Form
+  Do /FlatWidget-6139336428 -> present: /Form
+  Do /FlatWidget-205906461 -> present: /Form
+  Do /FlatWidget-4783095591 -> present: /Form
+  Do /FlatWidget-9589856190 -> present: /Form
+  Do /FlatWidget-1118421231 -> present: /Form
+  Do /FlatWidget-1522472357 -> present: /Form
+  Do /FlatWidget-1315389639 -> present: /Form
+  Do /FlatWidget-9650931040 -> present: /Form
+  Do /FlatWidget-1301311082 -> present: /Form
+  Do /FlatWidget-5954081134 -> present: /Form
+  Do /FlatWidget-9082567378 -> present: /Form
+  Do /FlatWidget-3006724240 -> present: /Form
+  Do /FlatWidget-3771050173 -> present: /Form
+  Do /FlatWidget-2660796153 -> present: /Form
+  Do /FlatWidget-9404981323 -> present: /Form
+  Do /FlatWidget-9661286329 -> present: /Form
+  !! XObject /FlatWidget-9032007329 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2438005141 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4155299594 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8216336917 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9830273366 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6940581245 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9666360055 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8751175115 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3393038419 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1785873005 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4801453234 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6171473612 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8774543434 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-773902752 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1812800957 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9316581364 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3435889024 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2578717835 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2679135840 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8863144234 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7759683746 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6471646251 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5749991914 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8174456066 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1850541778 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4260663631 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5732191492 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4855138939 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-439563316 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1809410679 is checkbox-state-dict (should be a stream)
+
+----- PAGE 4 (612x792) contents=array (4 stream(s)) -----
+  page /Resources /Font: TT2->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT4->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, G2->ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), G1->Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), TT12->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT14->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT16->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT18->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor
+  XObject /FlatWidget-8358714605: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6575621423: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2481645994: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6868610400: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6679327711: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8554544174: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4774049913: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8013122474: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3965944031: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7136537325: checkbox-state-dict no-fonts
+  XObject /FlatWidget-499283259: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5463912608: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7840610153: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4516204513: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6917312177: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4402188329: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6660567572: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5135190550: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2357037083: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4988141565: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2052374886: checkbox-state-dict no-fonts
+  XObject /FlatWidget-58077548: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7966274394: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8801722535: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1538118521: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5145712527: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2409652745: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1973171314: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2525837900: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-9221442262: /Form no-fonts
+  XObject /FlatWidget-4964920662: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-8982415506: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-3277802320: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-9727944989: /Form no-fonts
+  XObject /FlatWidget-9156372825: /Form no-fonts
+  XObject /FlatWidget-4981312810: /Form no-fonts
+  XObject /FlatWidget-2671122592: /Form no-fonts
+  XObject /FlatWidget-13232239: /Form no-fonts
+  XObject /FlatWidget-4945549703: /Form no-fonts
+  XObject /FlatWidget-9086794356: /Form no-fonts
+  XObject /FlatWidget-5914018232: /Form no-fonts
+  XObject /FlatWidget-8946708651: /Form no-fonts
+  XObject /FlatWidget-3802574878: /Form no-fonts
+  XObject /FlatWidget-6540482195: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5223608034: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8978777711: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7533580426: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2216723899: /Form no-fonts
+  XObject /FlatWidget-4736426616: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4859988235: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1893409980: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8040823920: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8438329062: /Form no-fonts
+  XObject /FlatWidget-2118009427: /Form no-fonts
+  XObject /FlatWidget-7606244471: /Form no-fonts
+  XObject /FlatWidget-2897660785: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  annots: 0 (widgets=0, other=0)
+  Tf /TT2 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT4 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /G2 @[1] -> via page-resources (ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /G1 @[1] -> via page-resources (Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /TT12 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT14 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT16 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT18 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Do /FlatWidget-8358714605 -> present: checkbox-state-dict
+  Do /FlatWidget-6575621423 -> present: checkbox-state-dict
+  Do /FlatWidget-2481645994 -> present: checkbox-state-dict
+  Do /FlatWidget-6868610400 -> present: checkbox-state-dict
+  Do /FlatWidget-6679327711 -> present: checkbox-state-dict
+  Do /FlatWidget-8554544174 -> present: checkbox-state-dict
+  Do /FlatWidget-4774049913 -> present: checkbox-state-dict
+  Do /FlatWidget-8013122474 -> present: checkbox-state-dict
+  Do /FlatWidget-3965944031 -> present: checkbox-state-dict
+  Do /FlatWidget-7136537325 -> present: checkbox-state-dict
+  Do /FlatWidget-499283259 -> present: checkbox-state-dict
+  Do /FlatWidget-5463912608 -> present: checkbox-state-dict
+  Do /FlatWidget-7840610153 -> present: checkbox-state-dict
+  Do /FlatWidget-4516204513 -> present: checkbox-state-dict
+  Do /FlatWidget-6917312177 -> present: checkbox-state-dict
+  Do /FlatWidget-4402188329 -> present: checkbox-state-dict
+  Do /FlatWidget-6660567572 -> present: checkbox-state-dict
+  Do /FlatWidget-5135190550 -> present: checkbox-state-dict
+  Do /FlatWidget-2357037083 -> present: checkbox-state-dict
+  Do /FlatWidget-4988141565 -> present: checkbox-state-dict
+  Do /FlatWidget-2052374886 -> present: checkbox-state-dict
+  Do /FlatWidget-58077548 -> present: checkbox-state-dict
+  Do /FlatWidget-7966274394 -> present: checkbox-state-dict
+  Do /FlatWidget-8801722535 -> present: checkbox-state-dict
+  Do /FlatWidget-1538118521 -> present: checkbox-state-dict
+  Do /FlatWidget-5145712527 -> present: checkbox-state-dict
+  Do /FlatWidget-2409652745 -> present: checkbox-state-dict
+  Do /FlatWidget-1973171314 -> present: checkbox-state-dict
+  Do /FlatWidget-2525837900 -> present: /Form
+  Do /FlatWidget-9221442262 -> present: /Form
+  Do /FlatWidget-4964920662 -> present: /Form
+  Do /FlatWidget-8982415506 -> present: /Form
+  Do /FlatWidget-3277802320 -> present: /Form
+  Do /FlatWidget-9727944989 -> present: /Form
+  Do /FlatWidget-9156372825 -> present: /Form
+  Do /FlatWidget-4981312810 -> present: /Form
+  Do /FlatWidget-2671122592 -> present: /Form
+  Do /FlatWidget-13232239 -> present: /Form
+  Do /FlatWidget-4945549703 -> present: /Form
+  Do /FlatWidget-9086794356 -> present: /Form
+  Do /FlatWidget-5914018232 -> present: /Form
+  Do /FlatWidget-8946708651 -> present: /Form
+  Do /FlatWidget-3802574878 -> present: /Form
+  Do /FlatWidget-6540482195 -> present: checkbox-state-dict
+  Do /FlatWidget-5223608034 -> present: checkbox-state-dict
+  Do /FlatWidget-8978777711 -> present: checkbox-state-dict
+  Do /FlatWidget-7533580426 -> present: checkbox-state-dict
+  Do /FlatWidget-2216723899 -> present: /Form
+  Do /FlatWidget-4736426616 -> present: checkbox-state-dict
+  Do /FlatWidget-4859988235 -> present: checkbox-state-dict
+  Do /FlatWidget-1893409980 -> present: checkbox-state-dict
+  Do /FlatWidget-8040823920 -> present: checkbox-state-dict
+  Do /FlatWidget-8438329062 -> present: /Form
+  Do /FlatWidget-2118009427 -> present: /Form
+  Do /FlatWidget-7606244471 -> present: /Form
+  Do /FlatWidget-2897660785 -> present: /Form
+  !! XObject /FlatWidget-8358714605 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6575621423 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2481645994 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6868610400 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6679327711 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8554544174 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4774049913 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8013122474 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3965944031 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7136537325 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-499283259 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5463912608 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7840610153 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4516204513 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6917312177 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4402188329 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6660567572 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5135190550 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2357037083 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4988141565 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2052374886 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-58077548 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7966274394 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8801722535 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1538118521 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5145712527 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2409652745 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1973171314 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6540482195 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5223608034 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8978777711 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7533580426 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4736426616 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4859988235 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1893409980 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8040823920 is checkbox-state-dict (should be a stream)
+
+----- PAGE 5 (612x792) contents=array (4 stream(s)) -----
+  page /Resources /Font: TT2->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, G1->Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), TT4->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, G2->ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), TT6->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT8->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT10->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor
+  XObject /FlatWidget-7633098794: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1795366796: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9927868060: checkbox-state-dict no-fonts
+  XObject /FlatWidget-854846142: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6164234815: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-4342537788: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-1367073150: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5466799406: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3005556993: checkbox-state-dict no-fonts
+  XObject /FlatWidget-584291964: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2140833571: checkbox-state-dict no-fonts
+  XObject /FlatWidget-116393244: checkbox-state-dict no-fonts
+  XObject /FlatWidget-270278600: checkbox-state-dict no-fonts
+  XObject /FlatWidget-974928127: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1840686583: checkbox-state-dict no-fonts
+  XObject /FlatWidget-970016696: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2035931279: checkbox-state-dict no-fonts
+  XObject /FlatWidget-249223223: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5809687459: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9497245902: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6793019106: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6664176610: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1851834275: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5214614953: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5290620322: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2938018015: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9945137636: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4562195722: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5848834491: /Form no-fonts
+  XObject /FlatWidget-1839058647: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7547267059: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8525850681: /Form no-fonts
+  XObject /FlatWidget-9871248753: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-3879787875: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-5083821634: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-5348526993: /Form no-fonts
+  XObject /FlatWidget-7900263502: /Form no-fonts
+  XObject /FlatWidget-512199547: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5618284099: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5859707063: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2306248562: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6236973239: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3579594663: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1581024189: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2327676785: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3928180328: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  annots: 0 (widgets=0, other=0)
+  Tf /TT2 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /G1 @[1] -> via page-resources (Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /TT4 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /G2 @[1] -> via page-resources (ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /TT6 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT8 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT10 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Do /FlatWidget-7633098794 -> present: checkbox-state-dict
+  Do /FlatWidget-1795366796 -> present: checkbox-state-dict
+  Do /FlatWidget-9927868060 -> present: checkbox-state-dict
+  Do /FlatWidget-854846142 -> present: checkbox-state-dict
+  Do /FlatWidget-6164234815 -> present: /Form
+  Do /FlatWidget-4342537788 -> present: /Form
+  Do /FlatWidget-1367073150 -> present: checkbox-state-dict
+  Do /FlatWidget-5466799406 -> present: checkbox-state-dict
+  Do /FlatWidget-3005556993 -> present: checkbox-state-dict
+  Do /FlatWidget-584291964 -> present: checkbox-state-dict
+  Do /FlatWidget-2140833571 -> present: checkbox-state-dict
+  Do /FlatWidget-116393244 -> present: checkbox-state-dict
+  Do /FlatWidget-270278600 -> present: checkbox-state-dict
+  Do /FlatWidget-974928127 -> present: checkbox-state-dict
+  Do /FlatWidget-1840686583 -> present: checkbox-state-dict
+  Do /FlatWidget-970016696 -> present: checkbox-state-dict
+  Do /FlatWidget-2035931279 -> present: checkbox-state-dict
+  Do /FlatWidget-249223223 -> present: checkbox-state-dict
+  Do /FlatWidget-5809687459 -> present: checkbox-state-dict
+  Do /FlatWidget-9497245902 -> present: checkbox-state-dict
+  Do /FlatWidget-6793019106 -> present: checkbox-state-dict
+  Do /FlatWidget-6664176610 -> present: checkbox-state-dict
+  Do /FlatWidget-1851834275 -> present: checkbox-state-dict
+  Do /FlatWidget-5214614953 -> present: checkbox-state-dict
+  Do /FlatWidget-5290620322 -> present: checkbox-state-dict
+  Do /FlatWidget-2938018015 -> present: checkbox-state-dict
+  Do /FlatWidget-9945137636 -> present: checkbox-state-dict
+  Do /FlatWidget-4562195722 -> present: checkbox-state-dict
+  Do /FlatWidget-5848834491 -> present: /Form
+  Do /FlatWidget-1839058647 -> present: checkbox-state-dict
+  Do /FlatWidget-7547267059 -> present: checkbox-state-dict
+  Do /FlatWidget-8525850681 -> present: /Form
+  Do /FlatWidget-9871248753 -> present: /Form
+  Do /FlatWidget-3879787875 -> present: /Form
+  Do /FlatWidget-5083821634 -> present: /Form
+  Do /FlatWidget-5348526993 -> present: /Form
+  Do /FlatWidget-7900263502 -> present: /Form
+  Do /FlatWidget-512199547 -> present: checkbox-state-dict
+  Do /FlatWidget-5618284099 -> present: checkbox-state-dict
+  Do /FlatWidget-5859707063 -> present: checkbox-state-dict
+  Do /FlatWidget-2306248562 -> present: checkbox-state-dict
+  Do /FlatWidget-6236973239 -> present: checkbox-state-dict
+  Do /FlatWidget-3579594663 -> present: checkbox-state-dict
+  Do /FlatWidget-1581024189 -> present: checkbox-state-dict
+  Do /FlatWidget-2327676785 -> present: checkbox-state-dict
+  Do /FlatWidget-3928180328 -> present: /Form
+  !! XObject /FlatWidget-7633098794 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1795366796 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9927868060 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-854846142 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1367073150 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5466799406 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3005556993 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-584291964 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2140833571 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-116393244 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-270278600 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-974928127 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1840686583 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-970016696 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2035931279 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-249223223 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5809687459 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9497245902 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6793019106 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6664176610 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1851834275 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5214614953 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5290620322 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2938018015 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9945137636 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4562195722 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1839058647 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7547267059 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-512199547 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5618284099 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5859707063 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2306248562 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6236973239 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3579594663 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1581024189 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2327676785 is checkbox-state-dict (should be a stream)
+
+----- PAGE 6 (612x792) contents=array (4 stream(s)) -----
+  page /Resources /Font: TT12->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT14->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT2->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT16->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT18->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT4->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, G1->Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), Helvetica-66150203->Helvetica /Type1 standard14-unembedded noWidths
+  XObject /FlatWidget-1669120280: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8664098964: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6791056307: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4213021797: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2388681973: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9068127507: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4515492111: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6171327640: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8809248177: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9065114372: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6370065572: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8743677144: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5999962280: checkbox-state-dict no-fonts
+  XObject /FlatWidget-718550268: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5211922171: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3680655635: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7198045819: /Form no-fonts
+  XObject /FlatWidget-613970749: /Form no-fonts
+  XObject /FlatWidget-1221100365: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2372867106: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9889806298: /Form no-fonts
+  XObject /FlatWidget-836507550: /Form no-fonts
+  XObject /FlatWidget-9196589293: /Form no-fonts
+  XObject /FlatWidget-4282518445: /Form no-fonts
+  XObject /FlatWidget-3562682930: /Form no-fonts
+  XObject /FlatWidget-9318394668: /Form no-fonts
+  XObject /FlatWidget-3970381585: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-1879091805: /Form no-fonts
+  XObject /FlatWidget-829047795: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5281450113: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1748626711: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1017008379: /Form no-fonts
+  XObject /FlatWidget-5402646456: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6817725617: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6498898716: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-5311975701: /Form no-fonts
+  XObject /FlatWidget-5405352878: /Form no-fonts
+  XObject /FlatWidget-1081860871: /Form no-fonts
+  XObject /FlatWidget-5693843472: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-15487066: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-8859331503: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-1467408027: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-1433995909: checkbox-state-dict no-fonts
+  XObject /FlatWidget-431367356: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2109184890: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8278770604: checkbox-state-dict no-fonts
+  annots: 0 (widgets=0, other=0)
+  Tf /TT12 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT14 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT2 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT16 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT18 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT4 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /G1 @[1] -> via page-resources (Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /Helvetica-66150203 @[10] -> via page-resources (Helvetica /Type1 standard14-unembedded noWidths)
+  Do /FlatWidget-1669120280 -> present: checkbox-state-dict
+  Do /FlatWidget-8664098964 -> present: checkbox-state-dict
+  Do /FlatWidget-6791056307 -> present: checkbox-state-dict
+  Do /FlatWidget-4213021797 -> present: checkbox-state-dict
+  Do /FlatWidget-2388681973 -> present: checkbox-state-dict
+  Do /FlatWidget-9068127507 -> present: checkbox-state-dict
+  Do /FlatWidget-4515492111 -> present: checkbox-state-dict
+  Do /FlatWidget-6171327640 -> present: checkbox-state-dict
+  Do /FlatWidget-8809248177 -> present: checkbox-state-dict
+  Do /FlatWidget-9065114372 -> present: checkbox-state-dict
+  Do /FlatWidget-6370065572 -> present: checkbox-state-dict
+  Do /FlatWidget-8743677144 -> present: checkbox-state-dict
+  Do /FlatWidget-5999962280 -> present: checkbox-state-dict
+  Do /FlatWidget-718550268 -> present: checkbox-state-dict
+  Do /FlatWidget-5211922171 -> present: checkbox-state-dict
+  Do /FlatWidget-3680655635 -> present: checkbox-state-dict
+  Do /FlatWidget-7198045819 -> present: /Form
+  Do /FlatWidget-613970749 -> present: /Form
+  Do /FlatWidget-1221100365 -> present: checkbox-state-dict
+  Do /FlatWidget-2372867106 -> present: checkbox-state-dict
+  Do /FlatWidget-9889806298 -> present: /Form
+  Do /FlatWidget-836507550 -> present: /Form
+  Do /FlatWidget-9196589293 -> present: /Form
+  Do /FlatWidget-4282518445 -> present: /Form
+  Do /FlatWidget-3562682930 -> present: /Form
+  Do /FlatWidget-9318394668 -> present: /Form
+  Do /FlatWidget-3970381585 -> present: /Form
+  Do /FlatWidget-1879091805 -> present: /Form
+  Do /FlatWidget-829047795 -> present: checkbox-state-dict
+  Do /FlatWidget-5281450113 -> present: checkbox-state-dict
+  Do /FlatWidget-1748626711 -> present: checkbox-state-dict
+  Do /FlatWidget-1017008379 -> present: /Form
+  Do /FlatWidget-5402646456 -> present: checkbox-state-dict
+  Do /FlatWidget-6817725617 -> present: checkbox-state-dict
+  Do /FlatWidget-6498898716 -> present: /Form
+  Do /FlatWidget-5311975701 -> present: /Form
+  Do /FlatWidget-5405352878 -> present: /Form
+  Do /FlatWidget-1081860871 -> present: /Form
+  Do /FlatWidget-5693843472 -> present: /Form
+  Do /FlatWidget-15487066 -> present: /Form
+  Do /FlatWidget-8859331503 -> present: /Form
+  Do /FlatWidget-1467408027 -> present: /Form
+  Do /FlatWidget-1433995909 -> present: checkbox-state-dict
+  Do /FlatWidget-431367356 -> present: checkbox-state-dict
+  Do /FlatWidget-2109184890 -> present: checkbox-state-dict
+  Do /FlatWidget-8278770604 -> present: checkbox-state-dict
+  !! XObject /FlatWidget-1669120280 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8664098964 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6791056307 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4213021797 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2388681973 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9068127507 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4515492111 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6171327640 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8809248177 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9065114372 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6370065572 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8743677144 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5999962280 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-718550268 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5211922171 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3680655635 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1221100365 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2372867106 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-829047795 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5281450113 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1748626711 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5402646456 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6817725617 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1433995909 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-431367356 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2109184890 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8278770604 is checkbox-state-dict (should be a stream)
+
+----- PAGE 7 (612x792) contents=array (4 stream(s)) -----
+  page /Resources /Font: TT2->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT4->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, G1->Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), G2->ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), TT6->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT8->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT10->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor
+  XObject /FlatWidget-9057917077: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-4856367111: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5023547361: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5251979023: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6396811258: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7159020843: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8524115833: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5905189187: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9562924917: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7897971424: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4563392208: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1422549596: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2598101183: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9900124872: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9001073747: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1808890969: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6125056455: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6905502531: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3762914604: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2327838162: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4416009885: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3595041091: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-5283104274: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3250484391: checkbox-state-dict no-fonts
+  XObject /FlatWidget-680378050: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9605813833: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3828650600: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6463576255: /Form no-fonts
+  XObject /FlatWidget-303600011: checkbox-state-dict no-fonts
+  XObject /FlatWidget-137496377: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8768865585: /Form no-fonts
+  XObject /FlatWidget-7178546737: /Form no-fonts
+  XObject /FlatWidget-852421779: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-9050979945: checkbox-state-dict no-fonts
+  XObject /FlatWidget-709397142: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3326455741: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8734806742: /Form no-fonts
+  XObject /FlatWidget-3978849732: /Form no-fonts
+  XObject /FlatWidget-3879402373: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-2500439016: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-4457191554: checkbox-state-dict no-fonts
+  XObject /FlatWidget-826548185: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1225987192: checkbox-state-dict no-fonts
+  XObject /FlatWidget-153386739: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3478054363: /Form no-fonts
+  XObject /FlatWidget-6372654582: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8866579905: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3480531616: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8473430546: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3894916849: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1837079454: checkbox-state-dict no-fonts
+  XObject /FlatWidget-885180293: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9565811614: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7883388611: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7214910029: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3294894296: checkbox-state-dict no-fonts
+  annots: 0 (widgets=0, other=0)
+  Tf /TT2 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT4 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /G1 @[1] -> via page-resources (Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /G2 @[1] -> via page-resources (ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /TT6 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT8 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT10 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Do /FlatWidget-9057917077 -> present: /Form
+  Do /FlatWidget-4856367111 -> present: checkbox-state-dict
+  Do /FlatWidget-5023547361 -> present: checkbox-state-dict
+  Do /FlatWidget-5251979023 -> present: checkbox-state-dict
+  Do /FlatWidget-6396811258 -> present: checkbox-state-dict
+  Do /FlatWidget-7159020843 -> present: checkbox-state-dict
+  Do /FlatWidget-8524115833 -> present: checkbox-state-dict
+  Do /FlatWidget-5905189187 -> present: checkbox-state-dict
+  Do /FlatWidget-9562924917 -> present: checkbox-state-dict
+  Do /FlatWidget-7897971424 -> present: checkbox-state-dict
+  Do /FlatWidget-4563392208 -> present: checkbox-state-dict
+  Do /FlatWidget-1422549596 -> present: checkbox-state-dict
+  Do /FlatWidget-2598101183 -> present: checkbox-state-dict
+  Do /FlatWidget-9900124872 -> present: checkbox-state-dict
+  Do /FlatWidget-9001073747 -> present: checkbox-state-dict
+  Do /FlatWidget-1808890969 -> present: checkbox-state-dict
+  Do /FlatWidget-6125056455 -> present: checkbox-state-dict
+  Do /FlatWidget-6905502531 -> present: checkbox-state-dict
+  Do /FlatWidget-3762914604 -> present: checkbox-state-dict
+  Do /FlatWidget-2327838162 -> present: checkbox-state-dict
+  Do /FlatWidget-4416009885 -> present: checkbox-state-dict
+  Do /FlatWidget-3595041091 -> present: /Form
+  Do /FlatWidget-5283104274 -> present: checkbox-state-dict
+  Do /FlatWidget-3250484391 -> present: checkbox-state-dict
+  Do /FlatWidget-680378050 -> present: checkbox-state-dict
+  Do /FlatWidget-9605813833 -> present: checkbox-state-dict
+  Do /FlatWidget-3828650600 -> present: checkbox-state-dict
+  Do /FlatWidget-6463576255 -> present: /Form
+  Do /FlatWidget-303600011 -> present: checkbox-state-dict
+  Do /FlatWidget-137496377 -> present: checkbox-state-dict
+  Do /FlatWidget-8768865585 -> present: /Form
+  Do /FlatWidget-7178546737 -> present: /Form
+  Do /FlatWidget-852421779 -> present: /Form
+  Do /FlatWidget-9050979945 -> present: checkbox-state-dict
+  Do /FlatWidget-709397142 -> present: checkbox-state-dict
+  Do /FlatWidget-3326455741 -> present: checkbox-state-dict
+  Do /FlatWidget-8734806742 -> present: /Form
+  Do /FlatWidget-3978849732 -> present: /Form
+  Do /FlatWidget-3879402373 -> present: /Form
+  Do /FlatWidget-2500439016 -> present: /Form
+  Do /FlatWidget-4457191554 -> present: checkbox-state-dict
+  Do /FlatWidget-826548185 -> present: checkbox-state-dict
+  Do /FlatWidget-1225987192 -> present: checkbox-state-dict
+  Do /FlatWidget-153386739 -> present: checkbox-state-dict
+  Do /FlatWidget-3478054363 -> present: /Form
+  Do /FlatWidget-6372654582 -> present: checkbox-state-dict
+  Do /FlatWidget-8866579905 -> present: checkbox-state-dict
+  Do /FlatWidget-3480531616 -> present: checkbox-state-dict
+  Do /FlatWidget-8473430546 -> present: checkbox-state-dict
+  Do /FlatWidget-3894916849 -> present: checkbox-state-dict
+  Do /FlatWidget-1837079454 -> present: checkbox-state-dict
+  Do /FlatWidget-885180293 -> present: checkbox-state-dict
+  Do /FlatWidget-9565811614 -> present: checkbox-state-dict
+  Do /FlatWidget-7883388611 -> present: checkbox-state-dict
+  Do /FlatWidget-7214910029 -> present: checkbox-state-dict
+  Do /FlatWidget-3294894296 -> present: checkbox-state-dict
+  !! XObject /FlatWidget-4856367111 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5023547361 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5251979023 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6396811258 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7159020843 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8524115833 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5905189187 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9562924917 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7897971424 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4563392208 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1422549596 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2598101183 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9900124872 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9001073747 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1808890969 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6125056455 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6905502531 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3762914604 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2327838162 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4416009885 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5283104274 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3250484391 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-680378050 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9605813833 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3828650600 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-303600011 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-137496377 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9050979945 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-709397142 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3326455741 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4457191554 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-826548185 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1225987192 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-153386739 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6372654582 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8866579905 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3480531616 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8473430546 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3894916849 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1837079454 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-885180293 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9565811614 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7883388611 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7214910029 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3294894296 is checkbox-state-dict (should be a stream)
+
+----- PAGE 8 (612x792) contents=array (4 stream(s)) -----
+  page /Resources /Font: TT2->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, G1->Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), G2->ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), TT4->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT12->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT14->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT16->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT18->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor
+  XObject /FlatWidget-4740573347: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9284874934: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1080317813: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2555149151: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1074016255: checkbox-state-dict no-fonts
+  XObject /FlatWidget-323338977: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3968223930: checkbox-state-dict no-fonts
+  XObject /FlatWidget-164481143: checkbox-state-dict no-fonts
+  XObject /FlatWidget-966049382: checkbox-state-dict no-fonts
+  XObject /FlatWidget-418262646: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4595048708: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6263217830: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-6387252433: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5555821561: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6717495938: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1720870019: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4985067939: checkbox-state-dict no-fonts
+  XObject /FlatWidget-997088984: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5469736195: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6985564664: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1272851078: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1511806473: checkbox-state-dict no-fonts
+  XObject /FlatWidget-983468789: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2219862836: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1572341430: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8655435956: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9067568375: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4613983055: checkbox-state-dict no-fonts
+  XObject /FlatWidget-898037805: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-4640391086: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9007268656: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4748032473: checkbox-state-dict no-fonts
+  XObject /FlatWidget-560896782: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8852290018: /Form no-fonts
+  XObject /FlatWidget-3506043922: /Form no-fonts
+  XObject /FlatWidget-3218456003: /Form no-fonts
+  XObject /FlatWidget-578606364: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-6734161028: /Form no-fonts
+  XObject /FlatWidget-9298654376: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-4244831728: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6087278843: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8145245887: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3646569754: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6557499329: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2187086982: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2204890221: /Form no-fonts
+  XObject /FlatWidget-3287836549: /Form no-fonts
+  XObject /FlatWidget-2322894659: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-5643362195: /Form no-fonts
+  XObject /FlatWidget-2697383374: /Form no-fonts
+  XObject /FlatWidget-1007082262: /Form no-fonts
+  XObject /FlatWidget-4817188508: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8854056599: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4289372257: /Form no-fonts
+  annots: 0 (widgets=0, other=0)
+  Tf /TT2 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /G1 @[1] -> via page-resources (Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /G2 @[1] -> via page-resources (ArialMT /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(ArialMT /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /TT4 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT12 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT14 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT16 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT18 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Do /FlatWidget-4740573347 -> present: checkbox-state-dict
+  Do /FlatWidget-9284874934 -> present: checkbox-state-dict
+  Do /FlatWidget-1080317813 -> present: checkbox-state-dict
+  Do /FlatWidget-2555149151 -> present: checkbox-state-dict
+  Do /FlatWidget-1074016255 -> present: checkbox-state-dict
+  Do /FlatWidget-323338977 -> present: checkbox-state-dict
+  Do /FlatWidget-3968223930 -> present: checkbox-state-dict
+  Do /FlatWidget-164481143 -> present: checkbox-state-dict
+  Do /FlatWidget-966049382 -> present: checkbox-state-dict
+  Do /FlatWidget-418262646 -> present: checkbox-state-dict
+  Do /FlatWidget-4595048708 -> present: checkbox-state-dict
+  Do /FlatWidget-6263217830 -> present: /Form
+  Do /FlatWidget-6387252433 -> present: checkbox-state-dict
+  Do /FlatWidget-5555821561 -> present: checkbox-state-dict
+  Do /FlatWidget-6717495938 -> present: checkbox-state-dict
+  Do /FlatWidget-1720870019 -> present: checkbox-state-dict
+  Do /FlatWidget-4985067939 -> present: checkbox-state-dict
+  Do /FlatWidget-997088984 -> present: checkbox-state-dict
+  Do /FlatWidget-5469736195 -> present: checkbox-state-dict
+  Do /FlatWidget-6985564664 -> present: checkbox-state-dict
+  Do /FlatWidget-1272851078 -> present: checkbox-state-dict
+  Do /FlatWidget-1511806473 -> present: checkbox-state-dict
+  Do /FlatWidget-983468789 -> present: checkbox-state-dict
+  Do /FlatWidget-2219862836 -> present: checkbox-state-dict
+  Do /FlatWidget-1572341430 -> present: checkbox-state-dict
+  Do /FlatWidget-8655435956 -> present: checkbox-state-dict
+  Do /FlatWidget-9067568375 -> present: checkbox-state-dict
+  Do /FlatWidget-4613983055 -> present: checkbox-state-dict
+  Do /FlatWidget-898037805 -> present: /Form
+  Do /FlatWidget-4640391086 -> present: checkbox-state-dict
+  Do /FlatWidget-9007268656 -> present: checkbox-state-dict
+  Do /FlatWidget-4748032473 -> present: checkbox-state-dict
+  Do /FlatWidget-560896782 -> present: checkbox-state-dict
+  Do /FlatWidget-8852290018 -> present: /Form
+  Do /FlatWidget-3506043922 -> present: /Form
+  Do /FlatWidget-3218456003 -> present: /Form
+  Do /FlatWidget-578606364 -> present: /Form
+  Do /FlatWidget-6734161028 -> present: /Form
+  Do /FlatWidget-9298654376 -> present: /Form
+  Do /FlatWidget-4244831728 -> present: checkbox-state-dict
+  Do /FlatWidget-6087278843 -> present: checkbox-state-dict
+  Do /FlatWidget-8145245887 -> present: checkbox-state-dict
+  Do /FlatWidget-3646569754 -> present: checkbox-state-dict
+  Do /FlatWidget-6557499329 -> present: checkbox-state-dict
+  Do /FlatWidget-2187086982 -> present: checkbox-state-dict
+  Do /FlatWidget-2204890221 -> present: /Form
+  Do /FlatWidget-3287836549 -> present: /Form
+  Do /FlatWidget-2322894659 -> present: /Form
+  Do /FlatWidget-5643362195 -> present: /Form
+  Do /FlatWidget-2697383374 -> present: /Form
+  Do /FlatWidget-1007082262 -> present: /Form
+  Do /FlatWidget-4817188508 -> present: checkbox-state-dict
+  Do /FlatWidget-8854056599 -> present: checkbox-state-dict
+  Do /FlatWidget-4289372257 -> present: /Form
+  !! XObject /FlatWidget-4740573347 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9284874934 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1080317813 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2555149151 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1074016255 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-323338977 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3968223930 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-164481143 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-966049382 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-418262646 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4595048708 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6387252433 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5555821561 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6717495938 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1720870019 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4985067939 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-997088984 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5469736195 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6985564664 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1272851078 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1511806473 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-983468789 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2219862836 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1572341430 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8655435956 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9067568375 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4613983055 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4640391086 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9007268656 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4748032473 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-560896782 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4244831728 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6087278843 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8145245887 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3646569754 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6557499329 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2187086982 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4817188508 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8854056599 is checkbox-state-dict (should be a stream)
+
+----- PAGE 9 (612x792) contents=array (4 stream(s)) -----
+  page /Resources /Font: TT4->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT2->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, G1->Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor), Tc1->HelveticaLTStd-Bold /Type1 NOT-EMBEDDED-NON-STD14 hasDescriptor, TT6->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT8->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT10->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, Helvetica-7157182102->Helvetica /Type1 standard14-unembedded noWidths
+  XObject /FlatWidget-991051876: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8271037518: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1506015296: checkbox-state-dict no-fonts
+  XObject /FlatWidget-263134785: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9657637503: checkbox-state-dict no-fonts
+  XObject /FlatWidget-694427578: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5243143670: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3360479789: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5800871917: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6793527262: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8064036082: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2468048559: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5679062195: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7395771178: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4359115828: /Form no-fonts
+  XObject /FlatWidget-4576530777: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4845270278: checkbox-state-dict no-fonts
+  XObject /FlatWidget-7732165947: checkbox-state-dict no-fonts
+  XObject /FlatWidget-253103884: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1404760638: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5450590763: checkbox-state-dict no-fonts
+  XObject /FlatWidget-2528208152: checkbox-state-dict no-fonts
+  XObject /FlatWidget-811904673: /Form no-fonts
+  XObject /FlatWidget-2375975844: /Form no-fonts
+  XObject /FlatWidget-8523686486: /Form no-fonts
+  XObject /FlatWidget-3933083715: /Form no-fonts
+  XObject /FlatWidget-2554987636: /Form no-fonts
+  XObject /FlatWidget-6039387549: checkbox-state-dict no-fonts
+  XObject /FlatWidget-1458055829: checkbox-state-dict no-fonts
+  XObject /FlatWidget-6214993839: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8827569319: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8128773805: checkbox-state-dict no-fonts
+  XObject /FlatWidget-3558642242: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-1441245452: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-5486862040: checkbox-state-dict no-fonts
+  XObject /FlatWidget-9022779587: checkbox-state-dict no-fonts
+  XObject /FlatWidget-5466246804: /Form no-fonts
+  XObject /FlatWidget-579449680: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-9414863326: /Form no-fonts
+  XObject /FlatWidget-4108371242: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-5384963726: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-6751442409: checkbox-state-dict no-fonts
+  XObject /FlatWidget-8077559569: checkbox-state-dict no-fonts
+  XObject /FlatWidget-4740216554: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-3967697054: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-9198102389: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-6458129157: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-4259028912: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  XObject /FlatWidget-2801711428: /Form fonts=[Helvetica->Helvetica /Type1 standard14-unembedded noWidths] tf=[Helvetica@9]
+  annots: 0 (widgets=0, other=0)
+  Tf /TT4 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT2 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /G1 @[1] -> via page-resources (Wingdings-Regular /Type0 NOT-EMBEDDED-NON-STD14 hasDescriptor descendant(Wingdings-Regular /CIDFontType2 NOT-EMBEDDED-NON-STD14 noWidths hasDescriptor))
+  Tf /Tc1 @[1] -> via page-resources (HelveticaLTStd-Bold /Type1 NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT6 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT8 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT10 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /Helvetica-7157182102 @[10] -> via page-resources (Helvetica /Type1 standard14-unembedded noWidths)
+  Do /FlatWidget-991051876 -> present: checkbox-state-dict
+  Do /FlatWidget-8271037518 -> present: checkbox-state-dict
+  Do /FlatWidget-1506015296 -> present: checkbox-state-dict
+  Do /FlatWidget-263134785 -> present: checkbox-state-dict
+  Do /FlatWidget-9657637503 -> present: checkbox-state-dict
+  Do /FlatWidget-694427578 -> present: checkbox-state-dict
+  Do /FlatWidget-5243143670 -> present: checkbox-state-dict
+  Do /FlatWidget-3360479789 -> present: checkbox-state-dict
+  Do /FlatWidget-5800871917 -> present: checkbox-state-dict
+  Do /FlatWidget-6793527262 -> present: checkbox-state-dict
+  Do /FlatWidget-8064036082 -> present: checkbox-state-dict
+  Do /FlatWidget-2468048559 -> present: checkbox-state-dict
+  Do /FlatWidget-5679062195 -> present: checkbox-state-dict
+  Do /FlatWidget-7395771178 -> present: checkbox-state-dict
+  Do /FlatWidget-4359115828 -> present: /Form
+  Do /FlatWidget-4576530777 -> present: checkbox-state-dict
+  Do /FlatWidget-4845270278 -> present: checkbox-state-dict
+  Do /FlatWidget-7732165947 -> present: checkbox-state-dict
+  Do /FlatWidget-253103884 -> present: checkbox-state-dict
+  Do /FlatWidget-1404760638 -> present: checkbox-state-dict
+  Do /FlatWidget-5450590763 -> present: checkbox-state-dict
+  Do /FlatWidget-2528208152 -> present: checkbox-state-dict
+  Do /FlatWidget-811904673 -> present: /Form
+  Do /FlatWidget-2375975844 -> present: /Form
+  Do /FlatWidget-8523686486 -> present: /Form
+  Do /FlatWidget-3933083715 -> present: /Form
+  Do /FlatWidget-2554987636 -> present: /Form
+  Do /FlatWidget-6039387549 -> present: checkbox-state-dict
+  Do /FlatWidget-1458055829 -> present: checkbox-state-dict
+  Do /FlatWidget-6214993839 -> present: checkbox-state-dict
+  Do /FlatWidget-8827569319 -> present: checkbox-state-dict
+  Do /FlatWidget-8128773805 -> present: checkbox-state-dict
+  Do /FlatWidget-3558642242 -> present: /Form
+  Do /FlatWidget-1441245452 -> present: /Form
+  Do /FlatWidget-5486862040 -> present: checkbox-state-dict
+  Do /FlatWidget-9022779587 -> present: checkbox-state-dict
+  Do /FlatWidget-5466246804 -> present: /Form
+  Do /FlatWidget-579449680 -> present: /Form
+  Do /FlatWidget-9414863326 -> present: /Form
+  Do /FlatWidget-4108371242 -> present: /Form
+  Do /FlatWidget-5384963726 -> present: /Form
+  Do /FlatWidget-6751442409 -> present: checkbox-state-dict
+  Do /FlatWidget-8077559569 -> present: checkbox-state-dict
+  Do /FlatWidget-4740216554 -> present: /Form
+  Do /FlatWidget-3967697054 -> present: /Form
+  Do /FlatWidget-9198102389 -> present: /Form
+  Do /FlatWidget-6458129157 -> present: /Form
+  Do /FlatWidget-4259028912 -> present: /Form
+  Do /FlatWidget-2801711428 -> present: /Form
+  !! XObject /FlatWidget-991051876 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8271037518 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1506015296 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-263134785 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9657637503 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-694427578 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5243143670 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-3360479789 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5800871917 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6793527262 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8064036082 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2468048559 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5679062195 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7395771178 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4576530777 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-4845270278 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-7732165947 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-253103884 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1404760638 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5450590763 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-2528208152 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6039387549 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-1458055829 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6214993839 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8827569319 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8128773805 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-5486862040 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-9022779587 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-6751442409 is checkbox-state-dict (should be a stream)
+  !! XObject /FlatWidget-8077559569 is checkbox-state-dict (should be a stream)
+
+----- PAGE 10 (612x792) contents=array (4 stream(s)) -----
+  page /Resources /Font: TT4->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT12->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT14->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT2->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT16->ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor, TT18->Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor
+  XObject /FlatWidget-3017912837: /Form no-fonts
+  XObject /FlatWidget-529326596: /Form no-fonts
+  annots: 0 (widgets=0, other=0)
+  Tf /TT4 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT12 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT14 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT2 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT16 @[1] -> via page-resources (ArialMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Tf /TT18 @[1] -> via page-resources (Arial-BoldMT /TrueType NOT-EMBEDDED-NON-STD14 hasDescriptor)
+  Do /FlatWidget-3017912837 -> present: /Form
+  Do /FlatWidget-529326596 -> present: /Form
+
+===== CHECKBOX / RADIO APPEARANCE AUDIT =====
+checkbox/radio widget XObjects referenced from page content via Do: 305
+  each is a /AP /N STATE DICT (keys=[Yes,Off]) containing the check-mark streams, not a stream itself
+  -> pdf.js and strict viewers reject the Do operator ("XObject should be a stream"); the check mark
+     drawn inside /Yes is NEVER rendered because the dict itself is what /Do points at.
+  sample: page 1 /FlatWidget-7572533686 yesIsStream=undefined offIsStream=undefined | page 1 /FlatWidget-8450180107 yesIsStream=undefined offIsStream=undefined | page 1 /FlatWidget-8659871878 yesIsStream=undefined offIsStream=undefined
+ZapfDingbats-font-based check marks found: 0 (pdf-lib 1.17.1 draws check marks with vector paths, not a font)
+
+===== PDF.JS WARNINGS (text extraction, all pages, nothing suppressed) =====
+downloaded-asdf.pdf: total=305 byCategory={"xobject-not-stream":305}
+    [305x] Warning: getTextContent - ignoring XObject: "FormatError: XObject should be a stream".
+cleaned.pdf: total=0 byCategory={}
+NEW warnings present in downloaded-asdf.pdf but absent in cleaned.pdf: 
+    NEW: Warning: getTextContent - ignoring XObject: "FormatError: XObject should be a stream".
+
+===== STRICT-VIEWER VERDICT =====
+missing fonts (Tf name unresolvable anywhere): NONE
+standard-14 referenced by name but NOT in resource chain (viewer must fall back): NONE
+pdf-lib standard-14 Helvetica font dicts (no FontFile, no Widths, no descriptor): 63 (legal per spec; all standard viewers bundle the 14 core fonts)
+non-standard unembedded fonts (no FontFile, not std-14) — TEMPLATE fonts, pre-existing in reference.pdf: page 1 page-font /TT2 (ArialMT), page 1 page-font /G1 (Wingdings-Regular), page 1 page-font /G2 (ArialMT), page 1 page-font /TT6 (ArialMT) ...
+invalid XObjects drawn via Do (checkbox/radio state dicts) — GENERATED BY FLATTEN, absent from reference.pdf and cleaned.pdf: 305
+pdf.js warnings: reference.pdf=0 cleaned.pdf=0 downloaded-asdf.pdf=305 (all "XObject should be a stream")
+new pdf.js warnings vs cleaned.pdf: 1
+
+wrote tools/font-audit.json

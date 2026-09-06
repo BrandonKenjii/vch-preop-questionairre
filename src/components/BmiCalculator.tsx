@@ -6,6 +6,7 @@ import { computeBmi, formatBmi, LB_TO_KG } from "../logic/bmi";
 interface Props {
   value: Answer | undefined;
   onChange: (value: Answer | undefined) => void;
+  disabled?: boolean;
 }
 
 const round1 = (n: number) => Math.round(n * 10) / 10;
@@ -24,7 +25,7 @@ function ftInToCm(feet: string, inches: string): string {
   return String(round1(f * 30.48 + i * 2.54));
 }
 
-export function BmiCalculator({ value, onChange }: Props) {
+export function BmiCalculator({ value, onChange, disabled }: Props) {
   const answer: BmiAnswer = (value as BmiAnswer | undefined) ?? {
     height: "",
     heightUnit: "cm",
@@ -33,10 +34,13 @@ export function BmiCalculator({ value, onChange }: Props) {
   };
   const bmi = computeBmi(answer);
 
-  const set = (patch: Partial<BmiAnswer>) => onChange({ ...answer, ...patch });
+  const set = (patch: Partial<BmiAnswer>) => {
+    if (disabled) return;
+    onChange({ ...answer, ...patch });
+  };
 
   const setHeightUnit = (unit: "cm" | "ftin") => {
-    if (unit === answer.heightUnit) return;
+    if (disabled || unit === answer.heightUnit) return;
     if (unit === "ftin" && answer.height.trim() !== "") {
       const cm = parseFloat(answer.height);
       if (Number.isFinite(cm) && cm > 0) {
@@ -56,7 +60,7 @@ export function BmiCalculator({ value, onChange }: Props) {
   };
 
   const setWeightUnit = (unit: "kg" | "lbs") => {
-    if (unit === answer.weightUnit) return;
+    if (disabled || unit === answer.weightUnit) return;
     const w = parseFloat(answer.weight);
     if (Number.isFinite(w) && w > 0) {
       const converted = unit === "lbs" ? round1(w / LB_TO_KG) : round1(w * LB_TO_KG);
@@ -77,6 +81,7 @@ export function BmiCalculator({ value, onChange }: Props) {
             aria-checked={answer.heightUnit === "cm"}
             className={answer.heightUnit === "cm" ? "unit-selected" : ""}
             onClick={() => setHeightUnit("cm")}
+            disabled={disabled}
           >
             cm
           </button>
@@ -86,6 +91,7 @@ export function BmiCalculator({ value, onChange }: Props) {
             aria-checked={answer.heightUnit === "ftin"}
             className={answer.heightUnit === "ftin" ? "unit-selected" : ""}
             onClick={() => setHeightUnit("ftin")}
+            disabled={disabled}
           >
             ft/in
           </button>
@@ -99,6 +105,7 @@ export function BmiCalculator({ value, onChange }: Props) {
             placeholder="e.g. 170"
             value={answer.height}
             onChange={(e) => set({ height: e.target.value })}
+            disabled={disabled}
           />
         ) : (
           <span className="bmi-ftin">
@@ -110,6 +117,7 @@ export function BmiCalculator({ value, onChange }: Props) {
               placeholder="5"
               value={answer.feet ?? ""}
               onChange={(e) => set({ feet: e.target.value })}
+              disabled={disabled}
             />
             <span className="bmi-sep">ft</span>
             <input
@@ -120,6 +128,7 @@ export function BmiCalculator({ value, onChange }: Props) {
               placeholder="7"
               value={answer.inches ?? ""}
               onChange={(e) => set({ inches: e.target.value })}
+              disabled={disabled}
             />
             <span className="bmi-sep">in</span>
           </span>
@@ -135,6 +144,7 @@ export function BmiCalculator({ value, onChange }: Props) {
             aria-checked={answer.weightUnit === "kg"}
             className={answer.weightUnit === "kg" ? "unit-selected" : ""}
             onClick={() => setWeightUnit("kg")}
+            disabled={disabled}
           >
             kg
           </button>
@@ -144,6 +154,7 @@ export function BmiCalculator({ value, onChange }: Props) {
             aria-checked={answer.weightUnit === "lbs"}
             className={answer.weightUnit === "lbs" ? "unit-selected" : ""}
             onClick={() => setWeightUnit("lbs")}
+            disabled={disabled}
           >
             lbs
           </button>
@@ -156,7 +167,13 @@ export function BmiCalculator({ value, onChange }: Props) {
           placeholder={answer.weightUnit === "kg" ? "e.g. 72" : "e.g. 160"}
           value={answer.weight}
           onChange={(e) => set({ weight: e.target.value })}
+          disabled={disabled}
         />
+        {/* Unit suffix follows the toggle; aria-hidden keeps the input's
+            accessible name exactly "Weight". */}
+        <span className="bmi-unit" aria-hidden="true">
+          {answer.weightUnit}
+        </span>
       </div>
 
       <div className="bmi-result" aria-live="polite">

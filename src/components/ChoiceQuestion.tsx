@@ -7,9 +7,10 @@ interface Props {
   question: Question;
   value: Answer | undefined;
   onChange: (value: Answer | undefined) => void;
+  disabled?: boolean;
 }
 
-export function ChoiceQuestion({ question, value, onChange }: Props) {
+export function ChoiceQuestion({ question, value, onChange, disabled }: Props) {
   const options = question.options ?? [];
   const storedValues = question.optionValues ?? options;
   const isScale = question.type === "choice" && storedValues.every((v) => typeof v === "number");
@@ -26,11 +27,13 @@ export function ChoiceQuestion({ question, value, onChange }: Props) {
   };
 
   const handleSingle = (label: string) => {
+    if (disabled) return;
     const v = storedValue(label);
     onChange(isSelected(label) ? undefined : v);
   };
 
   const handleMulti = (label: string) => {
+    if (disabled) return;
     const current = Array.isArray(value) ? value : [];
     const next = current.includes(label)
       ? current.filter((l) => l !== label)
@@ -49,6 +52,7 @@ export function ChoiceQuestion({ question, value, onChange }: Props) {
             aria-checked={isSelected(label)}
             className={`scale-button ${isSelected(label) ? "scale-selected" : ""}`}
             onClick={() => handleSingle(label)}
+            disabled={disabled}
           >
             {label}
           </button>
@@ -66,6 +70,7 @@ export function ChoiceQuestion({ question, value, onChange }: Props) {
             name={question.id}
             checked={isSelected(label)}
             onChange={() => (multi ? handleMulti(label) : handleSingle(label))}
+            disabled={disabled}
           />
           <span>{label}</span>
         </label>

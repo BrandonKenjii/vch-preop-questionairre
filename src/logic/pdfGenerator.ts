@@ -13,10 +13,29 @@ import type {
   StandardFonts,
   PDFFont,
   PDFForm,
+  PDFNumber,
+  PDFRawStream,
+  PDFDict,
+  PDFArray,
+  PDFRef,
+  RGB,
 } from "pdf-lib";
 import templateUrl from "../data/template.pdf";
-import { questions, type Answers, type BmiAnswer, getQuestion } from "../data/questions";
-import { fieldMap } from "../data/fieldMap";
+import {
+  questions,
+  type Answers,
+  type BmiAnswer,
+  type Question,
+  getQuestion,
+} from "../data/questions";
+import {
+  aliasedFields,
+  composedFields,
+  fieldMap,
+  uiOnlyQuestionIds,
+  type FieldTarget,
+} from "../data/fieldMap";
+import { displayState } from "./branching";
 import { computeBmi, formatBmi, formatHeight } from "./bmi";
 import { getSubtotal } from "./subtotals";
 
@@ -26,7 +45,13 @@ type PdfLib = {
   PDFTextField: typeof PDFTextField;
   PDFName: typeof PDFName;
   PDFString: typeof PDFString;
+  PDFNumber: typeof PDFNumber;
+  PDFRawStream: typeof PDFRawStream;
+  PDFDict: typeof PDFDict;
+  PDFArray: typeof PDFArray;
+  PDFRef: typeof PDFRef;
   StandardFonts: typeof StandardFonts;
+  rgb: (r: number, g: number, b: number) => RGB;
 };
 
 let libPromise: Promise<PdfLib> | null = null;
@@ -37,7 +62,13 @@ function getPdfLib(): Promise<PdfLib> {
     PDFTextField: m.PDFTextField,
     PDFName: m.PDFName,
     PDFString: m.PDFString,
+    PDFNumber: m.PDFNumber,
+    PDFRawStream: m.PDFRawStream,
+    PDFDict: m.PDFDict,
+    PDFArray: m.PDFArray,
+    PDFRef: m.PDFRef,
     StandardFonts: m.StandardFonts,
+    rgb: m.rgb,
   }));
   return libPromise;
 }
@@ -167,12 +198,12 @@ function applyAnswer(
   lib: PdfLib,
   form: PDFForm,
   questionId: string,
+  target: FieldTarget,
   value: unknown,
   font: PDFFont,
   overflow: OverflowEntry[]
 ): void {
-  const target = fieldMap[questionId];
-  if (!target || value === undefined) return;
+  if (value === undefined) return;
   const label = getQuestion(questionId)?.label ?? questionId;
 
   if (typeof target === "string") {
@@ -264,6 +295,70 @@ function applyOverflow(
 }
 
 /**
+ * Line width for the X strokes, scaled to the box size and clamped (the
+ * paper form's mark is a clean print-style X, not a hairline).
+ */
+function xStrokeWidth(boxSize: number): number {
+  return Math.min(Math.max(boxSize / 11, 0.6), 1.6);
+}
+
+/**
+ * Replace the pre-authored vector check-mark in every checked checkbox's
+ * /Yes appearance stream with an X drawn as two crossing strokes.
+ *
+ * The template's /Yes streams are not font glyphs, so they cannot be
+ * restyled through /DA: each holds a vector check path clipped to the box
+ * rect, while the /Off streams are empty ("q Q"). Only the /Yes content of
+ * checked boxes is rewritten, so AcroForm state (/V, /AS, isChecked()) is
+ * untouched and pdf-lib's flatten() bakes the X onto the page exactly where
+ * it registers the pre-authored check today.
+ *
+ * Appearance-space coordinates map 1:1 onto the widget rect in this
+ * template (each /Yes stream's /BBox equals its box size), so the X is
+ * drawn with a 15% inset and a stroke width of min(w,h)/11 clamped to
+ * [0.6, 1.6]. The stream dict keeps /BBox and /Resources; only the stale
+ * /Filter is dropped and /Length re-synced (the stream is now written
+ * uncompressed).
+ *
+ * Boxes with an unexpected appearance layout are left untouched (the
+ * original check mark renders) rather than corrupting the stream.
+ */
+function installXAppearances(lib: PdfLib, form: PDFForm, pdfDoc: PDFDocument): void {
+  const ctx = pdfDoc.context;
+  const round2 = (n: number): number => Math.round(n * 100) / 100;
+  for (const field of form.getFields()) {
+    if (!(field instanceof lib.PDFCheckBox) || !field.isChecked()) continue;
+    try {
+      const widget = field.acroField.getWidgets()[0];
+      const normal = widget?.getNormalAppearance();
+      if (!normal || !(normal instanceof lib.PDFDict)) continue;
+      const onValue = widget.getOnValue() ?? lib.PDFName.of("Yes");
+      const appearance = normal.get(onValue);
+      if (!appearance) continue;
+      const yesStream = appearance instanceof lib.PDFRef ? ctx.lookup(appearance) : appearance;
+      if (!(yesStream instanceof lib.PDFRawStream)) continue;
+      const bbox = yesStream.dict.lookupMaybe(lib.PDFName.of("BBox"), lib.PDFArray);
+      if (!bbox || bbox.size() < 4) continue;
+      const wpx = bbox.lookupMaybe(2, lib.PDFNumber)?.asNumber();
+      const hpx = bbox.lookupMaybe(3, lib.PDFNumber)?.asNumber();
+      if (!(wpx !== undefined && hpx !== undefined && wpx > 0 && hpx > 0)) continue;
+      const x1 = round2(wpx * 0.15);
+      const y1 = round2(hpx * 0.15);
+      const x2 = round2(wpx - x1);
+      const y2 = round2(hpx - y1);
+      const lw = round2(xStrokeWidth(Math.min(wpx, hpx)));
+      const ops = `${lw} w 0 G ${x1} ${y1} m ${x2} ${y2} l S ${x2} ${y1} m ${x1} ${y2} l S`;
+      const contents = new TextEncoder().encode(ops);
+      yesStream.dict.delete(lib.PDFName.of("Filter"));
+      yesStream.dict.set(lib.PDFName.of("Length"), lib.PDFNumber.of(contents.length));
+      (yesStream as { contents: Uint8Array }).contents = contents;
+    } catch {
+      // Malformed appearance — leave the box's pre-authored mark in place.
+    }
+  }
+}
+
+/**
  * The reference PDF prints "Total Score" labels for the functional-status
  * and PCS sections (and a "BMI" label) but has no fillable fields there, so
  * the computed values are drawn as text next to the labels after flattening.
@@ -280,6 +375,93 @@ function drawComputedValues(pdfDoc: PDFDocument, answers: Answers, font: PDFFont
   }
 }
 
+/**
+ * Patient identifier block drawn over the "PCIS LABEL" caption that the
+ * template prints in every page's top-right corner: name ("Last, First"),
+ * DOB and PHN. The caption is white-outed first so it can never show
+ * through between the lines.
+ */
+function drawPatientLabel(
+  lib: PdfLib,
+  pdfDoc: PDFDocument,
+  answers: Answers,
+  font: PDFFont
+): void {
+  const str = (id: string): string =>
+    typeof answers[id] === "string" ? (answers[id] as string).trim() : "";
+  const name = [str("patient_last_name"), str("patient_first_name")]
+    .filter((s) => s !== "")
+    .join(", ");
+  const phn = str("patient_phn") || str("patient_phn_alternate");
+  const lines = [name, str("patient_dob"), phn].filter((s) => s !== "");
+  if (lines.length === 0) return;
+
+  const maxWidth = 115;
+  const sized = lines.map((line, i) => {
+    let size = i === 0 ? 10 : 9;
+    while (size > 6 && font.widthOfTextAtSize(line, size) > maxWidth) size -= 0.5;
+    return { line, size };
+  });
+  const baselines = [747, 736, 725];
+
+  for (const [index, page] of pdfDoc.getPages().entries()) {
+    // The caption sits at x≈435.8 on odd pages and x≈403.9 on even pages
+    // (mirrored binding margins); anchor to it so the label stays in the
+    // same corner on every page.
+    const labelX = index % 2 === 0 ? 435.8 : 403.9;
+    page.drawRectangle({
+      x: labelX - 3,
+      y: 721,
+      width: 80,
+      height: 35,
+      color: lib.rgb(1, 1, 1),
+      borderWidth: 0,
+    });
+    sized.forEach(({ line, size }, i) => {
+      page.drawText(line, {
+        x: labelX,
+        y: baselines[i],
+        size,
+        font,
+        color: lib.rgb(0, 0, 0),
+      });
+    });
+  }
+}
+
+/** Every AcroForm field name a target touches (for the double-write guard). */
+function targetFieldNames(target: FieldTarget): string[] {
+  if (typeof target === "string") return [target];
+  if ("yes" in target) return [target.yes, target.no];
+  if ("options" in target) return Object.values(target.options);
+  return [target.height, target.weight, ...Object.values(target.unit.options)];
+}
+
+/**
+ * Write one question's answer if the question is fully applicable: hidden,
+ * soft and disabled rows (gray-out subtrees under a No anchor) and stale
+ * answers kept in state are never written to the PDF.
+ */
+function writeQuestion(
+  lib: PdfLib,
+  form: PDFForm,
+  question: Question,
+  answers: Answers,
+  font: PDFFont,
+  overflow: OverflowEntry[],
+  writtenFields: Set<string>
+): void {
+  if (uiOnlyQuestionIds.includes(question.id)) return;
+  if (displayState(question, answers) !== "active") return;
+  const target = aliasedFields[question.id] ?? fieldMap[question.id];
+  if (!target) return;
+  // The alias shares a field with its BC-resident counterpart (and composed
+  // fields may share one too): never write a field twice.
+  if (targetFieldNames(target).some((n) => writtenFields.has(n))) return;
+  applyAnswer(lib, form, question.id, target, answers[question.id], font, overflow);
+  for (const n of targetFieldNames(target)) writtenFields.add(n);
+}
+
 export async function generateFilledPdfBytes(
   answers: Answers,
   options: PdfOptions = {}
@@ -291,8 +473,29 @@ export async function generateFilledPdfBytes(
   const font = await pdfDoc.embedFont(lib.StandardFonts.Helvetica);
 
   const overflow: OverflowEntry[] = [];
+  const writtenFields = new Set<string>();
   for (const q of questions) {
-    applyAnswer(lib, form, q.id, answers[q.id], font, overflow);
+    writeQuestion(lib, form, q, answers, font, overflow, writtenFields);
+  }
+
+  // Composed fields: values assembled from several answer keys (patient name
+  // written as "Last, First" into a single box).
+  for (const entry of composedFields) {
+    const text = entry.sources
+      .map((id) => (typeof answers[id] === "string" ? answers[id].trim() : ""))
+      .filter((s) => s !== "")
+      .join(entry.join);
+    if (text === "") continue;
+    if (writtenFields.has(entry.field)) continue;
+    const field = form.getTextField(entry.field);
+    const fitted = fitText(text, rectOf(field), font);
+    if (fitted) {
+      setTextAtSize(lib, field, fitted.text, font, fitted.size);
+    } else {
+      setTextAtSize(lib, field, "(see page 10)", font, 8);
+      overflow.push({ label: entry.label, text, medications: false });
+    }
+    writtenFields.add(entry.field);
   }
 
   // Auto-filled dates.
@@ -302,10 +505,15 @@ export async function generateFilledPdfBytes(
 
   applyOverflow(lib, form, overflow, font);
 
+  // The printed form asks for an X, not a check: swap the mark glyph in
+  // every checked box before flatten bakes the appearances onto the pages.
+  installXAppearances(lib, form, pdfDoc);
+
   if (options.flatten !== false) {
     form.flatten(); // bake values in; prevents further editing after download
   }
   drawComputedValues(pdfDoc, answers, font);
+  drawPatientLabel(lib, pdfDoc, answers, font);
 
   return pdfDoc.save();
 }
@@ -331,7 +539,11 @@ export function triggerDownload(blob: Blob, filename: string): void {
 }
 
 export function pdfFilename(answers: Answers): string {
-  const name = typeof answers.patient_name === "string" ? answers.patient_name.trim() : "";
+  // Slug is "first last" (the composed PDF value is "Last, First").
+  const name = ["patient_first_name", "patient_last_name"]
+    .map((id) => (typeof answers[id] === "string" ? answers[id].trim() : ""))
+    .filter((s) => s !== "")
+    .join(" ");
   const slug = name
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")

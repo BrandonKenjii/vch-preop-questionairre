@@ -6,9 +6,10 @@ interface Props {
   min?: number;
   max?: number;
   step?: number;
+  disabled?: boolean;
 }
 
-export function NumberQuestion({ value, onChange, label, min, max, step }: Props) {
+export function NumberQuestion({ value, onChange, label, min, max, step, disabled }: Props) {
   return (
     <input
       className="number-input"
@@ -32,6 +33,7 @@ export function NumberQuestion({ value, onChange, label, min, max, step }: Props
         if (max !== undefined && parsed > max) return;
         onChange(parsed);
       }}
+      disabled={disabled}
     />
   );
 }

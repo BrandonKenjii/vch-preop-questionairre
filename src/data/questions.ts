@@ -24,6 +24,14 @@ export interface Question {
   label: string;
   required: boolean;
   showIf?: ShowIf;
+  /**
+   * Render the question even while its showIf condition is unanswered
+   * ("soft", enabled but not required) and gray it out (disabled) when the
+   * topmost condition in its showIf chain answers No. Used for the blood
+   * thinner and infection follow-up lists, which the paper form prints in
+   * full.
+   */
+  grayOut?: boolean;
   /** Group id for numeric subtotals (functional status, PCS). */
   numberGroup?: string;
   /** Option labels for choice/multichoice questions. */
@@ -93,11 +101,18 @@ const CURRENT_YEAR = new Date().getFullYear();
 export const questions: Question[] = [
   // ================= Patient details =================
   {
-    id: "patient_name",
+    id: "patient_last_name",
     section: "patient",
     type: "text",
-    label: "Patient Name",
+    label: "Last Name",
     hint: "Name as it appears on your health card",
+    required: true,
+  },
+  {
+    id: "patient_first_name",
+    section: "patient",
+    type: "text",
+    label: "First Name",
     required: true,
   },
   {
@@ -109,12 +124,29 @@ export const questions: Question[] = [
     required: true,
   },
   {
+    id: "patient_phn_non_bc",
+    section: "patient",
+    type: "yesno",
+    label: "Non-BC resident (no BC Personal Health Number)",
+    required: true,
+  },
+  {
     id: "patient_phn",
     section: "patient",
     type: "text",
     label: "Personal Health Number (PHN)",
     hint: "Found on your BC Services Card or CareCard",
     input: "digits",
+    showIf: { questionId: "patient_phn_non_bc", equals: false },
+    required: true,
+  },
+  {
+    id: "patient_phn_alternate",
+    section: "patient",
+    type: "text",
+    label: "Alternate health number (non-BC / other format)",
+    hint: "If you do not have a BC PHN, enter your provincial/territorial health number or other identifier",
+    showIf: { questionId: "patient_phn_non_bc", equals: true },
     required: true,
   },
   {
@@ -1085,6 +1117,7 @@ export const questions: Question[] = [
     type: "text",
     label: "Reason for medication",
     showIf: { questionId: "blood_thinner", equals: true },
+    grayOut: true,
     required: true,
   },
   {
@@ -1103,6 +1136,7 @@ export const questions: Question[] = [
       "Other",
     ],
     showIf: { questionId: "blood_thinner", equals: true },
+    grayOut: true,
     required: true,
   },
   {
@@ -1111,6 +1145,7 @@ export const questions: Question[] = [
     type: "text",
     label: "Other blood thinner — please specify",
     showIf: { questionId: "blood_thinner", equals: true },
+    grayOut: true,
     required: false,
   },
   {
@@ -1119,6 +1154,7 @@ export const questions: Question[] = [
     type: "yesno",
     label: "Do you have instructions on managing this medication at the time of surgery?",
     showIf: { questionId: "blood_thinner", equals: true },
+    grayOut: true,
     required: true,
   },
   {
@@ -1127,6 +1163,7 @@ export const questions: Question[] = [
     type: "text",
     label: "What instructions have you been given by your healthcare provider?",
     showIf: { questionId: "blood_thinner_instructions", equals: true },
+    grayOut: true,
     required: true,
   },
   {
@@ -1787,6 +1824,7 @@ export const questions: Question[] = [
     type: "text",
     label: "Treatment",
     showIf: { questionId: "medical_infections", equals: true },
+    grayOut: true,
     required: true,
   },
   {
@@ -1808,6 +1846,7 @@ export const questions: Question[] = [
       "TB (exposure in past 2 months)",
     ],
     showIf: { questionId: "medical_infections", equals: true },
+    grayOut: true,
     required: true,
   },
   {
@@ -1816,6 +1855,7 @@ export const questions: Question[] = [
     type: "text",
     label: "Other",
     showIf: { questionId: "medical_infections", equals: true },
+    grayOut: true,
     required: false,
   },
   {
@@ -1827,6 +1867,7 @@ export const questions: Question[] = [
       questionId: "medical_infection_types",
       equals: ["Recent or current cold, chest infection, or fever"],
     },
+    grayOut: true,
     required: true,
   },
   {
@@ -1838,6 +1879,7 @@ export const questions: Question[] = [
       questionId: "medical_infection_types",
       equals: ["Recent or current cold, chest infection, or fever"],
     },
+    grayOut: true,
     required: true,
   },
   {
@@ -1849,6 +1891,7 @@ export const questions: Question[] = [
       questionId: "medical_infection_types",
       equals: ["Recent or current cold, chest infection, or fever"],
     },
+    grayOut: true,
     required: true,
   },
   {
@@ -1857,6 +1900,7 @@ export const questions: Question[] = [
     type: "yesno",
     label: "Did you have complications from disease or treatment?",
     showIf: { questionId: "medical_infections", equals: true },
+    grayOut: true,
     required: true,
   },
   {
@@ -1865,6 +1909,7 @@ export const questions: Question[] = [
     type: "yesno",
     label: "Have you had a resistant bacteria that required isolation?",
     showIf: { questionId: "medical_infections", equals: true },
+    grayOut: true,
     required: true,
   },
   {
@@ -1873,6 +1918,7 @@ export const questions: Question[] = [
     type: "text",
     label: "Did you have a COVID test and what was the result?",
     showIf: { questionId: "medical_infections", equals: true },
+    grayOut: true,
     required: false,
   },
   {
@@ -2122,16 +2168,8 @@ export const questions: Question[] = [
     section: "other",
     type: "multichoice",
     label: "What is your living situation?",
-    options: ["Home", "Care Facility", "Homeless"],
+    options: ["Home", "Care Facility", "Homeless", "Live Alone", "Assisted Living"],
     required: true,
-  },
-  {
-    id: "other_living_alone",
-    section: "other",
-    type: "multichoice",
-    label: "Do you live alone or in assisted living?",
-    options: ["Live Alone", "Assisted Living"],
-    required: false,
   },
   {
     id: "other_pickup_name",

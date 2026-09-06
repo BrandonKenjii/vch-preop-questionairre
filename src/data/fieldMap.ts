@@ -19,9 +19,37 @@ export type BmiTarget = {
 };
 export type FieldTarget = string | YesNoTarget | OptionsTarget | BmiTarget;
 
+// Questions whose PDF value is composed from several answer keys rather than
+// written from a single question. The source ids are not fieldMap entries.
+export interface ComposedField {
+  field: string;
+  sources: string[];
+  join: string;
+  /** Question label used for the page-10 overflow reference. */
+  label: string;
+}
+
+export const composedFields: ComposedField[] = [
+  {
+    field: "Text Field 8",
+    sources: ["patient_last_name", "patient_first_name"],
+    join: ", ",
+    label: "Patient Name",
+  },
+];
+
+// Questions with no PDF field of their own (they steer which field is used).
+export const uiOnlyQuestionIds: string[] = ["patient_phn_non_bc"];
+
+// Question ids whose answer is written into an existing field (the template
+// has no separate box for the alternate identifier — it shares the PHN field,
+// and the two answers are mutually exclusive).
+export const aliasedFields: Record<string, string> = {
+  patient_phn_alternate: "Text Field 10",
+};
+
 export const fieldMap: Record<string, FieldTarget> = {
   // ---- Patient details (page 1) ----
-  patient_name: "Text Field 8",
   patient_dob: "Text Field 9",
   patient_phn: "Text Field 10",
   completed_by: {
@@ -400,10 +428,13 @@ export const fieldMap: Record<string, FieldTarget> = {
   other_support_person: { yes: "Check Box 277", no: "Check Box 276" },
   other_support_name: "Text Field 1032",
   other_living_type: {
-    options: { Home: "Check Box 293", "Care Facility": "Check Box 294", Homeless: "Check Box 295" },
-  },
-  other_living_alone: {
-    options: { "Live Alone": "Check Box 296", "Assisted Living": "Check Box 297" },
+    options: {
+      Home: "Check Box 293",
+      "Care Facility": "Check Box 294",
+      Homeless: "Check Box 295",
+      "Live Alone": "Check Box 296",
+      "Assisted Living": "Check Box 297",
+    },
   },
   other_pickup_name: "Text Field 1033",
   other_pickup_phone: "Text Field 1034",

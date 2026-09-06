@@ -4,7 +4,7 @@
 // required visible question is backfilled with a generic answer so the
 // filled form always passes validation.
 import { sections, type Answers, type Question } from "../data/questions";
-import { getVisibleQuestions } from "../logic/branching";
+import { getActiveQuestions } from "../logic/branching";
 import { isAnswered, isSectionComplete } from "../logic/validation";
 
 function fallbackFor(q: Question): Answers[string] {
@@ -42,8 +42,10 @@ function fallbackFor(q: Question): Answers[string] {
 }
 
 const base: Answers = {
-  patient_name: "Jane Doe",
+  patient_last_name: "Doe",
+  patient_first_name: "Jane",
   patient_dob: "1980-05-12",
+  patient_phn_non_bc: false,
   patient_phn: "9123456789",
   completed_by: "Patient",
 
@@ -200,8 +202,7 @@ const base: Answers = {
 
   other_support_person: true,
   other_support_name: "John Doe",
-  other_living_type: ["Home"],
-  other_living_alone: ["Live Alone"],
+  other_living_type: ["Home", "Live Alone"],
   other_pickup_name: "John Doe",
   other_living_will: false,
   other_homecare: true,
@@ -213,6 +214,9 @@ const base: Answers = {
   other_bmi: { height: "170", heightUnit: "cm", weight: "72", weightUnit: "kg" },
   other_phone_day: "604-555-1234",
   other_email: "jane.doe@example.com",
+  // Derived confirm key (not a schema question) — must match other_email or
+  // the email match rule in validation.ts keeps section 13 incomplete.
+  other_email_confirm: "jane.doe@example.com",
   other_next_of_kin_phone: "604-555-9876",
 };
 
@@ -221,7 +225,10 @@ export function buildDevAnswers(): Answers {
   const answers: Answers = { ...base };
   for (const section of sections) {
     for (let pass = 0; pass < 10 && !isSectionComplete(section.id, answers); pass++) {
-      for (const q of getVisibleQuestions(section.id, answers)) {
+      // Only fully applicable (active) questions are backfilled: soft rows
+      // (condition unanswered) and disabled rows (condition answered No) are
+      // visible but never required, so generic fallbacks must not land there.
+      for (const q of getActiveQuestions(section.id, answers)) {
         if (q.required && !isAnswered(q, answers)) {
           answers[q.id] = fallbackFor(q);
         }
