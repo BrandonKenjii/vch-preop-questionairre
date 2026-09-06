@@ -56,15 +56,29 @@ describe("Wizard", () => {
     expect(screen.queryByRole("heading", { name: "Dear Patient," })).not.toBeInTheDocument();
   });
 
-  it("starts on Patient Details with Next disabled until required answers exist", () => {
+  it("keeps Next enabled and bounces to the first missing answer", () => {
     render(<Wizard />);
     beginSurvey();
     expect(screen.getByRole("heading", { name: "Patient Details" })).toBeInTheDocument();
     const next = screen.getByRole("button", { name: "Next →" });
-    expect(next).toBeDisabled();
-
-    fillPatientDetails();
     expect(next).toBeEnabled();
+
+    // Clicking Next with required answers missing stays on the screen and
+    // frames the first unanswered question in red with a hint.
+    fireEvent.click(next);
+    expect(screen.getByRole("heading", { name: "Patient Details" })).toBeInTheDocument();
+    expect(
+      screen.getByText("Please answer the question highlighted in red below before continuing.")
+    ).toBeInTheDocument();
+    expect(questionCard("Last Name")).toHaveClass("question-card-highlight");
+
+    // Answering the flagged question clears the frame, and a complete screen
+    // lets Next advance.
+    fireEvent.change(screen.getByLabelText("Last Name"), { target: { value: "Doe" } });
+    expect(questionCard("Last Name")).not.toHaveClass("question-card-highlight");
+    fillPatientDetails();
+    fireEvent.click(next);
+    expect(screen.getByRole("heading", { name: "1. Anesthesia" })).toBeInTheDocument();
   });
 
   it("reveals the explanation question when completed_by is not Patient", () => {
@@ -77,7 +91,16 @@ describe("Wizard", () => {
         content.includes("Please explain why this was not completed by the patient")
       )
     ).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Next →" })).toBeDisabled();
+
+    // Next stays enabled; with the explanation unanswered it frames that
+    // question in red instead of advancing.
+    const next = screen.getByRole("button", { name: "Next →" });
+    expect(next).toBeEnabled();
+    fireEvent.click(next);
+    expect(screen.getByRole("heading", { name: "Patient Details" })).toBeInTheDocument();
+    expect(
+      questionCard("Please explain why this was not completed by the patient")
+    ).toHaveClass("question-card-highlight");
   });
 
   it("advances to the next section and Back keeps answers", () => {

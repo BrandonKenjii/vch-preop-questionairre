@@ -25,8 +25,9 @@ export function Wizard() {
   const [index, setIndex] = useState(0);
   const [status, setStatus] = useState<Status>("form");
   const [error, setError] = useState<string | null>(null);
-  const [jumpHint, setJumpHint] = useState(false);
-  // Id of the question to frame in red after a submit bounce (item-13).
+  // Shown after a bounce: either the Next gate or the final submit gate.
+  const [hint, setHint] = useState<string | null>(null);
+  // Id of the question to frame in red after a bounce.
   const [highlightId, setHighlightId] = useState<string | null>(null);
 
   const current = sections[index];
@@ -36,7 +37,7 @@ export function Wizard() {
 
   const goTo = (i: number) => {
     setIndex(i);
-    setJumpHint(false);
+    setHint(null);
     setHighlightId(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -45,9 +46,9 @@ export function Wizard() {
     const firstBad = firstIncompleteSection(answersToUse);
     if (firstBad !== -1) {
       goTo(firstBad);
-      setJumpHint(true);
+      setHint("Please answer the question highlighted in red below before finishing.");
       // Frame the specific unanswered question in red (goTo cleared the
-      // previous highlight; jumpHint survives via the call above).
+      // previous highlight; the hint survives via the call above).
       setHighlightId(firstIncompleteQuestion(sections[firstBad].id, answersToUse));
       return;
     }
@@ -77,6 +78,18 @@ export function Wizard() {
     setStatus("review");
   };
 
+  // Next is always clickable. With required answers missing it stays on the
+  // screen and frames the first unanswered question in red (SectionScreen
+  // scrolls it into view) instead of advancing.
+  const handleNext = () => {
+    if (sectionComplete) {
+      goTo(index + 1);
+      return;
+    }
+    setHint("Please answer the question highlighted in red below before continuing.");
+    setHighlightId(firstIncompleteQuestion(current.id, answers));
+  };
+
   // Dev-only shortcuts: fill the form from a canned answer set so the
   // generated PDF can be tested without clicking through every question.
   const handleDevFill = () => fill(buildDevAnswers());
@@ -93,7 +106,7 @@ export function Wizard() {
     setIndex(0);
     setStatus("form");
     setError(null);
-    setJumpHint(false);
+    setHint(null);
     setHighlightId(null);
   };
 
@@ -180,9 +193,9 @@ export function Wizard() {
           please try again.
         </p>
       )}
-      {jumpHint && (
+      {hint && (
         <p className="banner banner-warn" role="alert">
-          Please answer the question highlighted in red below before finishing.
+          {hint}
         </p>
       )}
 
@@ -192,9 +205,10 @@ export function Wizard() {
         onAnswer={(id, value) => {
           updateAnswer(id, value);
           // Once the flagged question (or its confirm copy) receives an
-          // answer, drop the red frame.
+          // answer, drop the red frame and the bounce hint.
           if ((id === highlightId || id === `${highlightId}_confirm`) && value !== undefined) {
             setHighlightId(null);
+            setHint(null);
           }
         }}
         highlightId={highlightId}
@@ -217,8 +231,7 @@ export function Wizard() {
           <button
             type="button"
             className="button button-primary"
-            onClick={() => goTo(index + 1)}
-            disabled={!sectionComplete}
+            onClick={handleNext}
             title={
               sectionComplete
                 ? undefined
