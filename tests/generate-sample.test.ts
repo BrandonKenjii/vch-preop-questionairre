@@ -23,7 +23,6 @@ const sample: Answers = {
   heart_chest_pain: true,
   heart_chest_pain_triggers: "When climbing stairs",
   heart_valve: true,
-  heart_valve_describe: "Mild mitral regurgitation",
   heart_valve_operations: "None",
   neuro_stroke: true,
   neuro_stroke_when: "2016",

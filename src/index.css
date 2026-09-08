@@ -128,11 +128,31 @@ body {
   gap: 12px;
 }
 
+/* Standalone bold group headings (e.g. "Any known heart related problems:")
+   printed outside the question cards, mirroring the paper form's layout. */
+.question-group {
+  margin: 14px 0 -4px;
+}
+
+.question-group-label {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
 .question-card {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 14px 16px;
+}
+
+/* Follow-ups that only appear once a parent question is answered are
+   indented so they read as contingent on the row above. */
+.question-card-indented {
+  margin-left: 24px;
+  border-left: 4px solid var(--line);
 }
 
 /* Grayed-out rows: follow-ups whose condition answered No (see branching.ts). */
@@ -588,6 +608,18 @@ textarea.text-input {
   justify-content: space-between;
   gap: 12px;
   margin-top: 20px;
+}
+
+/* Box shown at the bottom of a section reached via the review page's Edit
+   button: jumps straight back instead of paging through the survey. */
+.review-return {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 14px;
+  border: 1px dashed var(--brand);
+  border-radius: 10px;
+  background: var(--brand-soft);
 }
 
 .button {

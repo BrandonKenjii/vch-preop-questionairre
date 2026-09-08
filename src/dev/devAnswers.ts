@@ -45,7 +45,7 @@ const base: Answers = {
   patient_last_name: "Doe",
   patient_first_name: "Jane",
   patient_dob: "1980-05-12",
-  patient_phn_non_bc: false,
+  patient_phn_non_bc: true,
   patient_phn: "9123456789",
   completed_by: "Patient",
 
@@ -94,7 +94,6 @@ const base: Answers = {
   heart_murmur: false,
   heart_angina_attack: false,
   heart_valve: true,
-  heart_valve_describe: "Mild mitral regurgitation",
   heart_valve_operations: "None",
   heart_weak: false,
   heart_pacemaker: false,
@@ -148,7 +147,7 @@ const base: Answers = {
   substance_cannabis: false,
   substance_alcohol: true,
   substance_alcohol_type: "Wine",
-  substance_alcohol_drinks: 2,
+  substance_alcohol_drinks: "2",
   substance_drugs: false,
   substance_opioid_agonist: false,
 

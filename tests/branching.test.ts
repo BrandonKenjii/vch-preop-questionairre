@@ -62,15 +62,53 @@ describe("isVisible", () => {
     expect(isVisible(lang, { other_english: false })).toBe(true);
   });
 
-  it("gates the PHN inputs behind the non-BC residency radio", () => {
-    // Neither identifier shows until the radio is answered.
+  it("gates the PHN inputs behind the BC residency question", () => {
+    // Neither identifier shows until the residency question is answered.
     expect(isVisible(q("patient_phn"), {})).toBe(false);
     expect(isVisible(q("patient_phn_alternate"), {})).toBe(false);
     // BC resident -> digits-only PHN; non-BC -> unrestricted alternate.
-    expect(isVisible(q("patient_phn"), { patient_phn_non_bc: false })).toBe(true);
-    expect(isVisible(q("patient_phn_alternate"), { patient_phn_non_bc: false })).toBe(false);
-    expect(isVisible(q("patient_phn"), { patient_phn_non_bc: true })).toBe(false);
-    expect(isVisible(q("patient_phn_alternate"), { patient_phn_non_bc: true })).toBe(true);
+    expect(isVisible(q("patient_phn"), { patient_phn_non_bc: true })).toBe(true);
+    expect(isVisible(q("patient_phn_alternate"), { patient_phn_non_bc: true })).toBe(false);
+    expect(isVisible(q("patient_phn"), { patient_phn_non_bc: false })).toBe(false);
+    expect(isVisible(q("patient_phn_alternate"), { patient_phn_non_bc: false })).toBe(true);
+  });
+
+  it("shows 'how many times' only when activity is more than once a week (item 04)", () => {
+    const times = q("functional_activity_times");
+    expect(isVisible(times, {})).toBe(false);
+    expect(isVisible(times, { functional_activity_freq: "Once a week or less" })).toBe(false);
+    expect(isVisible(times, { functional_activity_freq: "More than once a week" })).toBe(true);
+    // Minutes still appear for either answer.
+    expect(isVisible(q("functional_activity_minutes"), {})).toBe(true);
+  });
+
+  it("shows the CPAP follow-up beside the CPAP question, not under it (item 05B)", () => {
+    const irregular = q("breathing_cpap_irregular");
+    expect(isVisible(irregular, {})).toBe(false);
+    expect(isVisible(irregular, { breathing_sleep_apnea: true })).toBe(true);
+    // Unanswered CPAP answer must not hide it: it sits at the apnea level.
+    expect(
+      isVisible(irregular, { breathing_sleep_apnea: true, breathing_cpap: false })
+    ).toBe(true);
+  });
+
+  it("gates tracheostomy and ventilatory support behind spinal cord injury (item 07)", () => {
+    expect(isVisible(q("neuro_tracheostomy"), {})).toBe(false);
+    expect(isVisible(q("neuro_tracheostomy"), { neuro_spinal: false })).toBe(false);
+    expect(isVisible(q("neuro_tracheostomy"), { neuro_spinal: true })).toBe(true);
+    expect(isVisible(q("neuro_ventilatory"), { neuro_spinal: true })).toBe(true);
+    expect(isVisible(q("neuro_ventilatory"), { neuro_spinal: false })).toBe(false);
+  });
+
+  it("gates dialysis details behind 'Are you on dialysis?' (item 11B)", () => {
+    const route = q("medical_kidney_dialysis");
+    expect(isVisible(route, { medical_kidney: true })).toBe(false); // status unanswered
+    expect(
+      isVisible(route, { medical_kidney: true, medical_kidney_dialysis_status: false })
+    ).toBe(false);
+    expect(
+      isVisible(route, { medical_kidney: true, medical_kidney_dialysis_status: true })
+    ).toBe(true);
   });
 });
 

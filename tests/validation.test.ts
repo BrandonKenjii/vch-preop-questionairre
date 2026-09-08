@@ -34,13 +34,13 @@ describe("isAnswered", () => {
 
 describe("isSectionComplete", () => {
   it("ignores hidden questions and optional questions", () => {
-    // patient section: last/first name, DOB, the residency radio, the PHN (BC
-    // resident branch) and completed_by; explanation only when not the patient
+    // patient section: last/first name, DOB, the residency question, the PHN
+    // (BC resident branch) and completed_by; explanation only when not the patient
     const answers: Answers = {
       patient_last_name: "Doe",
       patient_first_name: "Jane",
       patient_dob: "1980-05-12",
-      patient_phn_non_bc: false,
+      patient_phn_non_bc: true,
       patient_phn: "9123456789",
       completed_by: "Patient",
     };
@@ -55,7 +55,7 @@ describe("isSectionComplete", () => {
       patient_last_name: "Doe",
       patient_first_name: "Jane",
       patient_dob: "1980-05-12",
-      patient_phn_non_bc: true,
+      patient_phn_non_bc: false,
       completed_by: "Patient",
     };
     expect(isSectionComplete("patient", base)).toBe(false); // alternate missing
