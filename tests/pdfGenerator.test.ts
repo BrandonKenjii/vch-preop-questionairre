@@ -52,6 +52,10 @@ function exemptQuestionIds(): Set<string> {
     for (const id of composed.sources) exempt.add(id);
   }
   for (const id of Object.keys(aliasedFields)) exempt.add(id);
+  // Non-input group headings have no PDF field of their own.
+  for (const q of questions) {
+    if (q.type === "group") exempt.add(q.id);
+  }
   return exempt;
 }
 
@@ -154,13 +158,59 @@ describe("generateFilledPdfBytes", () => {
     expect(form.getCheckBox("Check Box 289").isChecked()).toBe(true); // Antibiotics
     expect(form.getCheckBox("Check Box 291").isChecked()).toBe(true); // Food
     expect(form.getCheckBox("Check Box 286").isChecked()).toBe(false); // Latex
-    // bmi: height text, weight text, kg box
-    expect(form.getTextField("Text Field 1038").getText()).toContain("170");
-    expect(form.getTextField("Text Field 1039").getText()).toContain("72");
-    expect(form.getCheckBox("Check Box 300").isChecked()).toBe(true);
+    // bmi: height text (with unit), weight text (with unit); the kg/lbs
+    // checkbox pair stays unchecked — the unit is circled on the page.
+    expect(form.getTextField("Text Field 1038").getText()).toContain("170 cm");
+    expect(form.getTextField("Text Field 1039").getText()).toContain("72 kg");
+    expect(form.getCheckBox("Check Box 300").isChecked()).toBe(false);
     expect(form.getCheckBox("Check Box 301").isChecked()).toBe(false);
     // auto-filled date
     expect(form.getTextField("Text Field 6").getText()).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+
+  it("writes ft/in height into the height box when that unit is selected", async () => {
+    const answers = spotAnswers();
+    answers.other_bmi = {
+      height: "",
+      heightUnit: "ftin",
+      feet: "5",
+      inches: "8",
+      weight: "160",
+      weightUnit: "lbs",
+    };
+    const bytes = await generateFilledPdfBytes(answers, {
+      template: templateBytes,
+      flatten: false,
+    });
+    const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+    const form = doc.getForm();
+
+    expect(form.getTextField("Text Field 1038").getText()).toContain(`5'8"`);
+    expect(form.getTextField("Text Field 1039").getText()).toContain("160 lbs");
+    expect(form.getCheckBox("Check Box 301").isChecked()).toBe(false); // lbs
+    expect(form.getCheckBox("Check Box 300").isChecked()).toBe(false); // kg
+  });
+
+  it("circles the selected weight unit on page 9 instead of crossing the box (item 13)", async () => {
+    const bytes = await generateFilledPdfBytes(spotAnswers(), { template: templateBytes });
+    const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+    // drawEllipse starts the path at (x - xScale, y): kg at x=272.6, rx=8.
+    const kgStreams = inflatedPageContent(doc, 8);
+    expect(kgStreams[kgStreams.length - 1]).toContain("264.6 182.5 m");
+    expect(kgStreams[kgStreams.length - 1]).toContain("0 0 0 RG");
+    expect(kgStreams[kgStreams.length - 1]).toContain("\nS\n");
+
+    const answers = spotAnswers();
+    answers.other_bmi = {
+      height: "170",
+      heightUnit: "cm",
+      weight: "160",
+      weightUnit: "lbs",
+    };
+    const lbsBytes = await generateFilledPdfBytes(answers, { template: templateBytes });
+    const lbsDoc = await PDFDocument.load(lbsBytes, { ignoreEncryption: true });
+    const lbsStreams = inflatedPageContent(lbsDoc, 8);
+    expect(lbsStreams[lbsStreams.length - 1]).toContain("290.5 182.5 m");
   });
 
   it("flattens by default: no fields remain and pages gain drawn content", async () => {
@@ -426,7 +476,7 @@ describe("patient label over the PCIS LABEL corner (iteration-1.2)", () => {
 
   it("uses the alternate identifier when the patient has no BC PHN", async () => {
     const answers = spotAnswers();
-    answers.patient_phn_non_bc = true;
+    answers.patient_phn_non_bc = false;
     answers.patient_phn = undefined;
     answers.patient_phn_alternate = "AB 1234-567";
     const bytes = await generateFilledPdfBytes(answers, { template: templateBytes });

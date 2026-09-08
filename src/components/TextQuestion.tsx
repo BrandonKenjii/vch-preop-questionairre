@@ -8,12 +8,22 @@ interface Props {
   label: string;
   multiline?: boolean;
   input?: TextInputKind;
+  placeholder?: string;
   disabled?: boolean;
   /** Marks the input as failing validation (email confirm mismatch). */
   invalid?: boolean;
 }
 
-export function TextQuestion({ value, onChange, label, multiline, input, disabled, invalid }: Props) {
+export function TextQuestion({
+  value,
+  onChange,
+  label,
+  multiline,
+  input,
+  placeholder,
+  disabled,
+  invalid,
+}: Props) {
   const commit = (text: string) => onChange(text.trim() === "" ? undefined : text);
 
   if (multiline) {
@@ -23,7 +33,7 @@ export function TextQuestion({ value, onChange, label, multiline, input, disable
         rows={4}
         aria-label={label}
         value={value ?? ""}
-        placeholder="Type your answer"
+        placeholder={placeholder ?? "Type your answer"}
         onChange={(e) => commit(e.target.value)}
         disabled={disabled}
       />
@@ -79,7 +89,7 @@ export function TextQuestion({ value, onChange, label, multiline, input, disable
           maxLength={10}
           aria-label={label}
           value={value ?? ""}
-          placeholder="Numbers only"
+          placeholder={placeholder ?? "Numbers only"}
           onChange={(e) => commit(e.target.value.replace(/\D/g, ""))}
           disabled={disabled}
         />
@@ -91,7 +101,7 @@ export function TextQuestion({ value, onChange, label, multiline, input, disable
           type="text"
           aria-label={label}
           value={value ?? ""}
-          placeholder="Type your answer"
+          placeholder={placeholder ?? "Type your answer"}
           onChange={(e) => commit(e.target.value)}
           disabled={disabled}
         />

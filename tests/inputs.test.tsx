@@ -40,16 +40,17 @@ describe("restricted inputs", () => {
   });
 
   it("restricts the PHN to 10 digits and strips non-digits (BC resident branch)", () => {
-    const { onAnswer } = renderSection("patient", { patient_phn_non_bc: false });
+    const { onAnswer } = renderSection("patient", { patient_phn_non_bc: true });
     const phn = screen.getByLabelText("Personal Health Number (PHN)");
     expect(phn).toHaveAttribute("inputmode", "numeric");
     expect(phn).toHaveAttribute("maxlength", "10");
+    expect(phn).toHaveAttribute("placeholder", "No spaces");
 
     fireEvent.change(phn, { target: { value: "abc 91-23x" } });
     expect(onAnswer).toHaveBeenCalledWith("patient_phn", "9123");
   });
 
-  it("hides both identifier fields until the residency radio is answered", () => {
+  it("hides both identifier fields until the residency question is answered", () => {
     renderSection("patient");
     expect(screen.queryByLabelText("Personal Health Number (PHN)")).not.toBeInTheDocument();
     expect(
@@ -58,7 +59,7 @@ describe("restricted inputs", () => {
   });
 
   it("keeps the alternate health number unrestricted (non-BC branch)", () => {
-    const { onAnswer } = renderSection("patient", { patient_phn_non_bc: true });
+    const { onAnswer } = renderSection("patient", { patient_phn_non_bc: false });
     const alternate = screen.getByLabelText("Alternate health number (non-BC / other format)");
     expect(alternate).not.toHaveAttribute("inputmode");
     expect(alternate).not.toHaveAttribute("maxlength");
@@ -83,16 +84,17 @@ describe("restricted inputs", () => {
     expect(screen.getByLabelText("Alternate Email")).toHaveAttribute("type", "email");
   });
 
-  it("renders drinks per week as a number input with a floor of 0", () => {
+  it("renders drinks per week as a free text box (item 09)", () => {
     const { onAnswer } = renderSection("substance", { substance_alcohol: true });
     const input = screen.getByLabelText("Number of drinks per week");
-    expect(input).toHaveAttribute("type", "number");
-    expect(input).toHaveAttribute("min", "0");
+    expect(input).toHaveAttribute("type", "text");
 
-    fireEvent.change(input, { target: { value: "-5" } });
-    expect(onAnswer).not.toHaveBeenCalled();
-    fireEvent.change(input, { target: { value: "2.5" } });
-    expect(onAnswer).toHaveBeenCalledWith("substance_alcohol_drinks", 2.5);
+    // Patients describe their drinking in words — free text must be stored.
+    fireEvent.change(input, { target: { value: "only one or two drinks in a year" } });
+    expect(onAnswer).toHaveBeenCalledWith(
+      "substance_alcohol_drinks",
+      "only one or two drinks in a year"
+    );
   });
 
   it("bounds smoking history fields (years smoked, year stopped)", () => {
@@ -247,6 +249,49 @@ describe("yes/no button order", () => {
     expect(onAnswer).toHaveBeenCalledWith("anesthesia_general_procedure", false);
     fireEvent.click(radios[1]);
     expect(onAnswer).toHaveBeenCalledWith("anesthesia_general_procedure", true);
+  });
+});
+
+describe("group headings and indented follow-ups (items 06, 10, 14)", () => {
+  it("renders bold standalone headings outside the question cards", () => {
+    renderSection("heart", {});
+    const heading = screen.getByText("Any heart related symptoms at rest or with physical activity:");
+    expect(heading).toHaveClass("question-group-label");
+    expect(heading.closest("li")).toHaveClass("question-group");
+    expect(heading.closest("li")).not.toHaveClass("question-card");
+
+    expect(
+      screen.getByText("Any known heart related problems:")
+    ).toHaveClass("question-group-label");
+    expect(
+      screen.getByText("Any one of the following tests in the past 5 years:")
+    ).toHaveClass("question-group-label");
+    renderSection("pain", {});
+    expect(
+      screen.getByText("In thinking about your pain, how much do you agree with the following statements?")
+    ).toHaveClass("question-group-label");
+  });
+
+  it("indents follow-ups revealed by a parent answer but not top-level questions", () => {
+    renderSection("anesthesia", { anesthesia_general_procedure: true });
+    expect(questionCard("Have you had any surgical procedure")).not.toHaveClass(
+      "question-card-indented"
+    );
+    expect(questionCard("List ALL prior procedures name, where and when.")).toHaveClass(
+      "question-card-indented"
+    );
+
+    // Gray-out rows print in full on the paper form, so they stay flush.
+    renderSection("blood", {});
+    expect(questionCard("Which blood thinner(s) do you take?")).not.toHaveClass(
+      "question-card-indented"
+    );
+  });
+
+  it("renders the procedures detail as a multiline box (Return key works, item 03)", () => {
+    renderSection("anesthesia", { anesthesia_general_procedure: true });
+    const box = screen.getByLabelText("List ALL prior procedures name, where and when.");
+    expect(box.tagName).toBe("TEXTAREA");
   });
 });
 

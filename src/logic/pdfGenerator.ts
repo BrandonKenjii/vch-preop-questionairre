@@ -251,21 +251,27 @@ function applyAnswer(
 
   // BmiTarget
   const answer = value as BmiAnswer;
-  if (answer.height && answer.height.trim() !== "") {
+  // ft/in answers keep their digits in `feet`/`inches` (height is cleared),
+  // so gate on whichever fields the selected unit actually fills.
+  const hasHeight =
+    answer.heightUnit === "ftin"
+      ? (answer.feet ?? "").trim() !== "" && (answer.inches ?? "").trim() !== ""
+      : answer.height.trim() !== "";
+  if (hasHeight) {
     const hField = form.getTextField(target.height);
     const fitted = fitText(formatHeight(answer), rectOf(hField), font);
     if (fitted) setTextAtSize(lib, hField, fitted.text, font, fitted.size);
   }
   if (answer.weight && answer.weight.trim() !== "") {
     const wField = form.getTextField(target.weight);
-    const fitted = fitText(String(answer.weight).trim(), rectOf(wField), font);
+    // Write the unit beside the number (e.g. "72 kg") — the printed form
+    // also circles the kg/lbs label below (see drawBmiUnitCircle).
+    const text = `${String(answer.weight).trim()} ${answer.weightUnit}`;
+    const fitted = fitText(text, rectOf(wField), font);
     if (fitted) setTextAtSize(lib, wField, fitted.text, font, fitted.size);
   }
-  for (const [unitLabel, fieldName] of Object.entries(target.unit.options)) {
-    const box = form.getCheckBox(fieldName);
-    if (answer.weightUnit === unitLabel) box.check();
-    else box.uncheck();
-  }
+  // The kg/lbs checkbox pair stays untouched: the doctor asked for the unit
+  // to be CIRCLED on the printed form, not crossed with an X.
 }
 
 /** Write overflow text onto page 10, referenced by question label. */
@@ -373,6 +379,34 @@ function drawComputedValues(pdfDoc: PDFDocument, answers: Answers, font: PDFFont
   if (bmi) {
     pages[8].drawText(formatBmi(bmi.bmi), { x: 534, y: 181, size: 10, font });
   }
+}
+
+/**
+ * Item 13: the paper form says "kg or lbs (please circle)". The template's
+ * printed weight unit labels sit at y=180 (baseline) on page 9: "kg" spans
+ * x≈267.0–278.1, "lbs" spans x≈292.6–305.4 (Helvetica 10 metrics, verified
+ * against the text item widths). The selected unit is circled with a stroke
+ * instead of crossing its checkbox, matching the printed instruction.
+ */
+function drawBmiUnitCircle(
+  lib: PdfLib,
+  pdfDoc: PDFDocument,
+  answers: Answers
+): void {
+  const answer = answers.other_bmi as BmiAnswer | undefined;
+  if (!answer || typeof answer.weight !== "string" || answer.weight.trim() === "") return;
+  const spot =
+    answer.weightUnit === "lbs"
+      ? { x: 299, y: 182.5, xScale: 8.5 }
+      : { x: 272.6, y: 182.5, xScale: 8 };
+  pdfDoc.getPages()[8].drawEllipse({
+    x: spot.x,
+    y: spot.y,
+    xScale: spot.xScale,
+    yScale: 6.5,
+    borderColor: lib.rgb(0, 0, 0),
+    borderWidth: 1,
+  });
 }
 
 /**
@@ -513,6 +547,7 @@ export async function generateFilledPdfBytes(
     form.flatten(); // bake values in; prevents further editing after download
   }
   drawComputedValues(pdfDoc, answers, font);
+  drawBmiUnitCircle(lib, pdfDoc, answers);
   drawPatientLabel(lib, pdfDoc, answers, font);
 
   return pdfDoc.save();

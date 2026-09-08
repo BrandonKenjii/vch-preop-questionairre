@@ -60,15 +60,26 @@ export function SectionScreen({ section, answers, onAnswer, highlightId }: Props
         {getSectionQuestions(section.id).map((q) => {
           const state = displayState(q, answers);
           if (state === "hidden") return null;
+          if (q.type === "group") {
+            return (
+              <li key={q.id} className="question-group">
+                <p className="question-group-label">{q.label}</p>
+              </li>
+            );
+          }
           const disabled = state === "disabled";
           const isEmail = q.type === "text" && q.input === "email";
+          // Follow-ups revealed by a parent answer are indented so they read
+          // as contingent; gray-out rows are always printed in full, so they
+          // keep the left margin.
+          const indented = q.showIf !== undefined && !q.grayOut;
           return (
             <li
               key={q.id}
               data-question-id={q.id}
               className={`question-card${disabled ? " question-card-disabled" : ""}${
                 q.id === highlightId ? " question-card-highlight" : ""
-              }`}
+              }${indented ? " question-card-indented" : ""}`}
             >
               <p className="question-label">
                 {q.label}
@@ -84,6 +95,7 @@ export function SectionScreen({ section, answers, onAnswer, highlightId }: Props
                 type={q.type}
                 multiline={q.multiline}
                 input={q.input}
+                placeholder={q.placeholder}
                 min={q.min}
                 max={q.max}
                 step={q.step}
@@ -131,6 +143,7 @@ function QuestionInput({
   type,
   multiline,
   input,
+  placeholder,
   min,
   max,
   step,
@@ -142,6 +155,7 @@ function QuestionInput({
   type: string;
   multiline?: boolean;
   input?: Question["input"];
+  placeholder?: string;
   min?: number;
   max?: number;
   step?: number;
@@ -177,6 +191,7 @@ function QuestionInput({
           label={question.label}
           multiline={multiline}
           input={input}
+          placeholder={placeholder}
           value={typeof value === "string" ? value : undefined}
           onChange={onChange}
           disabled={disabled}

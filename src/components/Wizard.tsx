@@ -1,6 +1,6 @@
 // Top-level step controller: current section, navigation, completion gate,
 // the review-and-confirm page, PDF generation, download, and reset.
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { sections, type Answers } from "../data/questions";
 import { useFormState } from "../hooks/useFormState";
 import {
@@ -29,6 +29,9 @@ export function Wizard() {
   const [hint, setHint] = useState<string | null>(null);
   // Id of the question to frame in red after a bounce.
   const [highlightId, setHighlightId] = useState<string | null>(null);
+  // True when the patient jumped to a section from the review page's Edit
+  // button: a "Return to Review" box shows at the bottom of that section.
+  const [returnToReview, setReturnToReview] = useState(false);
 
   const current = sections[index];
   const sectionComplete = isSectionComplete(current.id, answers);
@@ -39,8 +42,19 @@ export function Wizard() {
     setIndex(i);
     setHint(null);
     setHighlightId(null);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Instant, not smooth: a long section can cancel the smooth scroll when
+    // its DOM is replaced mid-animation, leaving the next screen halfway
+    // down the page.
+    window.scrollTo({ top: 0, behavior: "auto" });
   };
+
+  // Safety net for the same jump: re-assert the top once the new section has
+  // rendered (skipped on bounces, which scroll to the flagged question).
+  useEffect(() => {
+    if (status === "form" && !highlightId) {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [index, status, highlightId]);
 
   const generate = async (answersToUse: Answers) => {
     const firstBad = firstIncompleteSection(answersToUse);
@@ -75,6 +89,7 @@ export function Wizard() {
       void generate(answers);
       return;
     }
+    setReturnToReview(false);
     setStatus("review");
   };
 
@@ -108,6 +123,7 @@ export function Wizard() {
     setError(null);
     setHint(null);
     setHighlightId(null);
+    setReturnToReview(false);
   };
 
   if (status === "generating") {
@@ -134,6 +150,7 @@ export function Wizard() {
           }}
           onEdit={(i) => {
             setStatus("form");
+            setReturnToReview(true);
             goTo(i);
           }}
         />
@@ -213,6 +230,24 @@ export function Wizard() {
         }}
         highlightId={highlightId}
       />
+
+      {returnToReview && (
+        <div className="review-return">
+          <button
+            type="button"
+            className="button button-primary"
+            onClick={() => {
+              setReturnToReview(false);
+              setHint(null);
+              setHighlightId(null);
+              setStatus("review");
+              window.scrollTo({ top: 0, behavior: "auto" });
+            }}
+          >
+            Return to Review
+          </button>
+        </div>
+      )}
 
       <div className="nav-row">
         <button

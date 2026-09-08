@@ -2,7 +2,14 @@
 // sections of the VCH pre-operative questionnaire (VCH.0749-TRIAL).
 // Field mapping lives separately in fieldMap.ts.
 
-export type QuestionType = "yesno" | "number" | "text" | "bmi" | "choice" | "multichoice";
+export type QuestionType =
+  | "yesno"
+  | "number"
+  | "text"
+  | "bmi"
+  | "choice"
+  | "multichoice"
+  | "group";
 
 /** Input affordance for text questions beyond a plain text box. */
 export type TextInputKind = "date" | "tel" | "email" | "digits";
@@ -44,6 +51,8 @@ export interface Question {
   multiline?: boolean;
   /** Render text questions as a specialized input (date, phone, email…). */
   input?: TextInputKind;
+  /** Placeholder shown before the patient types (defaults per input kind). */
+  placeholder?: string;
   /** Numeric bounds for number questions. */
   min?: number;
   max?: number;
@@ -127,7 +136,7 @@ export const questions: Question[] = [
     id: "patient_phn_non_bc",
     section: "patient",
     type: "yesno",
-    label: "Non-BC resident (no BC Personal Health Number)",
+    label: "Are you a BC Resident with a BC PHN?",
     required: true,
   },
   {
@@ -135,9 +144,10 @@ export const questions: Question[] = [
     section: "patient",
     type: "text",
     label: "Personal Health Number (PHN)",
-    hint: "Found on your BC Services Card or CareCard",
+    hint: "Found on your BC Services Card or CareCard (No Spaces)",
     input: "digits",
-    showIf: { questionId: "patient_phn_non_bc", equals: false },
+    placeholder: "No spaces",
+    showIf: { questionId: "patient_phn_non_bc", equals: true },
     required: true,
   },
   {
@@ -146,7 +156,7 @@ export const questions: Question[] = [
     type: "text",
     label: "Alternate health number (non-BC / other format)",
     hint: "If you do not have a BC PHN, enter your provincial/territorial health number or other identifier",
-    showIf: { questionId: "patient_phn_non_bc", equals: true },
+    showIf: { questionId: "patient_phn_non_bc", equals: false },
     required: true,
   },
   {
@@ -179,7 +189,8 @@ export const questions: Question[] = [
     id: "anesthesia_general_procedure_details",
     section: "anesthesia",
     type: "text",
-    label: "List procedure name, where and when.",
+    label: "List ALL prior procedures name, where and when.",
+    multiline: true,
     showIf: { questionId: "anesthesia_general_procedure", equals: true },
     required: true,
   },
@@ -303,6 +314,7 @@ export const questions: Question[] = [
     type: "number",
     label: "Within that week, on average how many times?",
     min: 0,
+    showIf: { questionId: "functional_activity_freq", equals: "More than once a week" },
     required: false,
   },
   {
@@ -395,7 +407,7 @@ export const questions: Question[] = [
     id: "breathing_apnea_date_where",
     section: "breathing",
     type: "text",
-    label: "If yes: Date and where?",
+    label: "If yes: Date of Diagnosis and where testing was done",
     showIf: { questionId: "breathing_sleep_apnea", equals: true },
     required: true,
   },
@@ -421,8 +433,8 @@ export const questions: Question[] = [
     section: "breathing",
     type: "yesno",
     label: "Tried CPAP but not using regularly?",
-    showIf: { questionId: "breathing_cpap", equals: true },
-    required: true,
+    showIf: { questionId: "breathing_sleep_apnea", equals: true },
+    required: false,
   },
   {
     id: "breathing_asthma_copd",
@@ -557,10 +569,17 @@ export const questions: Question[] = [
     required: true,
   },
   {
+    id: "heart_symptoms_group",
+    section: "heart",
+    type: "group",
+    label: "Any heart related symptoms at rest or with physical activity:",
+    required: false,
+  },
+  {
     id: "heart_chest_pain",
     section: "heart",
     type: "yesno",
-    label: "Any heart related symptoms at rest or with physical activity: chest pain, pressure, discomfort.",
+    label: "Chest pain, pressure, discomfort.",
     required: true,
   },
   {
@@ -575,7 +594,7 @@ export const questions: Question[] = [
     id: "heart_sob",
     section: "heart",
     type: "yesno",
-    label: "Any heart related symptoms at rest or with physical activity: shortness of breath or breathlessness.",
+    label: "Shortness of breath or breathlessness.",
     required: true,
   },
   {
@@ -590,7 +609,7 @@ export const questions: Question[] = [
     id: "heart_palpitations",
     section: "heart",
     type: "yesno",
-    label: "Any heart related symptoms at rest or with physical activity: palpitations or irregular heartbeats.",
+    label: "Palpitations or irregular heartbeats.",
     required: true,
   },
   {
@@ -605,7 +624,7 @@ export const questions: Question[] = [
     id: "heart_fainting",
     section: "heart",
     type: "yesno",
-    label: "Any heart related symptoms at rest or with physical activity: fainting or blackout.",
+    label: "Fainting or blackout.",
     required: true,
   },
   {
@@ -617,10 +636,17 @@ export const questions: Question[] = [
     required: true,
   },
   {
+    id: "heart_problems_group",
+    section: "heart",
+    type: "group",
+    label: "Any known heart related problems:",
+    required: false,
+  },
+  {
     id: "heart_murmur",
     section: "heart",
     type: "yesno",
-    label: "Any known heart related problem: heart murmur.",
+    label: "Heart murmur.",
     required: true,
   },
   {
@@ -659,7 +685,7 @@ export const questions: Question[] = [
     type: "text",
     label: "Please provide details of any previous operations.",
     showIf: { questionId: "heart_valve", equals: true },
-    required: true,
+    required: false,
   },
   {
     id: "heart_weak",
@@ -667,8 +693,7 @@ export const questions: Question[] = [
     type: "yesno",
     label: "Weak heart (e.g. heart failure, CHF).",
     required: true,
-  },
-  {
+  },  {
     id: "heart_weak_years",
     section: "heart",
     type: "text",
@@ -749,25 +774,17 @@ export const questions: Question[] = [
     required: true,
   },
   {
-    id: "heart_cardiologist",
+    id: "heart_tests_group",
     section: "heart",
-    type: "yesno",
-    label: "Any one of the following tests in the past 5 years: followed by a Cardiologist.",
-    required: true,
-  },
-  {
-    id: "heart_cardiologist_name",
-    section: "heart",
-    type: "text",
-    label: "Name",
-    showIf: { questionId: "heart_cardiologist", equals: true },
-    required: true,
+    type: "group",
+    label: "Any one of the following tests in the past 5 years:",
+    required: false,
   },
   {
     id: "heart_stress_test",
     section: "heart",
     type: "yesno",
-    label: "Exercise stress test (treadmill) in the past 5 years.",
+    label: "Exercise stress test (treadmill).",
     required: true,
   },
   {
@@ -782,7 +799,7 @@ export const questions: Question[] = [
     id: "heart_nuclear_scan",
     section: "heart",
     type: "yesno",
-    label: "Nuclear medicine heart scan (e.g. Myocardial Perfusion Imaging Test — MIBI) in the past 5 years.",
+    label: "Nuclear medicine heart scan (e.g. Myocardial Perfusion Imaging Test — MIBI).",
     required: true,
   },
   {
@@ -797,7 +814,7 @@ export const questions: Question[] = [
     id: "heart_catheterization",
     section: "heart",
     type: "yesno",
-    label: "Heart or coronary catheterization (angiogram) in the past 5 years.",
+    label: "Heart or coronary catheterization (angiogram).",
     required: true,
   },
   {
@@ -812,7 +829,7 @@ export const questions: Question[] = [
     id: "heart_echo",
     section: "heart",
     type: "yesno",
-    label: "Heart echo test (ultrasound) in the past 5 years.",
+    label: "Heart echo test (ultrasound).",
     required: true,
   },
   {
@@ -827,7 +844,7 @@ export const questions: Question[] = [
     id: "heart_holter",
     section: "heart",
     type: "yesno",
-    label: "Holter monitor in the past 5 years.",
+    label: "Holter monitor.",
     required: true,
   },
   {
@@ -836,6 +853,21 @@ export const questions: Question[] = [
     type: "text",
     label: "When, where",
     showIf: { questionId: "heart_holter", equals: true },
+    required: true,
+  },
+  {
+    id: "heart_cardiologist",
+    section: "heart",
+    type: "yesno",
+    label: "Followed by a Cardiologist.",
+    required: true,
+  },
+  {
+    id: "heart_cardiologist_name",
+    section: "heart",
+    type: "text",
+    label: "Name",
+    showIf: { questionId: "heart_cardiologist", equals: true },
     required: true,
   },
   {
@@ -1015,6 +1047,7 @@ export const questions: Question[] = [
     section: "neurological",
     type: "yesno",
     label: "Tracheostomy?",
+    showIf: { questionId: "neuro_spinal", equals: true },
     required: true,
   },
   {
@@ -1022,6 +1055,7 @@ export const questions: Question[] = [
     section: "neurological",
     type: "yesno",
     label: "Ventilatory supports such as CPAP, BIPAP, or Home Ventilator?",
+    showIf: { questionId: "neuro_spinal", equals: true },
     required: true,
   },
   {
@@ -1112,15 +1146,6 @@ export const questions: Question[] = [
     required: true,
   },
   {
-    id: "blood_thinner_reason",
-    section: "blood",
-    type: "text",
-    label: "Reason for medication",
-    showIf: { questionId: "blood_thinner", equals: true },
-    grayOut: true,
-    required: true,
-  },
-  {
     id: "blood_thinner_types",
     section: "blood",
     type: "multichoice",
@@ -1135,6 +1160,15 @@ export const questions: Question[] = [
       "Heparin / low molecular weight heparin",
       "Other",
     ],
+    showIf: { questionId: "blood_thinner", equals: true },
+    grayOut: true,
+    required: true,
+  },
+  {
+    id: "blood_thinner_reason",
+    section: "blood",
+    type: "text",
+    label: "Reason for medication",
     showIf: { questionId: "blood_thinner", equals: true },
     grayOut: true,
     required: true,
@@ -1245,11 +1279,18 @@ export const questions: Question[] = [
     required: true,
   },
   {
+    id: "blood_antibodies_group",
+    section: "blood",
+    type: "group",
+    label:
+      "Have you been told by a health care professional that you have special blood requirements such as:",
+    required: false,
+  },
+  {
     id: "blood_antibodies",
     section: "blood",
     type: "yesno",
-    label:
-      "Have you been told by a health care professional that you have blood antibodies, or been given a special antibody card to carry?",
+    label: "Blood antibodies or given a special antibody card to carry?",
     required: true,
   },
   {
@@ -1273,8 +1314,7 @@ export const questions: Question[] = [
     type: "yesno",
     label: "IgA deficiency?",
     required: true,
-  },
-  {
+  },  {
     id: "blood_transfused_90d",
     section: "blood",
     type: "yesno",
@@ -1407,9 +1447,8 @@ export const questions: Question[] = [
   {
     id: "substance_alcohol_drinks",
     section: "substance",
-    type: "number",
+    type: "text",
     label: "Number of drinks per week",
-    min: 0,
     showIf: { questionId: "substance_alcohol", equals: true },
     required: true,
   },
@@ -1519,10 +1558,17 @@ export const questions: Question[] = [
     required: true,
   },
   {
+    id: "pain_pcs_group",
+    section: "pain",
+    type: "group",
+    label: "In thinking about your pain, how much do you agree with the following statements?",
+    required: false,
+  },
+  {
     id: "pain_pcs1",
     section: "pain",
     type: "choice",
-    label: "In thinking about your pain, how much do you agree: “It’s awful and I feel that it overwhelms me.”",
+    label: "It’s awful and I feel that it overwhelms me.",
     options: PCS_OPTIONS,
     optionValues: PCS_VALUES,
     numberGroup: "pcs",
@@ -1532,7 +1578,7 @@ export const questions: Question[] = [
     id: "pain_pcs2",
     section: "pain",
     type: "choice",
-    label: "In thinking about your pain, how much do you agree: “I can’t keep it out of my mind.”",
+    label: "I can’t keep it out of my mind.",
     options: PCS_OPTIONS,
     optionValues: PCS_VALUES,
     numberGroup: "pcs",
@@ -1542,7 +1588,7 @@ export const questions: Question[] = [
     id: "pain_pcs3",
     section: "pain",
     type: "choice",
-    label: "In thinking about your pain, how much do you agree: “I keep thinking how much it hurts.”",
+    label: "I keep thinking how much it hurts.",
     options: PCS_OPTIONS,
     optionValues: PCS_VALUES,
     numberGroup: "pcs",
@@ -1552,8 +1598,7 @@ export const questions: Question[] = [
     id: "pain_pcs4",
     section: "pain",
     type: "choice",
-    label:
-      "In thinking about your pain, how much do you agree: “I keep thinking how badly I want the pain to stop.”",
+    label: "I keep thinking how badly I want the pain to stop.",
     options: PCS_OPTIONS,
     optionValues: PCS_VALUES,
     numberGroup: "pcs",
@@ -1632,7 +1677,7 @@ export const questions: Question[] = [
     type: "text",
     label: "Last known HbA1C",
     showIf: { questionId: "medical_diabetes", equals: true },
-    required: true,
+    required: false,
   },
   {
     id: "medical_diabetes_complications",
@@ -1650,18 +1695,26 @@ export const questions: Question[] = [
     required: true,
   },
   {
+    id: "medical_kidney_dialysis_status",
+    section: "medical",
+    type: "yesno",
+    label: "Are you on dialysis?",
+    showIf: { questionId: "medical_kidney", equals: true },
+    required: true,
+  },
+  {
     id: "medical_kidney_dialysis",
     section: "medical",
     type: "text",
     label: "Dialysis — route, schedule",
-    showIf: { questionId: "medical_kidney", equals: true },
+    showIf: { questionId: "medical_kidney_dialysis_status", equals: true },
     required: true,
   },
   {
     id: "medical_kidney_other",
     section: "medical",
     type: "text",
-    label: "Other",
+    label: "What is the cause of your kidney disease?",
     showIf: { questionId: "medical_kidney", equals: true },
     required: false,
   },
@@ -1819,15 +1872,6 @@ export const questions: Question[] = [
     required: true,
   },
   {
-    id: "medical_infections_treatment",
-    section: "medical",
-    type: "text",
-    label: "Treatment",
-    showIf: { questionId: "medical_infections", equals: true },
-    grayOut: true,
-    required: true,
-  },
-  {
     id: "medical_infection_types",
     section: "medical",
     type: "multichoice",
@@ -1845,6 +1889,15 @@ export const questions: Question[] = [
       "TB (active)",
       "TB (exposure in past 2 months)",
     ],
+    showIf: { questionId: "medical_infections", equals: true },
+    grayOut: true,
+    required: true,
+  },
+  {
+    id: "medical_infections_treatment",
+    section: "medical",
+    type: "text",
+    label: "Treatment",
     showIf: { questionId: "medical_infections", equals: true },
     grayOut: true,
     required: true,

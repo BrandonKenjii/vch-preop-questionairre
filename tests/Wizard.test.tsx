@@ -22,7 +22,7 @@ function fillPatientDetails() {
     target: { value: "1980-05-12" },
   });
   // BC resident -> reveals the digits-only PHN field.
-  clickNo("Non-BC resident (no BC Personal Health Number)");
+  clickYes("Are you a BC Resident with a BC PHN?");
   fireEvent.change(screen.getByLabelText("Personal Health Number (PHN)"), {
     target: { value: "9123456789" },
   });
@@ -285,10 +285,10 @@ describe("review page", () => {
     expect(within(patient).getByText("Jane")).toBeInTheDocument();
     expect(within(patient).getByText("Personal Health Number (PHN)")).toBeInTheDocument();
 
-    // ui-only steering answers (non-BC residency radio) are never printed,
+    // ui-only steering answers (BC residency question) are never printed,
     // so the review page mirrors the PDF writer and leaves them out.
     expect(
-      within(patient).queryByText("Non-BC resident (no BC Personal Health Number)")
+      within(patient).queryByText("Are you a BC Resident with a BC PHN?")
     ).not.toBeInTheDocument();
 
     // Hidden follow-ups (completed_by == Patient) are not listed.
@@ -339,6 +339,27 @@ describe("review page", () => {
     expect(screen.getByRole("button", { name: "Next →" })).toBeEnabled();
   });
 
+  it("offers Return to Review at the bottom of a section reached via Edit (item 12)", () => {
+    render(<Wizard />);
+    beginSurvey();
+    completeSurveyToReview();
+
+    // Not shown during ordinary navigation.
+    fireEvent.click(screen.getByRole("button", { name: "Back to survey" }));
+    expect(screen.queryByRole("button", { name: "Return to Review" })).not.toBeInTheDocument();
+
+    // Edit opens the section with a one-click way back to the review page.
+    fireEvent.click(screen.getByRole("button", { name: "Complete Survey" }));
+    fireEvent.click(screen.getByRole("button", { name: "Edit Patient Details" }));
+    expect(screen.getByRole("button", { name: "Return to Review" })).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Return to Review" }));
+    expect(
+      screen.getByRole("heading", { name: "Review Page and Confirm" })
+    ).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Return to Review" })).not.toBeInTheDocument();
+  });
+
   it("ticking a blood thinner auto-selects Prescription of blood thinner? = Yes", () => {
     render(<Wizard />);
     beginSurvey();
@@ -375,5 +396,54 @@ describe("review page", () => {
         name: "Yes",
       })
     ).toHaveAttribute("aria-checked", "true");
+  });
+
+  it("switching blood thinner to No clears the follow-ups entered under Yes (item 08A)", () => {
+    render(<Wizard />);
+    beginSurvey();
+    fireEvent.click(screen.getByTitle("6. Blood Problems / Hematological"));
+
+    fireEvent.click(within(questionCard("Prescription of blood thinner?")).getByRole("radio", { name: "Yes" }));
+    fireEvent.change(screen.getByLabelText("Reason for medication"), {
+      target: { value: "Atrial fibrillation" },
+    });
+    fireEvent.click(
+      within(questionCard("Which blood thinner(s) do you take?")).getByRole("checkbox", {
+        name: "Pradaxa (dabigatran)",
+      })
+    );
+    expect(screen.getByLabelText("Reason for medication")).toHaveValue("Atrial fibrillation");
+
+    // Flipping the anchor back to No must blank everything below it.
+    fireEvent.click(within(questionCard("Prescription of blood thinner?")).getByRole("radio", { name: "No" }));
+    expect(screen.getByLabelText("Reason for medication")).toHaveValue("");
+    expect(
+      within(questionCard("Which blood thinner(s) do you take?")).getByRole("checkbox", {
+        name: "Pradaxa (dabigatran)",
+      })
+    ).not.toBeChecked();
+    expect(screen.queryByText(/Not recorded/)).not.toBeInTheDocument();
+  });
+
+  it("switching Infections to No clears the follow-ups entered under Yes (item 11C)", () => {
+    render(<Wizard />);
+    beginSurvey();
+    fireEvent.click(screen.getByTitle("10. Other Medical Problems"));
+
+    fireEvent.click(within(questionCard("Infections? (tick the box of any that apply)")).getByRole("radio", { name: "Yes" }));
+    fireEvent.change(screen.getByLabelText("Treatment"), {
+      target: { value: "Antibiotics" },
+    });
+    fireEvent.click(
+      within(questionCard("Which infection(s)?")).getByRole("checkbox", { name: "UTI" })
+    );
+    expect(screen.getByLabelText("Treatment")).toHaveValue("Antibiotics");
+
+    fireEvent.click(within(questionCard("Infections? (tick the box of any that apply)")).getByRole("radio", { name: "No" }));
+    expect(screen.getByLabelText("Treatment")).toHaveValue("");
+    expect(
+      within(questionCard("Which infection(s)?")).getByRole("checkbox", { name: "UTI" })
+    ).not.toBeChecked();
+    expect(screen.queryByText(/Not recorded/)).not.toBeInTheDocument();
   });
 });

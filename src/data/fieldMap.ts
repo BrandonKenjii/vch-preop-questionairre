@@ -39,7 +39,10 @@ export const composedFields: ComposedField[] = [
 ];
 
 // Questions with no PDF field of their own (they steer which field is used).
-export const uiOnlyQuestionIds: string[] = ["patient_phn_non_bc"];
+export const uiOnlyQuestionIds: string[] = [
+  "patient_phn_non_bc",
+  "medical_kidney_dialysis_status",
+];
 
 // Question ids whose answer is written into an existing field (the template
 // has no separate box for the alternate identifier — it shares the PHN field,

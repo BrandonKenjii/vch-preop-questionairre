@@ -13,6 +13,32 @@ const AUTOFILL_YES: Record<string, string> = {
   medical_infection_types: "medical_infections",
 };
 
+/**
+ * Answering No to these anchors clears everything entered below them, so the
+ * follow-ups can never linger half-filled and confuse the patient (items 8A
+ * and 11C).
+ */
+const RESET_ON_NO: Record<string, string[]> = {
+  blood_thinner: [
+    "blood_thinner_types",
+    "blood_thinner_reason",
+    "blood_thinner_other",
+    "blood_thinner_instructions",
+    "blood_thinner_instructions_given",
+  ],
+  medical_infections: [
+    "medical_infection_types",
+    "medical_infections_treatment",
+    "medical_infection_other",
+    "medical_infection_respiratory_which",
+    "medical_infection_chest_when",
+    "medical_infection_current_symptoms",
+    "medical_infection_complications",
+    "medical_resistant_bacteria",
+    "medical_infection_covid",
+  ],
+};
+
 export function useFormState() {
   const [answers, setAnswers] = useState<Answers>({});
 
@@ -30,6 +56,14 @@ export function useFormState() {
       const anchorId = AUTOFILL_YES[id];
       if (anchorId && Array.isArray(value) && value.length > 0 && next[anchorId] !== true) {
         next = { ...next, [anchorId]: true };
+      }
+      if (value === false) {
+        for (const childId of RESET_ON_NO[id] ?? []) {
+          if (childId in next) {
+            next = { ...next };
+            delete next[childId];
+          }
+        }
       }
       return next;
     });
