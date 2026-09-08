@@ -94,6 +94,7 @@ const base: Answers = {
   heart_murmur: false,
   heart_angina_attack: false,
   heart_valve: true,
+  heart_valve_describe: "Mild mitral regurgitation",
   heart_valve_operations: "None",
   heart_weak: false,
   heart_pacemaker: false,

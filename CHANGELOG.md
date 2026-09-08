@@ -9,14 +9,13 @@
 - "Return to Review" box at the bottom of a section reached via the review page's Edit button.
 - Weight unit (kg/lbs) is circled on the printed form instead of crossing the kg/lbs checkbox.
 - Multiline prior-procedures box (one line per procedure) with overflow to page 10.
-- PHN placeholder now reads [No spaces].
 
 ### Changed
-- Residency question reworked: "Are you a BC Resident with a BC Personal Health Number?" — Yes reveals the PHN box, No reveals the alternate identifier box.
+- Residency question reworked: "Are you a BC Resident with a BC PHN?" — Yes reveals the PHN box (placeholder "No spaces", hint adds "(No Spaces)"), No reveals the alternate identifier box.
 - "List ALL prior procedures name, where and when." wording.
 - Functional Status: "how many times?" only appears for "More than once a week"; minutes appear for either answer.
 - Sleep apnea follow-up reworded; "Tried CPAP but not using regularly?" appears beside the CPAP question and is optional.
-- Heart valve follow-up replaced with an optional "Please provide details of any previous operations."; the "describe your valve issue" question was removed.
+- Heart valve follow-ups: "Please describe your valve issue." remains required; "Please provide details of any previous operations." is now optional.
 - Cardiologist question moved to the bottom of the heart tests group.
 - Tracheostomy and ventilatory support questions only appear after a Yes to spinal cord injury.
 - Blood thinners: reason box moved below the medication list; switching to No clears everything entered under Yes.

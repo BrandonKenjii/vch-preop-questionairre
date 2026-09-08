@@ -44,7 +44,7 @@ describe("restricted inputs", () => {
     const phn = screen.getByLabelText("Personal Health Number (PHN)");
     expect(phn).toHaveAttribute("inputmode", "numeric");
     expect(phn).toHaveAttribute("maxlength", "10");
-    expect(phn).toHaveAttribute("placeholder", "[No spaces]");
+    expect(phn).toHaveAttribute("placeholder", "No spaces");
 
     fireEvent.change(phn, { target: { value: "abc 91-23x" } });
     expect(onAnswer).toHaveBeenCalledWith("patient_phn", "9123");

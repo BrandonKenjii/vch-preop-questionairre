@@ -95,13 +95,10 @@ describe("field map coverage", () => {
     for (const [n, c] of counts) {
       if (c > 1) expect(allowedDupes.has(n), `duplicated field ${n}`).toBe(true);
     }
-    // Unmapped fields: the two extra-space boxes, plus the retired valve
-    // description line (Text Field 39), whose survey question was replaced
-    // by "Please provide details of any previous operations" (item 06C).
-    const unmappedOk = new Set(["Text Field 1046", "Text Field 1047", "Text Field 39"]);
+    // Only the two extra-space fields may be unmapped.
     for (const n of actual) {
       expect(
-        counts.has(n) || unmappedOk.has(n),
+        counts.has(n) || n === "Text Field 1046" || n === "Text Field 1047",
         `unmapped template field ${n}`
       ).toBe(true);
     }

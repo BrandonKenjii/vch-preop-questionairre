@@ -22,7 +22,7 @@ function fillPatientDetails() {
     target: { value: "1980-05-12" },
   });
   // BC resident -> reveals the digits-only PHN field.
-  clickYes("Are you a BC Resident with a BC Personal Health Number?");
+  clickYes("Are you a BC Resident with a BC PHN?");
   fireEvent.change(screen.getByLabelText("Personal Health Number (PHN)"), {
     target: { value: "9123456789" },
   });
@@ -288,7 +288,7 @@ describe("review page", () => {
     // ui-only steering answers (BC residency question) are never printed,
     // so the review page mirrors the PDF writer and leaves them out.
     expect(
-      within(patient).queryByText("Are you a BC Resident with a BC Personal Health Number?")
+      within(patient).queryByText("Are you a BC Resident with a BC PHN?")
     ).not.toBeInTheDocument();
 
     // Hidden follow-ups (completed_by == Patient) are not listed.

@@ -172,6 +172,7 @@ export const fieldMap: Record<string, FieldTarget> = {
   heart_angina_attack: { yes: "Check Box 86", no: "Check Box 85" },
   heart_angina_treated: "Text Field 38",
   heart_valve: { yes: "Check Box 88", no: "Check Box 87" },
+  heart_valve_describe: "Text Field 39",
   heart_valve_operations: "Text Field 40",
   heart_weak: { yes: "Check Box 90", no: "Check Box 89" },
   heart_weak_years: "Text Field 41",
