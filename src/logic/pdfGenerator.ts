@@ -371,8 +371,12 @@ function installXAppearances(lib: PdfLib, form: PDFForm, pdfDoc: PDFDocument): v
  */
 function drawComputedValues(pdfDoc: PDFDocument, answers: Answers, font: PDFFont): void {
   const pages = pdfDoc.getPages();
+  // Item 03 (iteration 1.4): the printed "Total Score" label (page 2) ends at
+  // x≈534 and the page's content edge is x≈555 — too narrow for "SARC-F: 9"
+  // inline — so the SARC-F value is drawn on its own line below the label,
+  // left-aligned with it, as the form does with other stacked fields.
   const functionalTotal = getSubtotal("functional", answers);
-  pages[1].drawText(String(functionalTotal), { x: 536, y: 594, size: 10, font });
+  pages[1].drawText(`SARC-F: ${functionalTotal}`, { x: 479.6, y: 579, size: 10, font });
   const pcsTotal = getSubtotal("pcs", answers);
   pages[5].drawText(String(pcsTotal), { x: 536, y: 47, size: 10, font });
   const bmi = computeBmi(answers.other_bmi as BmiAnswer | undefined);

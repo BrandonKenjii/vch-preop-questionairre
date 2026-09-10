@@ -50,8 +50,10 @@ export function Wizard() {
 
   // Safety net for the same jump: re-assert the top once the new section has
   // rendered (skipped on bounces, which scroll to the flagged question).
+  // Also covers the review page, which previously kept the scroll position of
+  // the section the patient just completed (item 06, iteration 1.4).
   useEffect(() => {
-    if (status === "form" && !highlightId) {
+    if ((status === "form" || status === "review") && !highlightId) {
       window.scrollTo({ top: 0, behavior: "auto" });
     }
   }, [index, status, highlightId]);

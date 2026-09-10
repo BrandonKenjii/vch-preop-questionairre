@@ -418,16 +418,18 @@ function inflatedPageContent(doc: PDFDocument, pageIndex: number): string[] {
   return out;
 }
 
-describe("functional-status total on page 2 (item-04)", () => {
-  it("draws the SARC-F subtotal digit next to the printed Total Score label", async () => {
+describe("functional-status total on page 2 (item-03)", () => {
+  it("draws 'SARC-F: N' on its own line below the printed Total Score label", async () => {
     const answers = buildCompleteAnswers();
     answers.functional_lift = 2;
     answers.functional_walk = 2;
     answers.functional_transfer = 2;
     answers.functional_stairs = 2;
     answers.functional_falls = 1;
-    const expected = String(getSubtotal("functional", answers)); // 9
-    // pdf-lib draws StandardFont text as a hex string operator: "9" -> <39>.
+    // Inline beside the label would run past the page's content edge
+    // (label ends x≈534, edge x≈555), so the value goes on a new line.
+    const expected = `SARC-F: ${getSubtotal("functional", answers)}`; // SARC-F: 9
+    // pdf-lib draws StandardFont text as a hex string operator.
     const hex = Buffer.from(expected, "utf8").toString("hex").toUpperCase();
 
     const bytes = await generateFilledPdfBytes(answers, { template: templateBytes });

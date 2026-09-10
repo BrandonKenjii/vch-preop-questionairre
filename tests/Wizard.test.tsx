@@ -22,7 +22,7 @@ function fillPatientDetails() {
     target: { value: "1980-05-12" },
   });
   // BC resident -> reveals the digits-only PHN field.
-  clickYes("Are you a BC Resident with a BC PHN?");
+  clickYes("Are you a BC Resident with a BC Personal Health Number (PHN)?");
   fireEvent.change(screen.getByLabelText("Personal Health Number (PHN)"), {
     target: { value: "9123456789" },
   });
@@ -260,6 +260,25 @@ describe("review page", () => {
     ).toBeInTheDocument();
   }
 
+  it("opens the review page scrolled to the top, not mid-page (item 06)", () => {
+    render(<Wizard />);
+    beginSurvey();
+    fireEvent.click(screen.getByRole("button", { name: "Auto-fill form" }));
+    fireEvent.click(screen.getByTitle("13. Other Information"));
+
+    const scrollSpy = vi.mocked(window.scrollTo);
+    const callsBefore = scrollSpy.mock.calls.length;
+    fireEvent.click(screen.getByRole("button", { name: "Complete Survey" }));
+    expect(
+      screen.getByRole("heading", { name: "Review Page and Confirm" })
+    ).toBeInTheDocument();
+
+    // Entering the review page must issue its own scroll-to-top.
+    expect(scrollSpy.mock.calls.length).toBeGreaterThan(callsBefore);
+    const last = scrollSpy.mock.calls[scrollSpy.mock.calls.length - 1];
+    expect(last).toEqual([{ top: 0, behavior: "auto" }]);
+  });
+
   it("lists answers grouped by section, including the split name", () => {
     render(<Wizard />);
     beginSurvey();
@@ -288,7 +307,7 @@ describe("review page", () => {
     // ui-only steering answers (BC residency question) are never printed,
     // so the review page mirrors the PDF writer and leaves them out.
     expect(
-      within(patient).queryByText("Are you a BC Resident with a BC PHN?")
+      within(patient).queryByText("Are you a BC Resident with a BC Personal Health Number (PHN)?")
     ).not.toBeInTheDocument();
 
     // Hidden follow-ups (completed_by == Patient) are not listed.

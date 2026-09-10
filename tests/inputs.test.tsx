@@ -97,15 +97,15 @@ describe("restricted inputs", () => {
     );
   });
 
-  it("bounds smoking history fields (years smoked, year stopped)", () => {
+  it("bounds years smoked and keeps year stopped as free text (item 05)", () => {
     renderSection("substance", { substance_nicotine: false, substance_past_smoker: true });
     const years = screen.getByLabelText("How many years did you smoke for?");
     expect(years).toHaveAttribute("type", "number");
     expect(years).toHaveAttribute("min", "0");
     const stopped = screen.getByLabelText("In what year did you stop smoking?");
-    expect(stopped).toHaveAttribute("type", "number");
-    expect(stopped).toHaveAttribute("min", "1900");
-    expect(stopped).toHaveAttribute("max", String(new Date().getFullYear()));
+    expect(stopped).toHaveAttribute("type", "text");
+    expect(stopped).not.toHaveAttribute("min");
+    expect(stopped).not.toHaveAttribute("max");
   });
 
   it("renders oxygen litres per minute as a number input", () => {
@@ -115,9 +115,9 @@ describe("restricted inputs", () => {
     expect(input).toHaveAttribute("min", "0");
   });
 
-  it("renders clinical dates as date pickers", () => {
+  it("keeps date pickers for clinical dates but frees the seizure date (item 04C)", () => {
     renderSection("neurological", { neuro_epilepsy: true });
-    expect(screen.getByLabelText("Date of last seizure")).toHaveAttribute("type", "date");
+    expect(screen.getByLabelText("Date of last seizure")).toHaveAttribute("type", "text");
 
     const { onAnswer } = renderSection("medical", {
       medical_cancer: true,
@@ -129,6 +129,28 @@ describe("restricted inputs", () => {
     expect(dates[0]).toHaveAttribute("type", "date");
     fireEvent.change(dates[0], { target: { value: "2025-03-10" } });
     expect(onAnswer).toHaveBeenCalledWith("medical_cancer_chemo_date", "2025-03-10");
+  });
+
+  it("renders the iteration-1.4 neurological rework (item 04)", () => {
+    renderSection("neurological", { neuro_dementia: true, neuro_spinal: true });
+
+    // MMSE/MOCA: instruction label, optional (no red asterisk).
+    const mmse = screen.getByLabelText(
+      "If you have a known MMSE or MOCA Score, type it below; otherwise leave the box blank"
+    );
+    expect(mmse).toHaveAttribute("type", "text");
+    expect(screen.getByText((c) => c.includes("MMSE or MOCA Score"))).not.toHaveTextContent("*");
+
+    // Spine surgery: year(s) as free text instead of a date picker.
+    const spine = screen.getByLabelText(
+      "If you had Spine Surgery, what year(s) was (were) the surgery(ies) done?"
+    );
+    expect(spine).toHaveAttribute("type", "text");
+
+    const other = screen.getByLabelText(
+      "Any other type of Neurological condition if not mentioned above"
+    );
+    expect(other).toHaveAttribute("type", "text");
   });
 });
 

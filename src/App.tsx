@@ -5,7 +5,7 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <h1>Pre-Operative Patient Health Questionnaire</h1>
-        <p>Vancouver Coastal Health · Form VCH.0749-TRIAL (Nov 2021)</p>
+        <p>Vancouver Coastal Health · Form VCH.0749</p>
       </header>
       <main className="app-main">
         <Wizard />

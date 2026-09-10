@@ -1,5 +1,22 @@
 # Changelog
 
+## Iteration 1.4: September 2026
+
+### Added
+- SARC-F total printed as "SARC-F: N": on screen as "Total Score: SARC-F: N", and on the PDF on its own line below the printed "Total Score" label (no room inline beside it).
+
+### Changed
+- Page header line 2 reads "Vancouver Coastal Health · Form VCH.0749" (TRIAL suffix removed).
+- Residency question expanded to "Are you a BC Resident with a BC Personal Health Number (PHN)?".
+- MMSE/MOCA box relabeled to "If you have a known MMSE or MOCA Score, type it below; otherwise leave the box blank" and no longer required.
+- Spine surgery follow-up relabeled to "If you had Spine Surgery, what year(s) was (were) the surgery(ies) done?" and switched from a date picker to free text (multiple years).
+- "Date of last seizure" switched from a date picker to free text.
+- "Any other type of Neurological condition if not mentioned above" relabel.
+- "In what year did you stop smoking?" switched from a numeric input to free text (the numeric bounds input was broken).
+
+### Fixed
+- Review page now loads scrolled to the top instead of mid-page.
+
 ## Iteration 1.3: September 2026
 
 ### Added
