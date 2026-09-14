@@ -105,8 +105,6 @@ const PCS_OPTIONS = [
 ];
 const PCS_VALUES: number[] = [0, 1, 2, 3, 4];
 
-const CURRENT_YEAR = new Date().getFullYear();
-
 export const questions: Question[] = [
   // ================= Patient details =================
   {
@@ -136,7 +134,7 @@ export const questions: Question[] = [
     id: "patient_phn_non_bc",
     section: "patient",
     type: "yesno",
-    label: "Are you a BC Resident with a BC PHN?",
+    label: "Are you a BC Resident with a BC Personal Health Number (PHN)?",
     required: true,
   },
   {
@@ -913,9 +911,10 @@ export const questions: Question[] = [
     id: "neuro_dementia_score",
     section: "neurological",
     type: "text",
-    label: "Known MMSE or MOCA Score?",
+    label:
+      "If you have a known MMSE or MOCA Score, type it below; otherwise leave the box blank",
     showIf: { questionId: "neuro_dementia", equals: true },
-    required: true,
+    required: false,
   },
   {
     id: "neuro_confusion",
@@ -1037,8 +1036,7 @@ export const questions: Question[] = [
     id: "neuro_spine_surgery_date",
     section: "neurological",
     type: "text",
-    label: "Spine surgery date",
-    input: "date",
+    label: "If you had Spine Surgery, what year(s) was (were) the surgery(ies) done?",
     showIf: { questionId: "neuro_spinal", equals: true },
     required: false,
   },
@@ -1070,7 +1068,6 @@ export const questions: Question[] = [
     section: "neurological",
     type: "text",
     label: "Date of last seizure",
-    input: "date",
     showIf: { questionId: "neuro_epilepsy", equals: true },
     required: true,
   },
@@ -1101,7 +1098,7 @@ export const questions: Question[] = [
     id: "neuro_other_condition",
     section: "neurological",
     type: "text",
-    label: "Type of condition if not mentioned above",
+    label: "Any other type of Neurological condition if not mentioned above",
     required: false,
   },
   {
@@ -1398,11 +1395,8 @@ export const questions: Question[] = [
   {
     id: "substance_past_smoker_stopped",
     section: "substance",
-    type: "number",
+    type: "text",
     label: "In what year did you stop smoking?",
-    min: 1900,
-    max: CURRENT_YEAR,
-    step: 1,
     showIf: { questionId: "substance_past_smoker", equals: true },
     required: true,
   },

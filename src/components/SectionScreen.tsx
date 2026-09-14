@@ -26,6 +26,11 @@ const GROUP_LABELS: Record<string, string> = {
   pcs: "Pain Score",
 };
 
+// Printed between the group label and its number, e.g. "Total Score: SARC-F: 5".
+const GROUP_VALUE_PREFIX: Record<string, string> = {
+  functional: "SARC-F: ",
+};
+
 interface Props {
   section: Section;
   answers: Answers;
@@ -132,7 +137,11 @@ export function SectionScreen({ section, answers, onAnswer, highlightId }: Props
 
       {groups.map((group) => (
         <div key={group} className="subtotal" aria-live="polite">
-          {GROUP_LABELS[group] ?? group}: <strong>{getSubtotal(group, answers)}</strong>
+          {GROUP_LABELS[group] ?? group}:{" "}
+          <strong>
+            {GROUP_VALUE_PREFIX[group] ?? ""}
+            {getSubtotal(group, answers)}
+          </strong>
         </div>
       ))}
     </section>
