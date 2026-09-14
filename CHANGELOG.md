@@ -1,5 +1,15 @@
 # Changelog
 
+## Iteration 1.4.1: September 2026
+
+### Changed
+- Anesthesia question now reads "In the past, have you had ANY surgical procedures under general anesthesia, spinal, epidural, nerve block, or local anesthesia?".
+- "Other blood thinner — please specify" only appears when "Other" is ticked in the blood thinner list, indented directly below it; "Reason for medication" moved below it.
+- Diabetes control option "Pills" renamed to "Medication(s) - other than Insulin".
+
+### Fixed
+- Review page Yes/No answer labels no longer wrap across two lines.
+
 ## Iteration 1.4: September 2026
 
 ### Added

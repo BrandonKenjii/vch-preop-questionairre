@@ -180,7 +180,7 @@ export const questions: Question[] = [
     section: "anesthesia",
     type: "yesno",
     label:
-      "Have you had any surgical procedure under general anesthesia, spinal, epidural, nerve block, or local anesthesia?",
+      "In the past, have you had ANY surgical procedures under general anesthesia, spinal, epidural, nerve block, or local anesthesia?",
     required: true,
   },
   {
@@ -1162,6 +1162,14 @@ export const questions: Question[] = [
     required: true,
   },
   {
+    id: "blood_thinner_other",
+    section: "blood",
+    type: "text",
+    label: "Other blood thinner — please specify",
+    showIf: { questionId: "blood_thinner_types", equals: ["Other"] },
+    required: false,
+  },
+  {
     id: "blood_thinner_reason",
     section: "blood",
     type: "text",
@@ -1169,15 +1177,6 @@ export const questions: Question[] = [
     showIf: { questionId: "blood_thinner", equals: true },
     grayOut: true,
     required: true,
-  },
-  {
-    id: "blood_thinner_other",
-    section: "blood",
-    type: "text",
-    label: "Other blood thinner — please specify",
-    showIf: { questionId: "blood_thinner", equals: true },
-    grayOut: true,
-    required: false,
   },
   {
     id: "blood_thinner_instructions",
@@ -1661,7 +1660,7 @@ export const questions: Question[] = [
     section: "medical",
     type: "multichoice",
     label: "How is it controlled?",
-    options: ["Diet", "Pills", "Insulin"],
+    options: ["Diet", "Medication(s) - other than Insulin", "Insulin"],
     showIf: { questionId: "medical_diabetes", equals: true },
     required: true,
   },

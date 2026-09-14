@@ -316,6 +316,23 @@ describe("review page", () => {
     ).not.toBeInTheDocument();
   });
 
+  it("keeps Yes/No answer labels on one line (nowrap class)", () => {
+    render(<Wizard />);
+    beginSurvey();
+    completeSurveyToReview();
+
+    const yesNo = screen
+      .getAllByText(/^(Yes|No)$/)
+      .filter((el) => el.classList.contains("review-answer"));
+    expect(yesNo.length).toBeGreaterThan(0);
+    for (const el of yesNo) expect(el).toHaveClass("review-answer-nowrap");
+
+    // Long free-text answers must keep wrapping normally.
+    const meds = screen.getByText(/Atorvastatin 20 mg once daily/);
+    expect(meds).toHaveClass("review-answer");
+    expect(meds).not.toHaveClass("review-answer-nowrap");
+  });
+
   it("generates the PDF only after Confirm on the review page", async () => {
     render(<Wizard />);
     beginSurvey();

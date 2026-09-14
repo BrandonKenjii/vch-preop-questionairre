@@ -583,6 +583,12 @@ textarea.text-input {
   word-break: break-word;
 }
 
+/* Yes/No labels are single words; without nowrap the flex row can squeeze
+   the answer column until they break ("N" over "o"). */
+.review-answer-nowrap {
+  white-space: nowrap;
+}
+
 .review-item-missing .review-answer {
   color: var(--no);
 }

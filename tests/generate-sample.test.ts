@@ -29,6 +29,10 @@ const sample: Answers = {
   neuro_stroke_when: "2016",
   neuro_stroke_deficits: "Mild left arm weakness",
   neuro_stroke_effects: "Occasional numbness",
+  // "Other" must stay checked in the types list for the conditional
+  // "Other blood thinner" text to remain active (it is written to the PDF
+  // only when displayed).
+  blood_thinner_types: ["Pradaxa (dabigatran)", "Eliquis (apixaban)", "Other"],
   blood_thinner_other: "Apixaban (as above)",
   medical_diabetes: true,
   medical_diabetes_control: ["Diet", "Insulin"],
