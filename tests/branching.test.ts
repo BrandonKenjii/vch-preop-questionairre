@@ -43,6 +43,18 @@ describe("isVisible", () => {
     ).toBe(true);
   });
 
+  it("shows the Other blood thinner box only when Other is ticked in the list", () => {
+    const other = q("blood_thinner_other");
+    expect(isVisible(other, {})).toBe(false);
+    expect(isVisible(other, { blood_thinner: true })).toBe(false); // list unanswered
+    expect(
+      isVisible(other, { blood_thinner: true, blood_thinner_types: ["Eliquis (apixaban)"] })
+    ).toBe(false);
+    expect(isVisible(other, { blood_thinner: true, blood_thinner_types: ["Other"] })).toBe(true);
+    // Anchor No cascades: the box cannot resurrect a disabled list.
+    expect(isVisible(other, { blood_thinner: false, blood_thinner_types: ["Other"] })).toBe(false);
+  });
+
   it("chains nested branching (grandchild hidden until parent answered correctly)", () => {
     const given = q("blood_thinner_instructions_given");
     // child visible only when parent yes, grandchild only when child yes

@@ -205,6 +205,30 @@ describe("grayed-out follow-ups", () => {
     ).not.toBeInTheDocument();
   });
 
+  it("hides the Other blood thinner box until Other is ticked in the list", () => {
+    renderSection("blood", { blood_thinner: true, blood_thinner_types: ["Eliquis (apixaban)"] });
+    expect(
+      screen.queryByLabelText("Other blood thinner — please specify")
+    ).not.toBeInTheDocument();
+  });
+
+  it("shows the Other blood thinner box indented below the list, Reason after it", () => {
+    renderSection("blood", { blood_thinner: true, blood_thinner_types: ["Other"] });
+    const other = questionCard("Other blood thinner — please specify");
+    expect(other).toHaveClass("question-card-indented");
+    // Render order: types list -> Other specify box -> Reason for medication.
+    const ids = screen
+      .getAllByRole("listitem")
+      .map((li) => (li as HTMLElement).dataset.questionId)
+      .filter(Boolean);
+    const iTypes = ids.indexOf("blood_thinner_types");
+    const iOther = ids.indexOf("blood_thinner_other");
+    const iReason = ids.indexOf("blood_thinner_reason");
+    expect(iTypes).toBeGreaterThan(-1);
+    expect(iOther).toBe(iTypes + 1);
+    expect(iReason).toBe(iOther + 1);
+  });
+
   it("keeps sub-branches hidden until their parent option is picked (infection details)", () => {
     renderSection("medical", {
       medical_infections: true,
@@ -262,7 +286,7 @@ describe("merged living situation", () => {
 describe("yes/no button order", () => {
   it("renders No before Yes to match the paper form's NO/YES columns", () => {
     const { onAnswer } = renderSection("anesthesia");
-    const card = questionCard("Have you had any surgical procedure");
+    const card = questionCard("In the past, have you had ANY surgical procedures");
     const radios = within(card).getAllByRole("radio");
     expect(radios.map((r) => r.textContent)).toEqual(["No", "Yes"]);
 
@@ -296,7 +320,7 @@ describe("group headings and indented follow-ups (items 06, 10, 14)", () => {
 
   it("indents follow-ups revealed by a parent answer but not top-level questions", () => {
     renderSection("anesthesia", { anesthesia_general_procedure: true });
-    expect(questionCard("Have you had any surgical procedure")).not.toHaveClass(
+    expect(questionCard("In the past, have you had ANY surgical procedures")).not.toHaveClass(
       "question-card-indented"
     );
     expect(questionCard("List ALL prior procedures name, where and when.")).toHaveClass(

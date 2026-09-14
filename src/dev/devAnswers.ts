@@ -127,7 +127,7 @@ const base: Answers = {
   blood_aspirin_reason: "Stroke prevention",
   blood_thinner: true,
   blood_thinner_reason: "Atrial fibrillation",
-  blood_thinner_types: ["Pradaxa (dabigatran)", "Eliquis (apixaban)"],
+  blood_thinner_types: ["Pradaxa (dabigatran)", "Eliquis (apixaban)", "Other"],
   blood_thinner_other: "Apixaban (as above)",
   blood_thinner_instructions: true,
   blood_thinner_instructions_given: "Stop 2 days before surgery",

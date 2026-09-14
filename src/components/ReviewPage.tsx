@@ -110,13 +110,15 @@ export function ReviewPage({ answers, onBack, onConfirm, onEdit }: Props) {
                 {rows.map((q) => {
                   const value = answers[q.id];
                   const missing = q.required && !isAnswered(q, answers);
+                  // Yes/No labels must never break across lines ("N" over "o").
+                  const nowrap = q.type === "yesno" && !missing;
                   return (
                     <li
                       key={q.id}
                       className={`review-item${missing ? " review-item-missing" : ""}`}
                     >
                       <span className="review-question">{q.label}</span>
-                      <span className="review-answer">
+                      <span className={`review-answer${nowrap ? " review-answer-nowrap" : ""}`}>
                         {missing
                           ? "Not answered"
                           : value === undefined

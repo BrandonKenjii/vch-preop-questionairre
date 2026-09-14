@@ -334,7 +334,11 @@ export const fieldMap: Record<string, FieldTarget> = {
   // ---- 10. Other Medical Problems (pages 7-8) ----
   medical_diabetes: { yes: "Check Box 202", no: "Check Box 201" },
   medical_diabetes_control: {
-    options: { Diet: "Check Box 219", Pills: "Check Box 220", Insulin: "Check Box 221" },
+    options: {
+      Diet: "Check Box 219",
+      "Medication(s) - other than Insulin": "Check Box 220",
+      Insulin: "Check Box 221",
+    },
   },
   medical_diabetes_hba1c: "Text Field 107",
   medical_diabetes_complications: { yes: "Check Box 222", no: "Check Box 223" },
